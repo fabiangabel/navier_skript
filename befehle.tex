@@ -1,0 +1,82 @@
+% Makros
+\numberwithin{equation}{chapter}
+
+\newcommand{\N}{\mathbb{N}} % natuerliche Zahlen
+\newcommand{\Z}{\mathbb{Z}} % ganze Zahlen
+\newcommand{\Q}{\mathbb{Q}} % rationale Zahlen
+\newcommand{\R}{\mathbb{R}} % reelle Zahlen
+\newcommand{\K}{\mathbb{K}} % Körper
+\newcommand{\co}{\mathrm{co}} % compact open
+\newcommand{\ee}{\mathrm{e}} % compact open
+\newcommand{\W}{\mathcal{W}} % Weyl-Gruppe
+\newcommand{\1}{\mathbbm{1}} % Körper
+\newcommand{\C}{\mathbb{C}} % komplexe Zahlen
+\newcommand{\CC}{\mathrm{C}} 
+\newcommand{\Ell}{\mathrm{L}} 
+\newcommand{\We}{\mathrm{W}} 
+\newcommand{\E}{\mathcal{E}}
+\newcommand{\Sc}{\mathcal{S}}
+\newcommand{\F}{\mathcal{F}}
+\newcommand{\A}{\mathcal{A}}
+\newcommand{\Li}{\mathfrak{L}}
+\newcommand{\Pot}{\mathcal{P}}
+\newcommand{\Hi}{\mathcal{H}}
+\newcommand{\Ki}{\mathcal{H}}
+\newcommand{\B}{\mathcal{B}}
+\newcommand{\BB}{\mathrm{B}}
+\newcommand{\WW}{\mathrm{W}}
+\newcommand{\HH}{\mathrm{H}}
+\newcommand{\Sec}{\mathrm{S}}
+\newcommand{\DD}{\mathrm{D}}
+\newcommand{\Ct}{\mathcal{C}}
+\newcommand{\T}{\mathbb{T}}
+\newcommand{\St}{\mathfrak{S}}
+
+\def\esssup{\qopname\relax m{\mathrm{ess}\,sup}}
+
+
+% Umgebungen für Definitionen, Sätze, usw.
+
+%\newtheorem{defn}{Definition}[section]
+%\newtheorem{ex}{Beispiel}[chapter]
+
+\theoremstyle{plain}
+\newtheorem{thm}{Satz}[chapter]
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{cor}[thm]{Korollar}
+\newtheorem{prop}[thm]{Proposition}
+
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition}
+\newtheorem{ex}[thm]{Beispiel}
+\newtheorem{rem}[thm]{Bemerkung}
+\newtheorem{obs}[thm]{Beobachtung}
+\newtheorem{ntion}[thm]{Notation}
+
+%\theoremstyle{remark}
+
+\def\Satzrefname{Satz}
+
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\loc}{loc}
+\DeclareMathOperator{\pv}{pv}
+\DeclareMathOperator{\konv}{konv}
+\DeclareMathOperator{\dist}{dist}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\grad}{grad}
+\DeclareMathOperator{\Spur}{Spur}
+\DeclareMathOperator{\BUC}{BUC}
+%\DeclareMathOperator{\DD}{D}
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\abs}{abs}
+\DeclareMathOperator{\Op}{Op}
+\DeclareMathOperator{\Aff}{Aff}
+\DeclareMathOperator{\codim}{codim}
+\DeclareMathOperator{\cstar}{C*}
+\DeclareMathOperator{\stoplim}{stop-lim}
+\DeclareMathOperator{\swoplim}{swop-lim}
+
+\let\divsymb=\div % rename builtin command \div to \divsymb
+\renewcommand{\div}[1]{\mathrm{div\,} #1} % for divergence
+\renewcommand{\d}[1]{\ensuremath\, {\operatorname{d}\!{#1}}}

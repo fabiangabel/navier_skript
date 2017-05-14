@@ -1,0 +1,273 @@
+\chapter{Analytische Halbgruppen und gebrochene Potenzen}
+
+In diesem Kapitel geht es darum, für eine möglichst große Klasse von abgeschlossenen Operatoren $A \colon \DD(A) \subset X \to X$, wobei $X$ ein Banachraum über $\C$ ist, die Ausdrücke $\ee^{tA}$ und $A^\alpha$, $\alpha > 0$, $\alpha \in \R$ zu definieren und ihre Eigenschaften zu untersuchen.
+Hauptgedanke ist hier, dass man für bestimmte holomorphe Funktionen $f$ die Cauchysche Integralformel
+$$
+f(z) = \frac{1}{2\pi i} \int_\gamma \frac{f(\lambda)}{\lambda - z} \d \lambda
+$$
+als Definition für $f(A)$ nimmt, indem man $(\lambda - z)^{-1}$ durch $(\lambda - A)^{-1}$ ersetzt.
+
+Sei $I \subset \R$ ein Intervall, $X$ ein Banachraum und $f \colon I \to X$ stetig.
+Ist $I$ kompakt, so konvergieren die Riemann-Summen $\sum_k l(\Delta_k) f(\xi_k)$, wobei $(\Delta_k)_k$ eine endliche Partition von $I$ bildet, $\xi_k \in \Delta_k$ und $l(\Delta_k)$ die Länge von $\Delta_k$ bezeichnet, gegen ein eindeutiges Element $x \in X$.
+Definiere
+$$
+\int_I f(t) \d t \coloneqq x.
+$$
+Ist $I$ nicht kompakt und $t \mapsto \|f(t)\|_X$ uneigentlich Riemann-integrierbar, so existiert für alle kompakten Intervalle $I_k$ mit $I_k \subset I_{k + 1} \subset I$ und $\bigcup_k I_k = I$ der eindeutige Grenzwert
+$$
+\lim_{k \to \infty} \int_{I_k} f(t) dt \eqqcolon \int_I f(t) \d t \in X
+$$
+In allen Fällen gilt
+$$
+\| \int_I f(t) \d t \|_X \leq \int_I \|f(t) \|_X \d t.
+$$
+Ist $\Gamma \subset \C$ eine Kurve mit stückweise stetig differenzierbarer $\CC^1$-Parametrisierung $\gamma \colon I \to \C$, $I \subset \R$ Interval, $f \colon \Gamma \to X$ stetig, sodass $t \mapsto \|\gamma'(t) f(\gamma(t)) \|_X$ (uneigentlich) Riemann-integrierbar ist, definiere
+$$
+\int_\Gamma f(z) \d z \coloneqq \int_I \gamma'(t) f(\gamma(t)) \d t.
+$$
+
+\section{Analytische Halbgruppen}
+
+Im Folgenden bezeichnet $X$ immer einen Banachraum über $\C$.
+
+\begin{defn}
+  Sei $A \colon \DD(A) \subset X \to X$ abgeschlossen und $\omega \in [0,\pi)$.
+    $A$ heist \emph{sektoriell von Winkel} $\omega$, falls $\sigma(A) \subset \overline{\Sec_\omega}$, wobei
+    $$
+    \Sec_\omega \coloneqq \begin{cases} (0,\infty), \quad&\omega = 0 \\ \{z \in \C \setminus\{0\} \colon |\arg(z)| < \omega\}, \quad&\omega \neq 0 \end{cases}
+    $$
+    und für alle $\pi \in (\omega, \pi)$ ein $c > 0$ existiert, sodass für alle $\lambda \in \C \setminus \overline{\Sec_\phi}$ gilt, dass
+    $$
+    \|\lambda(\lambda - A)^{-1}\|_{\mathcal{L}(X)} \leq C_\theta.
+    $$
+\end{defn}
+
+\begin{ntion}
+  Für $R > 0$ und $\theta \in (0,\pi)$ bezeichne mit $\gamma_{R, \theta}$ die kanonische Parametrisierung der Kurve, welche durch $\partial(\Sec_\theta \cup B(0,R))$ gegeben ist.
+  Weiterhin bezeichne $\gamma_1$ die Parametrisierung des Geradenstücks in der oberen Halbebene, $\gamma_3$ in der unteren und $\gamma_2$ des Kreisbogens.
+\end{ntion}
+
+\begin{obs}
+  \label{obs:integrablePath}
+  Ist $A$ sektoriell von Winkel $\omega \in [0,\frac{\pi}{2} )$, $\theta \in (\omega, \frac{\pi}{2})$ und $z \in \Sec_{\frac{\pi}{2} - \theta}$, so ist 
+  $$
+  t \mapsto \|\gamma'_{R,\theta}(t) \ee^{z\gamma_{R,\theta}(t)} \left( \gamma_{R, \theta}(t) - A \right)^{-1} \|_{\mathcal{L}(X)}
+  $$
+  uneigentlich Riemann integrierbar: 
+  Wegen Symmetrie und Holomorphie der Resolvente auf $\C \setminus \overline{\Sec_\omega}$ genügt es Integrierbarkeit auf $\gamma_1$ nachzuweisen.
+  Aus der Sektorialität von $A$ folgt zunächst
+  $$
+    \int_{R}^\infty \| \ee^{i\theta} \ee^{-zt \ee^{i\theta}} \left( t\ee^{i\theta} - A \right)^{-1} \|_{\mathcal{L}(X)} \d t
+    \leq C_\theta \int_R^\infty \ee^{-t \operatorname{Re}(z \ee^{i \theta})} t^{-1} \d t.
+  $$
+  Dieses Integral ist endlich, da
+  $$
+  |\arg(z \ee^{i \theta})| \leq |\arg(z)| + \theta < \frac{\pi}{2} - \theta + \theta = \frac{\pi}{2}
+  $$
+  und damit $\operatorname{Re}z \ee^{i\theta} < 0$ folgt.
+\end{obs}
+
+\begin{defn}
+  Sei $A$ sektoriell von Winkel $\omega \in [0,\frac{\pi}{2})$ und $z \in \Sec_{\frac{\pi}{2} - \omega}$.
+    Wähle $R > 0$ und $\theta \in (\omega, \frac{\pi}{2} - |\arg(z)|)$.
+    Definiere
+    $$
+    \ee^{zA} \coloneqq \frac{1}{2\pi i} \int_{\gamma_{R, \theta}} \ee^{z\lambda } (\lambda - A)^{-1} \d \lambda
+    $$
+    und $\ee^{-0A} \coloneqq I$.
+    Die Familie $(\ee^{zA})_{z \in \Sec_{\frac{\pi}{2} - \omega \cup \{0\}}}$  wird \emph{beschränkte analytische Halbgruppe genannt} und falls $A$ dicht definiert ist, wird $-A$ Erzeuger/Generator von $(\ee^{-zA})_{z \in \Sec_{\frac{\pi}{2} - \omega \cup \{0\}}}$ genannt.
+\end{defn}
+
+\begin{lem}
+  \label{lem:welldefinedsg}
+  Die Definition von $\ee^{-zA}$ is unabhängig von der Wahl von $R$ und $\theta$.
+\end{lem}
+
+\begin{proof}
+  Übung.
+\end{proof}
+
+\begin{prop}
+  \label{prop:opInIntegral}
+  Sei $I \subset \R$ ein Intervall, $f \colon I \to X$ stetig und uneigentlich Riemann integrierbar, $Y$ ein Banachraum, $T \in \mathcal{L}(X,Y)$ und $A \colon \DD(A) \subset X \to Y$ abgeschlossen.
+  \begin{enumerate}[(i)]
+    \item Dann ist $Tf \colon I \to Y$ stetig und uneigentlich Riemann integrierbar und es gilt
+      $$
+      T \int_I f(t) \d t = \int_I Tf(t)\d t.
+      $$
+    \item Falls $f(t) \in \DD(A)$ für alle $t \in I$ gilt und $Af \colon I \to Y$ stetig und uneigentlich Riemann-integrierbar ist, dann ist $\int_I f(t) \d t \in \DD(A)$ und es gilt 
+      $$
+      A \int_I f(t) \d t = \int_I A f(t) \d t.
+      $$
+  \end{enumerate}
+\end{prop}
+
+\begin{proof}
+  Übung.
+\end{proof}
+
+\begin{thm}
+  Sei $A$ sektoriell von Winkel $\omega \in [0,\frac{\pi}{2})$.
+    Dann ist für alle $z \in \Sec_{\frac{\pi}{2} - \omega}$ der Operator $\ee^{-zA}$ in $\mathcal{L}(X)$ und erfüllt
+    \begin{enumerate}[(i)]
+      \item Für alle $0 \leq \phi < \frac{\pi}{2} - \omega$ ist $(e^{-zA})_{z \in \Sec_\phi}$ gleichmäsig beschränkt.
+      \item $z \mapsto \ee^{-zA}$ ist analytisch in $\Sec_{\frac{\pi}{2} - \omega}$.
+      \item Für alle $z,w \in \Sec_{\frac{\pi}{2} - \omega}$ gilt 
+        $
+        \ee^{-(z + w)A} = \ee^{-zA}\ee^{-\omega A}.
+        $
+      \item Ist $A$ zusätzlich dicht definiert, so ist für alle $0 \leq \phi < \frac{\pi}{2} - \omega$ die Abbildung
+        $$
+        \Sec_\phi \cup \{0\} \ni z \mapsto \ee^{-z A} \in \mathcal{L}(X)
+        $$
+        stark stetig in $z = 0$, d.h. für alle $x \in X$ gilt
+        $$
+        \lim_{\substack{z \to 0 \\ z \in \Sec_\phi}} \|\ee^{-zA} x - x\|_X = 0.
+        $$
+    \end{enumerate}
+\end{thm}
+
+\begin{proof}
+  \begin{enumerate}[(i)]
+    \item Wähle $R > 0$ und $\theta \in (0,\omega)$, sodass  $|\arg(z \ee^{\pm i\theta})| \leq \phi + \theta < \frac{\pi}{2}$ für alle $z \in \Sec_\theta$.
+      Mit Beobachtung \ref{obs:integrablePath} folgt für $j \in \{1,3\}$
+      \begin{align*}
+        \| \int_{\gamma_{j}} \ee^{z \lambda} (\lambda - A)^{-1} \d \lambda \|_{\mathcal L(X)} 
+        &\leq C\int_R^\infty \ee^{t \operatorname{Re}(z \ee^{\pm i\theta})} t^{-1} \d t
+        \leq C \int_R^\infty \ee^{-t |z| \cos(\theta + \phi)} t^{-1} \d t \\
+        &= C \int_{R|z|}^\infty \ee^{-t \cos(\phi+\theta)} t^{-1} \d t.
+      \end{align*}
+      Nach Lemma \ref{lem:welldefinedsg} hängt der Wert dieses Interals nicht von der Wahl von $R$ ab. 
+      Im Folgenden wähle daher $R = \frac{1}{|z|}$.
+      Mit dieser Wahl gilt nun für das Kurvenintegral entlang $\gamma_2$
+      \begin{align*}
+        \|\int_{\gamma_2} \ee^{z \lambda} (\lambda - A)^{-1} \d \lambda \|_{\mathcal L(X)}
+        \leq C\int_\theta^{2\pi - \theta} \frac{1}{|z|} |e^{\frac{z}{|z|}} \ee^{i \varphi} | \, |z| \d \varphi
+        \leq C 2\pi \ee,
+      \end{align*}
+      da $|\ee^z| \leq \ee^{|z|}$.
+      Folglich ist $\ee^{-z A} \in \mathcal{L}(X)$ und $(\ee^{-zA})_{z \in \Sec_\phi}$ ist gleichmäßig beschränkt.
+
+    \item Wie in Beobachtung \ref{obs:integrablePath} zeigt man erst, dass $\lambda \mapsto \lambda \ee^{-z\lambda}(\lambda - A)^{-1}$ absolut integrierbar auf $\gamma_{\theta,R}$ ist.
+      Außerdem ist für $z \in \Sec_\phi$ und $h \in \C\setminus\{0\}$ mit $z + h \in \Sec_\phi$, wobei $\phi$ wie in (i) gewählt sei, 
+      $$
+      \left[ \frac{1}{h} \left( \ee^{-(z + h)\lambda} - \ee^{-z\lambda} \right) - (- \lambda \ee^{-z\lambda}) \right] (\lambda - A)^{-1}
+      = \left[ \frac{1}{h\lambda} \left( \ee^{-h\lambda} - 1\right) + 1\right] \lambda \ee^{-z\lambda}  (\lambda - A)^{-1}
+      $$
+      auf jedem kompakten Teilweg von $\gamma_{\theta,R}$ gleichmäßig konvergent (mit Grenzwert 0), da $\ee^{-z\lambda}$ holomorph und damit insbesondere stetig komplex differenzierbar ist.
+      Weiter gilt
+      \begin{align*}
+        | \frac{1}{h\lambda} (\ee^{-h\lambda} - 1) + 1 |
+        &= | \sum_{k = 2}^\infty \frac{(-h \lambda)^{n - 1}}{n!} |
+        \leq \sum_{n = 2}^\infty \frac{(|h| \, |\lambda|)^{n - 1}}{n!} \\
+        &\leq \sum_{n = 2}^\infty \frac{(c |z| \, |\lambda|)^{n - 1}}{n!}
+        = \frac{1}{c|z|\, |\lambda|} (\ee^{c|z|\,|\lambda|} - 1) - 1,
+      \end{align*}
+      woraus wiederum
+      \begin{align*}
+        &\left( \frac{1}{c |z|\, |\lambda|} (\ee^{c |z| |\lambda|} - 1) - 1 \right) | \lambda \ee^{-z\lambda} | \| (\lambda - A)^{-1} \| \\
+        &\quad\overset{(i)}{\leq} \left( \frac{1}{c |z|\, |\lambda|} (\ee^{c |z| |\lambda|} - 1) - 1 \right) | \lambda| \ee^{-|z|\cos(\phi + \theta) |\lambda|} | \frac{C}{|\lambda|}.
+      \end{align*}
+      Wähle nun $c < \cos(\phi + \theta)$.
+      Daraus folgt die uniforme Integrierbarkeit für $|h|$ klein, was wiederum
+      $$
+      \frac{1}{h} \left(\ee^{-(z + h)A} - \ee^{-zA} \right) \to 
+      \frac{1}{2\pi i} \int_{\gamma_{R, \theta}} \lambda \ee^{-z\lambda}(\lambda - A)^{-1} \d \lambda, \quad\text{für } h \to 0
+      $$
+      impliziert.
+
+    \item Sei $x \in X, x' \in X'$.
+      Dann gilt
+      \begin{align*}
+        \langle \ee^{-zA} \ee^{-wA} x, x' \rangle
+        &= \frac{1}{2\pi i} \langle \int_{\gamma_{R_z, \theta_z}} \ee^{-z\lambda} (\lambda - A)^{-1} \ee^{-wA} x \d \lambda, x' \rangle \\
+        &= \frac{1}{2\pi i} \int_{\gamma_{R_z, \theta_z}} \ee^{-z\lambda} \langle (\lambda - A)^{-1} \ee^{-wA} x, x' \rangle \d \lambda\\
+        &= \frac{1}{(2\pi i)^2} \int_{\gamma_{R_z, \theta_z}} \int_{\gamma_{R_w, \theta_w}}  \ee^{-z\lambda} \ee^{-w \mu} \langle (\lambda - A)^{-1} (\mu - A)^{-1} x, x' \rangle \d \mu \d \lambda\\
+        &= \frac{1}{(2\pi i)^2} \int_{\gamma_{R_z, \theta_z}} \int_{\gamma_{R_w, \theta_w}}  \frac{\ee^{-z\lambda} \ee^{-w \mu}}{\mu - \lambda} \langle (\lambda - A)^{-1} x, x' \rangle \d \mu \d \lambda\\
+        &\quad - \frac{1}{(2\pi i)^2} \int_{\gamma_{R_z, \theta_z}} \int_{\gamma_{R_w, \theta_w}}  \frac{\ee^{-z\lambda} \ee^{-w \mu}}{\mu - \lambda} \langle (\mu - A)^{-1} x, x' \rangle \d \mu \d \lambda\\
+        &= - \frac{1}{(2\pi i)^2} \int_{\gamma_{R_z, \theta_z}} \int_{\gamma_{R_w, \theta_w}}  \frac{\ee^{-z\lambda} \ee^{-w \mu}}{\mu - \lambda} \langle (\mu - A)^{-1} x, x' \rangle \d \mu \d \lambda\\
+        &= - \frac{1}{(2\pi i)^2} \int_{\gamma_{R_w, \theta_w}} \int_{\gamma_{R_z, \theta_z}}  \frac{\ee^{-z\lambda} \ee^{-w \mu}}{\mu - \lambda} \langle (\mu - A)^{-1} x, x' \rangle \d \mu \d \lambda\\
+        &= - \frac{1}{(2\pi i)^2} \int_{\gamma_{R_w, \theta_w}} \int_{\gamma_{R_z, \theta_z}}  \frac{\ee^{-(z+ w)\lambda}}{\mu - \lambda} \langle (\mu - A)^{-1} x, x' \rangle \d \mu \d \lambda\\
+        &= \langle \ee^{-(z + w)A} x, x' \rangle.
+      \end{align*}
+      Hahn-Banach liefert sodann $\ee^{-zA}\ee^{-wA} x = \ee^{-(z + w)A}x$ für alle $x \in X$.
+
+    \item Sei $z \in \Sec_\phi$.
+      Die Cauchy-Integralformel (für unbeschränkte Integrale) liefert 
+      $$
+      x = \frac{1}{2\pi i} \int_{\gamma_{1,\theta}} \frac{\ee^{-\lambda z}}{\lambda} x \d \lambda, \quad x \in X.
+      $$
+      Damit folgt 
+      \begin{align*}
+        \ee^{-zA} x - x
+        &= \frac{1}{2\pi i} \int_{\gamma_{1,\theta}} \ee^{-z\lambda}((\lambda - A)^{-1} x - \frac{x}{\lambda}) \d \lambda \\
+        &= \frac{1}{2\pi i} \int_{\gamma_{1,\theta}} \frac{\ee^{-z\lambda}}{\lambda}(\lambda(\lambda - A)^{-1}A x \d \lambda 
+        \to \frac{1}{2 \pi i} \int_{\gamma_1, \theta} \frac{1}{\lambda} (\lambda - A)^{-1} A x \d \lambda, \quad\text{für } z \to 0.
+      \end{align*}
+      Und da $\|\frac{1}{\lambda} (\lambda - A)^{-1} A x \| \leq \frac{C}{|\lambda|^2} \|A x \|_X$ folgt
+      $$
+      \frac{1}{2\pi i} \int_{\gamma_{1, \theta}} \frac{1}{\lambda} (\lambda - A)^{-1} A x\d \lambda = \lim_{R \to \infty} \frac{1}{2 \pi i} \int_{\gamma_{1,\theta}^R} \frac{1}{\lambda} (\lambda - A)^{-1} A x \d \lambda,
+      $$
+      wobei $\gamma_{1,\theta}^R$ die im Radius $R$ geschlossene Schlüssellochkurve bezeichne.
+      Der Cauchysche Integralsatz liefert
+      $$
+      \frac{1}{2\pi i} \int_{\gamma_{1,\theta}^R} \frac{1}{\lambda} (\lambda - A)^{-1} A x \d \lambda = 0, \text{für alle }  R > 1.
+      $$
+      (i) und Dichtheit von $\DD(A)$ liefern nun
+      $$
+      \lim_{\substack{z \to 0\\ z \in \Sec_\phi}} \| \ee^{-zA}x - x\|_X = 0, \quad\text{für alle } x \in X. 
+      $$
+    \qedhere
+  \end{enumerate}
+\end{proof}
+
+\begin{rem}
+  Um Resultate von skalarwertigen Integralen auf banachraumwertige zu übertragen, ist es üblich mit Funktionalen zu testen, dann das skalarwertige Resultat zu benutzen und am Ende Hahn-Banach anzuwenden.
+\end{rem}
+
+\begin{thm}
+  Sei $A$ sektoriell von Winkel $\omega \in [0,\frac{\pi}{2})$ und $z \in \Sec_{\frac{\pi}{2} - \omega}$.
+    Dann ist $\operatorname{Rg}(\ee^{-zA}) \subset \DD(A)$ (Glättungseigenschaft) und falls $x \in \DD(A)$ gilt $A \ee^{-zA} x = \ee^{-z A} A x$.
+    Weiterhin existiert $C > 0$, sodass $\sup_{t > 0} \|t A \ee^{-t A} \|_{\mathcal{L}(X)} \leq C$.
+\end{thm}
+
+\begin{proof}
+  Sei $R > 0$ und $\theta \in (\omega, \frac{\pi}{2} - |\arg(z)|)$.
+  Dann sind
+  $$
+  \lambda \mapsto \ee^{-zA}(\lambda - A)^{-1} \quad\text{und}\quad \lambda \mapsto e^{-z\lambda} A(\lambda - A)^{-1} = \ee^{-z\lambda} \lambda(\lambda - A)^{-1} - \ee^{-z\lambda}
+  $$
+  auf $\gamma_{R, \theta}$ integrierbar. Proposition \ref{prop:opInIntegral} liefert $\operatorname{Rg}(e^{-zA}) \subset \DD(A)$ und $$A \ee^{-zA} = \frac{1}{2\pi i} \int_{\gamma_{R,\theta}} \ee^{-z\lambda} A ( \lambda - A)^{-1} \d \lambda.$$
+  Is $x \in \DD(A)$ gilt folglich $A \ee^{-zA} x = \ee^{-zA} A x$.
+  Für die zweite Aussage sei $t > 0, R = \frac{1}{t}$ und $\theta \in (w, \frac{\pi}{2})$. Dann gilt
+  \begin{align*}
+    A \ee^{-t A}
+    &= \frac{1}{2 \pi i} \int_{\gamma_{t^{-1}, \theta}} (\ee^{-t\lambda} \lambda (\lambda - A)^{-1} - \ee^{-z \lambda}) \d \lambda 
+    = \frac{1}{2\pi i} \int_{\gamma_{t^{-1}, \theta}} ( \ee^{-t \lambda} \lambda (\lambda - A)^{-1} - \ee^{-z \lambda})\d \lambda \\
+    &= \frac{1}{2\pi i} \int_{\gamma_{t^{-1}, \theta}} \lambda \ee^{-t \lambda} (\lambda - A)^{-1} \d \lambda.
+  \end{align*}
+  Aufgrund der Sektorialität von $A$ gilt schließlich
+  \begin{align*}
+    \|A \ee^{-t A} \|_{\mathcal{L}(X)}
+    &\leq C \left( \int_{t^{-1}}^\infty \ee^{-tr \cos \theta} \d r + \int_\theta^{2\pi - \theta} t^{-1} \ee^{-t\, t^{-1}\cos \varphi} \d \varphi \right) \\
+    &\leq C \left( \int_1^\infty t^{-1} \ee^{-s \cos \theta} \d s + \int_\theta^{2\pi - \theta} t^{-1} \ee^{-t\, t^{-1}\cos \varphi} \d \varphi \right). \qedhere
+  \end{align*}
+\end{proof}
+
+\section{Gebrochene Potenzen}
+
+In diesem Abschnitt definieren und untersuchen wir gebrochene Potenzen $A^\alpha$.
+
+\begin{prop}
+  Sei $A$ sektoriell vom Winkel $\omega \in [0,\pi)$ und $0 \in \rho(A)$.
+    Dann existiert ein $R > 0$, sodass für alle $\theta \in (\omega, \pi)$ ein $C > 0$ existiert, sodass $\BB_R(0) \subset \rho(A)$ und für alle $\lambda \in \C \setminus \overline{\Sec_\theta} \cup \BB_R(0)$
+    $$
+    \| (1 + |\lambda| ) (\lambda - A)^{-1} \|_{\mathcal{L}(X)} \leq C
+    $$
+    gilt.
+\end{prop}
+
+\begin{proof}
+  Übung.
+\end{proof}
+

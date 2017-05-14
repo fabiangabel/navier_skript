@@ -1,0 +1,7 @@
+*.aux
+*.swp
+navier.bbl
+navier.blg
+navier.log
+navier.out
+navier.toc
