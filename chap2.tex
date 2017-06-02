@@ -75,12 +75,12 @@ wobei $f$ und $u$ durch $\DD(A)$ gegeben sind.
 \begin{lem*}[Lax-Milgram]
    Sei $H$ ein Hilbertraum über $C$ und $b \colon H \times H \to \C$ eine Sesquilinearform, die stetig und koerziv ist, d.h., es existieren $\alpha, C > 0$, sodass 
    \begin{align*}
-     |b(u,v)| &\leq C \|u\|_H \|v\|_X, \quad \text{für alle }u,v \in H, \\
+     |b(u,v)| &\leq C \|u\|_H \|v\|_H, \quad \text{für alle }u,v \in H, \\
      |b(u,v)| &\geq \alpha \|u\|_H^2, \quad\text{für alle } u \in H.
    \end{align*}
    Dann existiert für jedes $F \in H^*$ ein eindeutiges $u \in H$ mit 
    $$
-   b(u,u) = F[v], \quad\text{für alle } v \in H.
+   b(u,v) = F[v], \quad\text{für alle } v \in H.
    $$
 \end{lem*}
 
@@ -103,7 +103,7 @@ wobei $f$ und $u$ durch $\DD(A)$ gegeben sind.
 
 \begin{lem}
   Seien $\theta, \phi \in [0,\pi)$ mit $\theta + \phi < \pi$.
-    Dann existiert $C = C(\phi,\theta) > 0$, sodass für alle w \in $\SS_\theta_\theta, z \in \SS_\phi$ gilt
+    Dann existiert $C = C(\phi,\theta) > 0$, sodass für alle $w \in \Sec_\theta, z \in \Sec_\phi$ gilt
     $$
     |w| + |z| \leq c |w + z|.
     $$
@@ -111,5 +111,172 @@ wobei $f$ und $u$ durch $\DD(A)$ gegeben sind.
 
 \begin{proof}
   Übung.
-\end{proof}<++>
+\end{proof}
 
+\begin{prop}
+  Sei $\Omega \subset \R^d, d\geq2$, offen und $A$ der Stokes Operator auf $\Ell^2_\sigma(\Omega)$. Dann gilt $\sigma(A) \subset [0,\infty)$ und für alle $\theta \in (0,\pi]$ existiert $C > 0$, sodass
+  $$
+  \| \lambda (\lambda - A)^{-1}\|_{\Li(\Ell^2_\sigma(\Omega)} \leq C, \quad\text{für alle } \lambda \in \C \setminus \overline \Sec_\theta
+  $$
+  und
+  $$
+  \| |\lambda|^{\frac{1}{2}} \nabla (\lambda - A)^{-1} \|_{\Li(\Ell_\sigma^2, \Ell^2)} \leq C, \quad\text{für alle } \lambda \in \C \setminus \overline \Sec_\theta.
+  $$
+\end{prop}
+
+\begin{proof}
+  Für $\lambda \in \C \setminus \overline \Sec_\theta$ definiere
+  $$
+  a_\lambda \colon \HH_{0,\sigma}^1(\Omega) \times \HH_{0,\sigma}^1(\Omega) \to \CC, \quad (u,v) \mapsto \lambda \int_\Omega u \cdot \overline v - \int_\Omega \nabla u \cdot \overline{\nabla v} \d x,
+  $$
+  dann ist $a_\lambda$ stetig.
+  Für die Koerzivität beobachten wir, dass
+  $$
+  |a_\lambda(u,u)| 
+  = \Big| \underbrace{- \lambda\int_\Omega |u|^2 \d x}_{\Sec_{\pi - \theta}} + \underbrace{\int_\Omega |\nabla u|^2 \d x}_{\in \Sec_0} \Big| 
+  \geq \frac{1}{C} \left( |\lambda| \int_\Omega |u|^2 \d x + \int_\Omega |\nabla u|^2 \d x\right)
+  $$
+  gilt, woraus mittels Lemma von Lax-Milgram $\lambda \in \rho(A)$ folgt.
+  
+  Um die Abschätzungen nachzuweisen, teste mit Lösung!
+
+  Sei $f \in \Ell_\sigma^2(\Omega)$ und $u \in \DD(A)$ mit $(\lambda - A) u = f$.
+  Teste mit $u$:
+  $$
+  \lambda \int_\Omega |u|^2 \d x - \int_\Omega |\nabla u|^2 = \int_\Omega f \cdot \overline u.
+  $$
+  Nehme Betrag und nutze obige Ungleichung, dann folgt
+  $$
+  \frac{1}{C} |\lambda|\|u\|_{\Ell^2(\Omega)}^2 
+  \leq \frac{1}{C} \left(|\lambda| \int_\Omega |u|^2 \d x + \int_\Omega |\nabla u|^2\right) 
+  \leq \|f\|_{\Ell^2(\Omega)} \|u\|_{\Ell^2(\Omega)}
+  $$
+  und folglich die Resolventenabschätzung.
+  Weiterhin gilt mit Young's Ungleichung
+  $$
+  \frac{1}{C} \left(|\lambda| \int_\Omega |u|^2 \d x + \int_\Omega |\nabla u|^2 \d x \right)
+  \leq \frac{1}{2\varepsilon} \|f\|_{\Ell^2(\Omega)}^2 + \frac{\varepsilon}{2} \|u\|_{\Ell^2(\Omega)}.
+  $$
+  Wähle $\varepsilon = \frac{2|\lambda|}{C}$, dann gilt
+  $$
+  \frac{1}{C} \int_\Omega |\nabla u|^2 \d x \leq \frac{C}{4|\lambda|} \|f \|_{\Ell^2(\Omega)}^2,
+  $$
+  und damit auch die Gradientenabschätzung.
+\end{proof}
+
+\begin{thm}
+  Sei $\Omega \subset \R^d, d \geq 2$ offen und $A$ sei der Stokes-Operator auf $\Ell^2_\sigma(\Omega)$.
+  Dann erzeugt $-A$ eine beschränkte analytische Halbgruppe $(\e^{-tA})_{t \geq 0}$.
+  Diese wird als Stokes-Halbgruppe bezeichnet.
+  Weiterhin ist für jedes $t > 0, \Rg(\e^{-tA}) \subset \HH_{0,\sigma}^1(\Omega)$ und es existiert $C > 0$, sodass für alle $t > 0$ und $a \in \Ell_\sigma^2(\Omega)$ gilt:
+  $$
+  \|\nabla \e^{-tA} a \|_{\Ell^2(\Omega)} \leq C t^{1\frac{1}{2}} \|a\|_{\Ell_\sigma^2(\Omega)}
+  $$
+\end{thm}
+
+\begin{proof}
+  Übung.
+\end{proof}
+
+\section{Wie man den Druck erhält}
+
+Zuerst führen wir ein nützliches Handwerkszeug, den sogenannten Bogowski\u{\i}-Operator ein.
+Hierzu definieren wir für $1 < p < \infty$ und ein beschränktes Gebiet $\Omega \subset \R^d$ den Raum
+$$
+\Ell^p_0(\Omega) \coloneqq \Big\{ f \in \Ell^p(\Omega) \colon \frac{1}{|\Omega|} \int_\Omega f \d x \eqqcolon \dashint_\Omega f \d x \eqqcolon f_\Omega = 0 \Big\}
+$$
+der mittelwertfreien $\Ell^p$-Funktionen.
+
+Wegen $\int_\Omega \div (u) \d x = 0$ für alle $u \in \WW_0^{1,p}(\Omega, \C^d)$ ist es notwendig, dass die rechte Seite $f$ der folgenden Gleichun in $\Ell^p_0(\Omega)$ liegt.
+Betrachte das Problem
+\begin{align*}
+  \div(u) &= f \quad\text{in } \Omega, \\
+  u &= 0 \quad\text{auf } \partial \Omega.
+\end{align*}
+Ist $\Omega$ ein beschränktes Lipschitz-Gebiet, wo wurde ein Lösungsoperator (Bogowski\u{\i}-Operator) für diese Gleichung konstruiert.
+
+\begin{thm}
+  \label{thm:bogowskii}
+  Sei $\Omega \subset \R^d, d \geq 2$, ein beschranktes Lipschitz-Gebiet, dann existiert ein Operator $\BB$, sodass für jedes $1 < p < \infty$ gilt:
+  \begin{align*}
+    &\BB \colon \Ell_0^p(\Omega) \to \WW_0^{1,p}(\Omega, \C^d), \quad B \in \Li(\Ell_0^p(\Omega), \WW_0^{1,p}(\Omega, \C^d) \\
+    &\div(\BB f) = f, \quad\text{für alle } f \in \Ell_0^p(\Omega).
+  \end{align*}
+\end{thm}
+
+\begin{proof}
+  Siehe z.B. Galdi, ``An introduction to the Mathematical Theory of the Navier-Stokes Equations'', Seiten 161--172.
+\end{proof}
+
+Für $u \in \Ell^p(\Omega)$ definiere $\nabla u \in \WW^{-1,p}(\Omega, \C^d)$ durch
+$$
+\langle v, \nabla u\rangle_{\WW_0^{1,p'}(\Omega), \WW^{-1,p}(\Omega)}
+= -\int_\Omega u \cdot \overline{\div(v)}, \quad\text{für alle } v \in \WW^{1,p'}_0(\Omega, \C^d),
+$$
+wobei $\frac{1}{p} + \frac{1}{p'} = 1$.
+
+\begin{lem}
+  \label{lem:poincare}
+  Sei $\Omega \subset \R^d, d \geq 2$, ein beschränktes Lipschitz-Gebiet und $1 < p< \infty$.
+  Dann existiert $C > 0$, sodass für alle $u \in \Ell^p(\Omega)$
+  $$
+  \| u - u_\Omega\|_{\Ell^p(\Omega)} \leq \| \nabla u\|_{\WW^{-1,p}(\Omega)}
+  $$
+  gilt.
+\end{lem}
+
+\begin{proof}
+  Sei $\BB$ der Bogowski\u{\i}-Operator aus Satz \ref{thm:bogowskii} $f \in \Ell^{p'}(\Omega)$ wobei $\frac{1}{p} + \frac{1}{p'} = 1$.
+  Dann gilt
+  \begin{align*}
+  \Big| \int_\Omega (u - u_\Omega) \, \overline f \d x \Big|
+    &= \Big| \int_\Omega (u - u_\Omega) \, (\overline{f - f_\Omega})  \d x \Big|
+    = \Big| \int_\Omega u \, (\overline{f - f_\Omega}) \d x \Big| \\
+    &= \Big| \int_\Omega u \, \div( \BB(\overline{f - f_\Omega}) ) \d x \Big|
+    \leq \|\nabla u\|_{\WW^{-1,p}(\Omega)} \, \|\BB(\overline{f - f_\Omega}) \|_{\WW_0^{1,p'}(\Omega)} \\
+    &\overset{\text{Satz } \ref{thm:bogowskii}}{\leq}  C \,  \|\nabla u\|_{\WW^{-1,p}(\Omega)} \, \|f - f_\Omega\|_{\Ell^{p'}(\Omega)}
+    \leq C \, \|\nabla u\|_{\WW^{-1,p}(\Omega)} \, \|f\|_{\Ell^{p'}(\Omega)},
+  \end{align*}
+  wobei im letzten Schritt ausgenutzt wurde, dass $\Omega$ beschränkt ist.
+  Daraus folgt nun die Behauptung.
+\end{proof}
+
+\begin{lem}
+  Sei $\Omega \subset \R^d, d\geq 2$ ein beschränktes Lipschitz-Gebiet und $1 < p < \infty$.
+  Dann existiert für jedes Teilgebiet $\Omega_0 \subset \Omega$ mit $\Omega_0 \neq \emptyset$ ein $C > 0$, sodass für alle $u \in \Ell^p(\Omega)$ mit $u_{\Omega_0} = 0$ gilt
+  $$
+  \|u \|_{\Ell^p(\Omega)} \leq C \, \| \nabla u \|_{\WW^{-1,p}(\Omega)}.
+  $$
+\end{lem}
+
+\begin{proof}
+  Angenommen die Aussage wäre falsch.
+  Dannn existiert für jedes $n \in \N$ ein $u_n \in \Ell^p(\Omega)$ mit $(u_n)_\Omega = 0$ und
+  \begin{align*}
+    \|u_n\|_{\Ell^p(\Omega)} > n \|\nabla u_n \|_{\WW^{-1,p}(\Omega)} \tag{$\ast$}
+  \end{align*}
+  Sei ohne Einschränkung $\|u_n\|_{\Ell^p(\Omega)} = 1$.
+  Da $(u_n)_{n \in \N} \subset \Ell^p(\Omega)$ beschränkt und $\Ell^p(\Omega)$ reflexif ist besitzt $(u_n)_{n \in \N}$ eine schwach konvergente Teilfolge.
+  Bezeichne diese Teilfolge ohne Einschränkung wieder mit $(u_n)_{n \in \N}$.
+  Dann existiert ein $u \in \Ell^p(\Omega)$ mit $\lim_{n \to \infty} \int_\Omega u_n \overline v \d x = \int_\Omega u \overline v \d x$ für alle $v \in \Ell^{p'}(\Omega)$.
+  Hieraus folgt, dass
+  \begin{align*}
+  \int_{\Omega_0} u \d x 
+  = \int_\Omega u \chi_{\Omega_0} \d x
+  = \lim_{n \to \infty} \int_\Omega u_n \chi_{\Omega_0} \d x = 0. \tag{$\ast\ast$}
+  \end{align*}
+  Mit ($\ast$) folgt $\|\nabla u_n\|_{\WW^{-1,p}(\Omega)} < \frac{1}{n} \to 0$ für $n \to \infty$.
+  Weiterhin folgt für$v \in \CC_\cc^\infty(\Omega,\C^d)$
+  $$
+  \Big| \int_\Omega u \, \overline{\div(v)} \d x \Big|
+  = \lim_{n \to \infty} \Big| \int_\Omega u_n \overline{\div(v)} \d x \Big|
+  \leq \lim_{n \to \infty} \Big| \langle v, \nabla u_n \rangle_{\WW_0^{1,p'}, \WW^{-1,p}(\Omega)} \Big|
+  $$
+  Folglich ist $u$ schwach differenzierbar mit $\nabla u = 0$ und damit konstant.
+  Mit ($\ast\ast$) folgt hieraus $u = 0$.
+  Lemma \ref{lem:poincare} ergibt sich
+  $$
+  1 = \|u_n\|_{\Ell^p(\Omega)}
+  \leq C \left[ \int_\Omega f_\Omega u_n \d x + \|\nabla u_n\|_{\WW^{-1,p}(\Omega)} \right] \to 0, \quad\text{für } n \to \infty.
+  $$
+\end{proof}

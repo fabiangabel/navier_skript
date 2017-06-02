@@ -7,6 +7,7 @@
 \newcommand{\R}{\mathbb{R}} % reelle Zahlen
 \newcommand{\K}{\mathbb{K}} % Körper
 \newcommand{\co}{\mathrm{co}} % compact open
+\newcommand{\cc}{\mathrm{c}} % compact open
 \newcommand{\e}{\mathrm{e}} % compact open
 \newcommand{\W}{\mathcal{W}} % Weyl-Gruppe
 \newcommand{\1}{\mathbbm{1}} % Körper
@@ -83,3 +84,15 @@
 \let\divsymb=\div % rename builtin command \div to \divsymb
 \renewcommand{\div}[1]{\mathrm{div\,} #1} % for divergence
 \renewcommand{\d}[1]{\ensuremath\, {\operatorname{d}\!{#1}}}
+
+%INTEGRALe
+\def\Xint#1{\mathchoice
+{\XXint\displaystyle\textstyle{#1}}%
+{\XXint\textstyle\scriptstyle{#1}}%
+{\XXint\scriptstyle\scriptscriptstyle{#1}}%
+{\XXint\scriptscriptstyle\scriptscriptstyle{#1}}%
+\!\int}
+\def\XXint#1#2#3{{\setbox0=\hbox{$#1{#2#3}{\int}$ }
+\vcenter{\hbox{$#2#3$ }}\kern-.6\wd0}}
+\def\ddashint{\Xint=}
+\def\dashint{\Xint-}
