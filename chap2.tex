@@ -1,0 +1,115 @@
+\chapter{Die Stokes-Gleichungen auf \texorpdfstring{$\Ell_\sigma^2$}{L_sigma\textasciicircum 2}}
+
+In diesem Kapitel untersuchen wir Lösungen der (instationären) Stokes-Gleichungen
+$$
+\begin{cases}
+  \partial_t u - \Delta u + \nabla p &= 0, \quad x \in \Omega, t > 0 \\
+  \div u &= 0, x \in \Omega, t > 0 \\
+  u(0) &= a, \quad x \in \Omega \\
+  u &= 0, \quad x \in \partial\Omega, t > 0,
+\end{cases}
+$$
+wobei $a \in \Ell^2(\Omega, \C^d)$, $d \geq 2$ und \glqq$\div(a) = 0$\grqq gelten soll.
+
+
+\section{Der Stokes-Operator auf \texorpdfstring{$\Ell_\sigma^2$}{L_sigma\textasciicircum 2}}
+
+Sei $\Omega \subset \R^d$, $d \geq 2$ und $1 < p < \infty$.
+Definiere
+$$
+\CC_{0,\sigma}^\infty(\Omega) \coloneqq \{ \varphi \in \CC_c^\infty(\Omega, \C^d) \colon \div(\varphi) =0 \}.
+$$
+Weiterhin sei
+$$
+\Ell^p_\sigma(\Omega) \coloneqq \overline{\CC_{c,\sigma}^\infty(\Omega)}^{\Ell^p} \quad\text{mit} \|\cdot\|_{\Ell^p_\sigma} = \|\cdot\|_{\Ell^p}
+$$
+und
+$$
+\WW_{0,\sigma}^{1,p} \coloneqq \overline{\C_{c,\sigma}^\infty(\Omega)}^{\WW^{1,p}} \quad\text{mit} \|\cdot\|_{\WW_{0,\sigma}^{1,p}} \coloneqq \|\cdot\|_{\WW^{1,p}}.
+$$
+Im Falle $p= 2$ schreibt man auch $\HH_{0,\sigma}^1(\Omega)$ für $\WW_{0,\sigma}^{1,2}(\Omega)$.
+Um den Stokes-Operator zu definieren, definiere folgende Sesquilinearform
+$$
+a \colon \HH_{0,\sigma}^1(\Omega) \times \HH_{0,\sigma}^1(\Omega) \to \C, \quad (u,v) \mapsto \int_\Omega \nabla u \cdot \overline{\nabla v} \d x = \sum_{i,j=1}^d \int_\Omega \partial_i u_j \partial_i \overline{v_j} \d x
+$$
+
+\begin{defn}
+  Der Stokes-Operator $A$ auf $\Ell_\sigma^2(\Omega)$ ist gegeben durch
+  \begin{align*}
+  \DD(A) &\coloneqq \left\{ u \in \HH_{0,\sigma}^1(\Omega) \colon \exists! \colon f \in \Ell_\sigma^2(\Omega) \forall v \in \HH_{0,\sigma}^1(\Omega) \colon a(u,v) = \int_\Omega f \cdot \overline v \d x\right\}, \\
+  Au &\coloneqq f,
+\end{align*}
+wobei $f$ und $u$ durch $\DD(A)$ gegeben sind.
+\end{defn}
+
+\begin{prop}
+  Der Stokes-Operator auf $\Ell_\sigma^2(\Omega)$ ist abgeschlossen und dicht definiert.
+\end{prop}
+
+\begin{proof}
+  Zur Abgeschlossenheit: Sei $u_n \in \DD(A)$ mit $u_n \to u$ in $\Ell^2_\sigma(\Omega)$ und $f_n \coloneqq A u_n \to f$ in $\Ell^2_\sigma(\Omega)$.
+  Dann
+  $$
+  \|\nabla(u_n - u_m)\|_{\Ell^2}^2 
+  = a(u_n - u_m, u_n - u_m)
+  = \int_\Omega (f_n - f_m) \overline{(u_n - u_m)} \d x
+  \overset{\text{Hölder}}{\to} 0, \quad\text{für } u,m \to \infty.
+  $$
+  Folglich ist $(u_n)_{n \in \N}$ eine Cauchy-Folge in $\HH_{0,\sigma}^1(\Omega)$ und damit $u \in \HH_{0,\sigma}^1(\Omega)$.
+  Hiermit ergibt sich
+  $$
+  a(u,v) 
+  = \lim_{n \to \infty} a(u_n,v)
+  = \lim_{n \to \infty} \int_\Omega f_n \overline{v} \d x
+  = \int_\Omega f \cdot \overline v \d x,
+  $$
+ für alle $v \in \HH_{0,\sigma}^1(\Omega)$.
+
+ Zur Dichtheit: Für $u \in \CC_{c,0}^\infty(\Omega)$, $v \in \HH_{0,\sigma}^1(\Omega)$ gilt
+ $$
+ a(u,v) = -\int_\Omega \Delta u \cdot \overline v \d x.
+ $$
+ Aus dem Satz von Schwartz folgt $\Delta u \in \CC_{c,\sigma}^\infty(\Omega)$ und damit $\CC_{c,\sigma}^\infty(\Omega) \subset \DD(A)$..
+\end{proof}
+
+\begin{lem*}[Lax-Milgram]
+   Sei $H$ ein Hilbertraum über $C$ und $b \colon H \times H \to \C$ eine Sesquilinearform, die stetig und koerziv ist, d.h., es existieren $\alpha, C > 0$, sodass 
+   \begin{align*}
+     |b(u,v)| &\leq C \|u\|_H \|v\|_X, \quad \text{für alle }u,v \in H, \\
+     |b(u,v)| &\geq \alpha \|u\|_H^2, \quad\text{für alle } u \in H.
+   \end{align*}
+   Dann existiert für jedes $F \in H^*$ ein eindeutiges $u \in H$ mit 
+   $$
+   b(u,u) = F[v], \quad\text{für alle } v \in H.
+   $$
+\end{lem*}
+
+\begin{prop}
+  Sei $A$ der Stokes-Operator auf $\Ell_\sigma^2(\Omega)$, wobei $\Omega \subset \R^d, d \geq 2$ ein beschränktes Gebiet ist.
+  Dann ist $0 \in \rho(A)$.
+\end{prop}
+
+\begin{proof}
+  Für $f \in \Ell_\sigma^2(\Omega)$ ist $v \mapsto \int_\Omega f \cdot \overline v \d x \in \HH_{0,\sigma}^1(\Omega)^*$ (Antidualraum).
+  Weiterhin ist $$a \colon \HH_{0,\sigma}^1(\Omega) \times \HH_{0,\sigma}^1(\Omega) \to \CC, (u,v) \mapsto \int_\Omega \nabla u \cdot \overline{\nabla v} \d x$$ stetig.
+  Außerdem folgt mit der Poincar\'e Ungleichung
+  $$
+  |a(u,u)| = \|\nabla u\|_{\Ell^2}^2 \geq \frac{1}{2} \|\nabla u\|_{\Ell^2}^2 + \frac{1}{2 c^2} \|u\|_{\Ell^2}^2
+  $$
+  und damit die Koerzivität von $a$.
+  Das Lemma von Lax-Milgram liefert sodann, dass genau ein $u \in \HH_{0,\sigma}^1(\Omega)$ mit $a(u,v) = \int_\Omega f \cdot \overline v \d x$ für alle $v \in \HH_{0,\sigma}^1(\Omega)$ existiert.
+  Daraus folgt schließlich $u \in \DD(A)$ mit $A u = f$ und $0 \in \rho(A)$.
+\end{proof}
+
+\begin{lem}
+  Seien $\theta, \phi \in [0,\pi)$ mit $\theta + \phi < \pi$.
+    Dann existiert $C = C(\phi,\theta) > 0$, sodass für alle w \in $\SS_\theta_\theta, z \in \SS_\phi$ gilt
+    $$
+    |w| + |z| \leq c |w + z|.
+    $$
+\end{lem}
+
+\begin{proof}
+  Übung.
+\end{proof}<++>
+
