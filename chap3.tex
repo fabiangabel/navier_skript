@@ -1,0 +1,80 @@
+\chapter{Die Ungleichung von Gagliardo-Nirenberg}
+
+\begin{ntion}
+  Sei $-\infty < \frac{1}{p} \leq 1$.
+  Fall $0 \leq \frac{1}{p} \leq 1$, dann definiere
+  $$
+  \| \,\cdot\, \|_{X_{\frac{1}{p}}} \coloneqq \| \,\cdot\, \|_{\Ell^p}
+  $$
+  und falls $-\infty < \frac{1}{p} < 0$ sei $\alpha \in [0,1)$ und $k \in \N_0$ derart, dass $-\frac{d}{p} = k + \alpha$. Definiere
+  $$
+  \| \,\cdot\, \|_{X^{\frac{1}{p}}} \coloneqq 
+  \begin{cases} 
+    \| \nabla^k \cdot \|_{\Ell^\infty}, \quad &\alpha = 0, \\ [ \nabla^k \, \cdot \, ]_\alpha, \quad &\alpha = 0,
+  \end{cases}
+  $$
+  wobei $[\,\cdot\,]_\alpha$ die Hölder-Halbnorm zum Exponenten $\alpha$ bezeichne.
+\end{ntion}
+
+\begin{hsatz}[Gagliardo-Nirenberg]
+  \label{hsatz:gagliardoNirenberg}
+  Seien $1 \leq q,r < \infty$, $d \geq 2$ und $j,m \in \N_0$ mit $0 \leq j \lneq m$.
+  Weiterhin sei
+  $$
+  \begin{cases}
+    \frac{j}{m} \leq \alpha \leq 1, \quad \text{falls } m - j - \frac{d}{r} \not\in \N_0 \\
+    \frac{j}{m} \leq \alpha < 1, \quad \text{falls } m - j - \frac{d}{r} \in \N_0.
+  \end{cases}
+    $$
+    und
+    $$
+    \frac{1}{p} \coloneqq \frac{j}{d} + \alpha\, \Big( \frac{1}{r} - \frac{m}{d} \Big) + (1 - \alpha) \, \frac{1}{q}.
+    $$
+    Dann ist $\frac{1}{p} \leq 1$ und es existiert eine Konstante
+    $$
+    C = C(d,m,j,q,r,\alpha) > 0,
+    $$
+    sodass für alle $u \in \CC_c^m(\R^d)$ gilt
+    $$
+    \| \nabla^j u\|_{X_{\frac{1}{p}}} \leq C \, \|\nabla^m u\|_{\Ell^r}^\alpha \, \|u\|_{\Ell^q}^{1 - \alpha}.
+    $$
+\end{hsatz}
+
+Für den Beweis benötigen wir einige Vorbetrachtungen.
+
+\begin{lem}
+  Sei $r > d \geq 2$.
+  Dann existiert $C = C(d,r) > 0$, sodass für alle $u \in \CC_c^1(\R^d)$ und $x,y \in \R^d$ gilt
+  $$
+  \frac{\left| u(x) - u(y) \right|}{|x - y|^{1 - \frac{d}{r}}} < C \, \|\nabla u\|_{\Ell^r}.
+  $$
+\end{lem}
+
+Das folgende Lemma reduziert den Beweis von Haupsatz \ref{hsatz:gagliardoNirenberg} auf wenige Spezialfälle.
+
+\begin{lem}
+  \begin{enumerate}[a)]
+    \item Angenommen die Ungleichung in Haupsatz \ref{hsatz:gagliardoNirenberg} gelte für $\alpha = \frac{j}{m}$ mit $j = 1$ und $m = 2$, dann gilt die Ungleichung auch für $\alpha = \frac{j}{m}$ und jedes $0 \leq j < m$.
+
+    \item Angenommen die Ungleichung in Haupsatz \ref{hsatz:gagliardoNirenberg} gelte für $\alpha = 1$, $j = 0$ und $m = 1$ (wobei $d \neq r$), dann gilt die Ungleichung auch für $\alpha = 1$ und jedes $0 \leq j < m$ varausgesetzt $m - j - \frac{d}{r} \not\in \N_0$.
+      
+    \item Für alle $-\infty < \lambda \leq \mu \leq \nu \leq 1$ existiert $C = C(\lambda, \mu, \nu) > 0$, sodass für alle $f \in X_\nu \cap X_\lambda$ die sogennante Interpolationsungleichung
+      $$
+      \| f\|_{X_\mu} \leq C \, \|f\|_{X_\lambda}^{\frac{\nu - \mu}{\nu - \lambda}} \, \|f\|_{X_\mu}^{\frac{\mu - \lambda}{\nu - \lambda}}
+      $$
+      gilt.
+      Insbesondere ist $f \in X_\mu$.
+
+    \item Angenommen die Ungleichung in Haupsatz \ref{hsatz:gagliardoNirenberg} gelte für $\alpha = \frac{j}{m}$ und $\alpha = 1$, dann gilt diese auch für jedes $\frac{j}{m} \leq \alpha \leq 1$.
+  \end{enumerate}
+\end{lem}
+
+\begin{proof}
+  Übung.
+\end{proof}
+
+Nun sind wir in der Lage Haupsatz \ref{hsatz:gagliardoNirenberg} zu beweisen.
+
+\begin{proof}[Beweis von Haupsatz \ref{hsatz:gagliardoNirenberg}]
+\end{proof}
+
