@@ -41,7 +41,7 @@ $$
 Hier bezeichnet $n$ den äußeren Einheitsnormalenvektor von $\Omega$.
 
 \begin{thm}
-  \label{thm:helholtzIffNeumann}
+  \label{thm:helmholtzIffNeumann}
   Sei $\Omega \subset \R^d, d \geq 2$, offen und $1 < p < \infty$.
   Dann existiert genau dann die Helmholtz-Zerlegung auf $\Ell^p(\Omega; \C^d)$, wenn (NP) für alle $u \in \Ell^p(\Omega; \C^d)$ lösbar ist.
 \end{thm}
@@ -81,7 +81,7 @@ Hier bezeichnet $n$ den äußeren Einheitsnormalenvektor von $\Omega$.
   $$
   \int_\Omega v \cdot \overline w \d x = 0, \quad\text{für alle } w \in \Ell_\sigma^p(\Omega).
   $$
-  Dann liefert Lemma \ref{lem:golden}, dass ein $\phi \in \Ell_{\loc}^{p'}(\Omega)$ existiert mit
+  Dann liefert Lemma \ref{lem:pressureGrad}, dass ein $\phi \in \Ell_{\loc}^{p'}(\Omega)$ existiert mit
   $$
   \int_\Omega v \cdot \overline \varphi \d x = -\int_\Omega \phi \; \overline{\div(\varphi)} \d x, \quad\text{für alle } \varphi \in \CC_c^\infty(\Omega; \C^d).
   $$
@@ -105,7 +105,7 @@ Hier bezeichnet $n$ den äußeren Einheitsnormalenvektor von $\Omega$.
   Die Eindeutige Lösbarkeit (bis auf Addition von Konstanten) von (NP) liefert $\nabla\phi = 0$.
 \end{proof}
 
-Satz \ref{thm:helmholtzIffNeumann} wird benutzt um die Existenz der Helmholtz-Zerlegung auf $\Ell^p(\Omega; \C^d)$ zu beweisen.
+Satz \ref{thm:helmholtzIffNeumann} wird benutzt, um die Existenz der Helmholtz-Zerlegung auf $\Ell^p(\Omega; \C^d)$ zu beweisen.
 Auf beschränkten Lipschitz-Gebieten wurde z.B. folgendes Resultat durch Fabes, Mendez und Mitrea im Jahr 1998 bewiesen.
 
 \begin{hsatz}
@@ -122,15 +122,15 @@ Auf beschränkten Lipschitz-Gebieten wurde z.B. folgendes Resultat durch Fabes, 
 \begin{rem}
   \begin{itemize}
     \item Im Falle $d = 2$ gilt Hauptsatz \ref{hsatz:contProj} für $\frac{4}{3} - \varepsilon < p < 4 + \varepsilon$.
-    \item Das Intervall $\frac{3}{2} - \varepsilon < p < 3 + \varepsilon$ in Haupsatz \ref{hsatz:contProj} ist scharf, d.h., für jedes $p \in (1,\infty) \setminus [\frac{3}{2}, 3]$ existiert ein bescrhänktes Lipschitz-Gebiet $\Omega$, sodass die Helmholtz-Zerlegung auf $\Ell^p(\Omega; \C^d)$ nicht existiert.
-    \item Ist $\Omega$ beschränkt mit $\CC^1-Rand$ oder konvex, so gilt Hauptsatz \ref{hsatz:contProj} für $1 < p < \infty$.
-    \item Es existierten unbeschränkte $\CC^\infty$-Gebiete, sodass die Helmholtz-Zerlegung für $p$ genügend groß (aber auch für $p$ genügend nah bei $1$) nicht existiert.
+    \item Das Intervall $\frac{3}{2} - \varepsilon < p < 3 + \varepsilon$ in Haupsatz \ref{hsatz:contProj} ist scharf, d.h., für jedes $p \in (1,\infty) \setminus [\frac{3}{2}, 3]$ existiert ein beschränktes Lipschitz-Gebiet $\Omega$, sodass die Helmholtz-Zerlegung auf $\Ell^p(\Omega; \C^d)$ nicht existiert.
+    \item Ist $\Omega$ beschränkt mit $\CC^1$-Rand oder konvex, so gilt Hauptsatz \ref{hsatz:contProj} für $1 < p < \infty$.
+    \item Es existieren unbeschränkte $\CC^\infty$-Gebiete, sodass die Helmholtz-Zerlegung für $p$ genügend groß (aber auch für $p$ genügend nah bei $1$) nicht existiert.
   \end{itemize}
 \end{rem}
 
 \begin{prop}
   Sei $\Omega \subset \R^d, d\geq 2$, ein beschränktes Gebiet und $1< p< \infty$ derart, dass die Helmholtz-Zerlegung auf $\Ell^p(\Omega; \C^d)$ existiert und die zugehörige Projektion $\PP_p$ mit Bild $\Ell_p^\sigma(\Omega)$ beschränkt ist.
-  Dann existiert die Helmholtz-Zerlegung auf $\Ell^{p'}(\Omega; \C^d)$, wobei $\frac{1}{p} + \frac{1}{p'} = 1$, die zugehörige Projektion $\PP_{p'}$ mit Bild $\Ell^{p'}_\sigma(\Omega)$ ist beschränkt, es gilt $(\PP_p)' = \PP_{p'}$ in dem Sinne, dass der Adjungierte von $\PP_p$ kanonisch als Operator auf $\Ell^{p'}(\Omega; \C^d)$ aufgefasst wird.
+  Dann existiert die Helmholtz-Zerlegung auf $\Ell^{p'}(\Omega; \C^d)$, wobei $\frac{1}{p} + \frac{1}{p'} = 1$, die zugehörige Projektion $\PP_{p'}$ mit Bild $\Ell^{p'}_\sigma(\Omega)$ ist beschränkt, es gilt $(\PP_p)' = \PP_{p'}$ in dem Sinne, dass die Adjungierte von $\PP_p$ kanonisch als Operator auf $\Ell^{p'}(\Omega; \C^d)$ aufgefasst wird.
   Weiterhin gilt $(\Ell_\sigma^p(\Omega))' \simeq \Ell_\sigma^{p'}(\Omega)$.
 \end{prop}
 
@@ -165,7 +165,7 @@ Auf beschränkten Lipschitz-Gebieten wurde z.B. folgendes Resultat durch Fabes, 
   \int_\Omega f \cdot \overline v \d x = 0, \quad\text{für alle } v \in \Ell_\sigma^{p'}(\Omega)
   $$
   und $f \in \Ell^p(\Omega; \C^d)$.
-  Mit Lemma \ref{lem:gold} folgt nun die Existenz eines $\phi \in \Ell^p_{\loc}(\Omega)$ mit
+  Mit Lemma \ref{lem:pressureGrad} folgt nun die Existenz eines $\phi \in \Ell^p_{\loc}(\Omega)$ mit
   $$
   \int_\Omega f \cdot \overline v = - \int_\Omega \varphi \; \overline{\div(v)} \d x \quad\text{für alle } v \in \CC_c^\infty(\Omega; \C^d),
   $$
@@ -177,8 +177,141 @@ Auf beschränkten Lipschitz-Gebieten wurde z.B. folgendes Resultat durch Fabes, 
   da $\nabla \phi \in \GG_p(\Omega) = \ker(\PP_p)$.
   Daraus folgt $f \in \Rg(\PP_{p'})^\perp$ und folglich gilt 
   $$
-  \Rg(\PP_{p'})^\perp = \Ell_\sigma^{p'}(\Omega).
+  \Rg(\PP_{p'}) = \Ell_\sigma^{p'}(\Omega).
   $$
+  Wir bestimmen nun den Kern von $\PP_{p'}$.
+  Genauer zeigen wir
+  $$
+  \ker(\PP_{p'}) = \GG_{p'}(\Omega).
+  $$
+  Sei hierzu $\nabla \phi \in \GG_{p'}(\Omega)$, dann gilt für $f \in \CC_c^\infty(\Omega; \C^d)$
+  $$
+  \int_\Omega \PP_{p'}(\nabla\phi) \cdot \overline f \d x
+  = \int_\Omega \nabla \phi \cdot \overline{\PP_p f} \d x
+  = \lim_{n \to \infty} \int_\Omega \nabla \phi \cdot \overline{\varphi_n} \d x
+  = 0,
+  $$
+  wobei $(\varphi_n)_{n \in \N} \subset \CC_{c,\sigma}^\infty(\Omega)$ mit $\lim_{n \to \infty} \varphi_n = \PP_p f \in \Ell^p_\sigma(\Omega)$.
+  Daraus folgt $\GG_{p'}(\Omega) \subset \ker(\PP_{p'})$.
+
+  Sei nun $f \in \ker(\PP_{p'})$ und $\varphi \in \CC^\infty_{c,\sigma}(\Omega)$.
+  Dann gilt
+  $$
+  \int_\Omega f \cdot \overline\varphi \d x 
+  = \int_\Omega f \cdot \overline{\PP_p \varphi} \d x
+  = \int_\Omega \PP_{p'} f \cdot \overline{\varphi} \d x = 0.
+  $$
+  Mit Lemma \ref{lem:pressureGrad} folgt somit, dass ein $\phi \in \Ell_{\loc}^{p'}(\Omega)$ existiert mit 
+  $$
+  \int_\Omega f \cdot \overline\varphi \d x
+  = -\int_\Omega \phi \; \overline{\div(\varphi)} \d x
+  $$
+  für alle $\varphi \in \CC_c^\infty(\Omega; \C^d)$.
+  Daraus folgt $f = \nabla\phi \in \Ell^{p'}(\Omega; \C^d)$, also $\ker(\PP_{p'}) \subset \GG_{p'}(\Omega)$.
+  Damit ist $\PP_{p'}$ die Helmholtz-Zerlegung auf $\Ell^{p'}(\Omega; \C^d)$.
+
+  Zeige nun, dass $(\Ell_\sigma^{p}(\Omega))' \simeq \Ell^{p'}_\sigma(\Omega)$.
+  Die Inklusion $\Ell_\sigma^{p'}(\Omega) \subseteq (\Ell_\sigma^p(\Omega))'$ folgt aus Hölders Ungleichung.
+  Sei $f \in (\Ell_\sigma^p(\Omega))'$.
+  Setze $f$ auf $\Ell^p(\Omega; \C^d)$ fort durch
+  $$
+  F(g) \coloneqq f(\PP_p g).
+  $$
+  Dann ist $F \in (\Ell^p(\Omega; \C^d))'$. Weiterhin existiert ein $\tilde f \in \Ell^{p'}(\Omega; \C^d)$ mit 
+  $$
+  \int_\Omega \tilde f \; \overline g \d x = f(g), \quad\text{für alle } g \in \GG_p(\Omega)
+  $$
+  und
+  $$
+  \int_\Omega \tilde f \; \overline g \d x = 0, \quad\text{für alle } g \in \GG_p(\Omega).
+  $$
+  Folglich ist
+  $$
+  \int_\Omega (I - \PP_{p'} ) \tilde f \; \overline g \d x 
+  = \int_\Omega \tilde f \; \underbrace{\overline{(I - \PP_p)g}}_{\in \GG_p(\Omega)} \d x
+  = 0, \quad\text{für alle } g \in \Ell^p(\Omega; \C^d).
+  $$
+  Dies liefert $(I - \PP_{p'}) \tilde f = 0$ woraus wiederum $\tilde f \in \Ell_\sigma^{p'}(\Omega)$ folgt.
 \end{proof}
 
+\begin{defn}
+  Sei $X$ ein Banachraum.
+  Ein Operator $B \colon \DD(B) \subset X \to X$ heißt \emph{abschließbar in } $X$, falls für alle Folgen $(x_n)_{n \in \N} \subset \DD(B)$ mit $x_n \to 0$ und für die $(B x_n)_{n \in \N} \subset X$ eine Cauchy-Folge ist, auch $\lim_{n \to \infty} B x_n = 0$ folgt.
 
+  In diesem Fall ist der \emph{Abschluss} $\overline B \colon \DD(\overline B) \subset X \to X$ \emph{von} $B$ definiert durch
+  \begin{align*}
+  \DD(\overline B) &\coloneqq \{ x \in X \colon \text{es ex. } (x_n)_{n \in \N} \subset \DD(B) \text{ mit } x_n \to x \text{ und } (B x_n)_{n \in \N} \text{ ist C.F.} \}, \\
+  \overline B x &\coloneqq \lim_{n \to \infty} B x_n, \text{ für alle } x \in \DD(\overline B)
+\end{align*}
+ein wohldefinierter abgeschlossener Operator.
+\end{defn}
+
+\begin{defn}
+  Sei $\Omega \subset \R^d, d \geq 2$ ein beschränktes Gebiet und $1 < p < \infty$.
+  Ist $p > 2$, so ist der Stokes-Operator $A_p$ auf $\Ell_\sigma^p(\Omega)$ definiert als der \emph{Teil von $A_2$ in $\Ell^p_\sigma(\Omega)$}, d.h.
+  \begin{align*}
+    \DD(A_p) &\coloneqq \{ u \in \DD(A_2) \cap \Ell_\sigma^p(\Omega) \colon A_2 u \in \Ell_\sigma^p(\Omega) \} \\
+    A_p u &\coloneqq A_2 u, \quad\text{für alle } u \in \DD(A_p).
+  \end{align*}
+  Ist $p < 2$ und falls $A_2$ abschließbar ist in $\Ell_\sigma^p(\Omega)$, so ist der Stokes-Operator $A_p$ auf $\Ell_\sigma^p(\Omega)$ definiert als der Abschluss von $A_2$ in $\Ell_\sigma^p(\Omega)$.
+\end{defn}
+
+\begin{prop}
+  Sei $\Omega \subset \R^d, d\geq 2$ ein beschränktes Gebiet und $2 < p < \infty$ derart, dass die Helmholtz-Zerlegung auf $\Ell^p(\Omega; \C^d)$ existiert und die Helmholtz-Projektion beschränkt ist.
+  Sei $\frac{1}{p'} + \frac{1}{p} = 1$.
+  Dann ist $\DD(A_2)$ dicht in $\Ell_\sigma^{p'}(\Omega)$ und es sind äquivalent:
+  \begin{enumerate}[i)]
+    \item $A_2$ ist abschließbar in $\Ell_\sigma^{p'}(\Omega)$.
+    \item $A_p$ ist dicht definiert.
+  \end{enumerate}
+  Ist entweder i) oder ii) erfüllt, so gilt
+  $$
+  (A_{p'})' = A_p.
+  $$
+  Insbesondere ist $A_p$ abgeschlossen.
+\end{prop}
+
+\begin{proof}
+  Übung.
+\end{proof}
+
+Folgendes Resultat liefert auf einem abstrakten Weg die Dichtheit eines Definitionsbereiches, falls man in der Lage ist Resolventenabschätzungen zu beweisen.  (Siehe \emph{Haase, The functional calculus of sectorial operators}.)
+
+\begin{thm}
+  Sei $A$ ein sekotrieller Operator auf einem reflexiven Banachraum $X$.
+  Dann ist $A$ dicht definiert.
+\end{thm}
+
+Folgendes Durchbruchresultat ist von Shen, 2012
+
+\begin{hsatz}
+  Sei $\Omega \subset \R^d, d \geq 3$ ein beschränktes Lipschitz-Gebiet und $\theta \in [0,\pi)$.
+    Dann existiert $\varepsilon(\theta, d, \Omega) > 0$, sodass für alle
+    $$
+    \frac{2d}{d + 1} - \varepsilon < p < \frac{2d}{d - 1} + \varepsilon
+    $$
+    der Stokes-Operator $A_p$ auf $\Ell_\sigma^p(\Omega)$ sektoriell von Winkel $\theta$ ist.
+    Insbesondere ist $A_p$ abgeschlossen, dicht definiert, $0 \in \rho(A_p)$ und  $-A_p$ erzeugt eine exponentiell stabile analytische Halbgruppe.
+\end{hsatz}
+
+\begin{rem}
+  Deuring hat 2002 im Falle d = 3 bewiesen: Für jedes $p < 3$ existiert ein beschränktes Lipschitz-Gebiet, sodass $-A_p$ keine $C_0$-Halbgruppe auf $\Ell_\sigma^p(\Omega)$ erzeugt.
+\end{rem}
+
+Folgendes Resultat ist von Tolksdorf, 2017.
+
+\begin{hsatz}
+  Sei $\Omega \subset \R^d, d \geq 3$ ein beschränktes Lipschitz-Gebiet.
+  Dann existiert $\varepsilon = \varepsilon(d,\Omega) > 0$, sodass für alle 
+  $
+  \frac{2d}{d + 1} - \varepsilon < p < \frac{2d}{d - 1} + \varepsilon
+  $
+  gilt:
+  $$
+  \DD(A_p^{\frac{1}{2}}) = \WW_{0,\sigma}^{1,p}(\Omega).
+  $$
+  Insbesondere existiert $C > 0$, sodass für alle $u \in \DD(A_p^{\frac{1}{2}})$ gilt, dass
+  $$
+  C^{-1} \, \|\nabla u\|_{\Ell^p} \leq \| A^{\frac{1}{2}} u\|_{\Ell^p} \leq C \, \|\nabla u\|_{\Ell^p}.
+  $$
+\end{hsatz}
