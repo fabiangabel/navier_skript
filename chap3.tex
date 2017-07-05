@@ -43,6 +43,7 @@
 Für den Beweis benötigen wir einige Vorbetrachtungen.
 
 \begin{lem}
+  \label{lem:hoelderIneq}
   Sei $r > d \geq 2$.
   Dann existiert $C = C(d,r) > 0$, sodass für alle $u \in \CC_c^1(\R^d)$ und $x,y \in \R^d$ gilt
   $$
@@ -53,10 +54,11 @@ Für den Beweis benötigen wir einige Vorbetrachtungen.
 Das folgende Lemma reduziert den Beweis von Haupsatz \ref{hsatz:gagliardoNirenberg} auf wenige Spezialfälle.
 
 \begin{lem}
+  \label{lem:reducingGagliardo}
   \begin{enumerate}[a)]
     \item Angenommen die Ungleichung in Haupsatz \ref{hsatz:gagliardoNirenberg} gelte für $\alpha = \frac{j}{m}$ mit $j = 1$ und $m = 2$, dann gilt die Ungleichung auch für $\alpha = \frac{j}{m}$ und jedes $0 \leq j < m$.
 
-    \item Angenommen die Ungleichung in Haupsatz \ref{hsatz:gagliardoNirenberg} gelte für $\alpha = 1$, $j = 0$ und $m = 1$ (wobei $d \neq r$), dann gilt die Ungleichung auch für $\alpha = 1$ und jedes $0 \leq j < m$ varausgesetzt $m - j - \frac{d}{r} \not\in \N_0$.
+    \item Angenommen die Ungleichung in Haupsatz \ref{hsatz:gagliardoNirenberg} gelte für $\alpha = 1$, $j = 0$ und $m = 1$ (wobei $d \neq r$), dann gilt die Ungleichung auch für $\alpha = 1$ und jedes $0 \leq j < m$ vorausgesetzt $m - j - \frac{d}{r} \not\in \N_0$.
       
     \item Für alle $-\infty < \lambda \leq \mu \leq \nu \leq 1$ existiert $C = C(\lambda, \mu, \nu) > 0$, sodass für alle $f \in X_\nu \cap X_\lambda$ die sogennante Interpolationsungleichung
       $$
@@ -76,5 +78,25 @@ Das folgende Lemma reduziert den Beweis von Haupsatz \ref{hsatz:gagliardoNirenbe
 Nun sind wir in der Lage Haupsatz \ref{hsatz:gagliardoNirenberg} zu beweisen.
 
 \begin{proof}[Beweis von Haupsatz \ref{hsatz:gagliardoNirenberg}]
+  Dass $\frac{1}{p} \leq 1$ gilt, ist Übungsaufgabe.
+  Lemma \ref{lem:reducingGagliardo} reduziert den Beweis auf die folgenden Fälle
+  \begin{itemize}
+    \item $\alpha = 1$, $j = 0$, $m = 1$ (für $r \neq d$).
+    \item $\frac{j}{m} < \alpha < 1$ und $m - j - \frac{d}{r} \in \N_0$.
+    \item $\alpha = \frac{1}{2}$, $j = 1$, $m = 2$.
+  \end{itemize}
+
+  \begin{enumerate}[\text{Fall} 1:]
+    \item $\alpha = 1$, $j = 0$, $m = 1$.
+      Es gilt $\frac{1}{p} = \frac{1}{r} - \frac{1}{d}$.
+      Sei erst $r > d$, und damit $\frac{1}{p} < 0$ und
+      $$
+      -\frac{d}{p} = 1 - \frac{d}{r} \quad\text{(Hölder-Exponent zu $X_{\frac{1}{p}}$)}
+      $$
+      Dann folgt die Behauptung aus Lemma \ref{lem:hoelderIneq}.
+      Sei nun $r = 1 < d$, $x \in \R^d$, $1 \leq i \leq d$ und $\gamma_i \colon (-\infty, \infty) \to \R^d$ definiert durch $\gamma_i (t) \coloneqq x \cdot t e_i$.
+    \item 
+  \end{enumerate}
+
 \end{proof}
 
