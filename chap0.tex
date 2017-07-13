@@ -1,0 +1,150 @@
+\setcounter{chapter}{-1}
+\chapter{Motivation}
+
+Die Navier-Stokes-Gleichungen sind Modell für Beschreibung kompressibler, viskoser und Newton'scher Fluide (Flüssigkeiten/Gase).
+Viskos heißt \emph{zähe} Flüssigkeit durch innere Reibungseffekte.
+Newton'sch ist z.B. Luft oder Wasser, aber nicht z.B. Blut, Ketchup, Speisestärke in Wasser.
+
+Die Navier-Stokes-Gleichungen sind ein Szstem nicht-lineare pDGLen und sind gegeben durch:
+\begin{align*}
+  \rho(\partial_t u + (u \cdot \nabla)u) - \mu \Delta u - (\lambda + \mu) \nabla \div(u) + \nabla \pi &= f \quad t \in (0,T), x \in \Omega \\
+  \partial_t \rho + \div(u\rho) &= 0 \quad t \in (0,t), x \in \Omega.
+\end{align*}
+
+Hierbei sind
+\begin{itemize}
+  \item $u \colon [0,T) \times \Omega \to \R^3$ Geschwindigkeit
+  \item $\pi \colon [0,T) \times \Omega \to \R$ Druck
+  \item $\rho \colon [0,T) \times \Omega \to \R$ Dichte
+  \item $f \colon [0,T) \times \Omega \to \R^3$ (bekannte) Volumenkraftdichte
+  \item $\mu > 0$ dynamische Viskosität
+  \item $\lambda$ Volumenviskosität, $2\mu + 3\lambda > 0$.
+\end{itemize}
+
+Das System wird durch Anfangs- und Randbedingungen komplementiert:
+\begin{align*}
+  u(0) &= a \quad x \in \Omega \\
+  u|_{\partial\Omega} &= 0 \quad t \in (0,T)
+\end{align*}
+Die Bedingung $u|_{\partial\Omega} = 0$ heißt no-slip Randbedingung oder auch Dirichlet-Randbedingung.
+
+Wir stellen uns ein Testvolumen $V$ vor, welches sich mit der Strömung mitbewegt, wobei $V(t) = \phi(t, V(0))$ gelten soll. Hierbei ist $\phi(t,x)$ die Position des Fluidteilchens zum Zeitpunkt $t$, welches zum Zeitpunkt $0$ bei $x$ war.
+Die Abbildung $t \mapsto \phi(t,x)$ heißt \emph{Bahnkurve} von $x$, also gilt $\frac{\d\ }{\d t} \phi(t,x) = u(t, \phi(t,x))$ (\emph{Lagrange Koordinaten})
+
+Wir rechnen
+\begin{align*}
+  \partial_t \det J_\phi
+  &= \partial_t \det (\nabla \phi_1, \nabla \phi_2, \nabla \phi_3) \\
+  &= \det (\nabla \partial_t \phi_1, \nabla \phi_2, \nabla \phi_3) + \cdots  +  \det(\nabla\phi_1, \nabla\phi_2, \nabla\partial_t \phi_3) \\
+  &= \det( \sum_{i = 1}^3 \partial_i u_1 \nabla \phi_i, \partial\phi_2, \nabla \phi_3) + \cdots + \det(\nabla\phi_1, \nabla\phi_2, \sum_{i = 1}^3 \partial_i u_3  \nabla \phi_i) \\
+  &= \div(u)(t,\phi(t,x)) \cdot \det J_\phi.
+\end{align*}
+Da $\det J_\phi(0,x) = 1$, folgt 
+$$
+\det J_\phi(t,x) = \exp\Big( \int_0^t \div(u)(s,\phi(s,x))\d x \Big).
+$$
+Damit bestimmt $\div(u)$ die Kompressibilität, denn es gilt:
+Das Fluid ist inkompressibel, wenn folgende äquivalente Bedingungen erfüllt sind:
+\begin{enumerate}[1)]
+  \item $|V(0)| = |V(t)| = \int_{\phi(t,V(0)} 1 \d y = \int_{V(0)} \det J_\phi(t,x) \d x$
+  \item $\det J_\phi(t,x) = 1$ für alle $t, x$.
+  \item $\int_0^t \div(u)(s,\phi(s,x)) \d s = 0$ für alle $t,x$.
+  \item $\div(u)(t,\phi(t,x)) = 0$ für alle $t,x$.
+\end{enumerate}
+Da $\Omega$ komplett mit Fluid ausgefüllt ist (d.h. $x \mapsto \phi(t,0)$ surjektiv) folgt: Das Fluid ist inkompressibel genau dann, wenn $\div(u) = 0$ für alle $t \in (0,T), x \in \Omega$ gilt.
+
+Wir definieren außerdem ein Fluid als \emph{homogen}, falls $\rho(t,x) = \rho(t,y)$ für alle $t$ und $x,y \in \Omega$ gilt.
+
+Für die Bernoulli-Gleichung gilt dann
+$$
+\partial_t \rho = -\div(\rho u) = -\rho \div(u) - \nabla \rho \cdot u = 0,
+$$
+fals das Fluid inkompressibel und homogen ist.
+
+Teile nun die Navier-Stokes-Gleichungen durch $\rho$, ersetze $\frac{\pi}{\rho}$ durch $\pi$ und $\frac{f}{\rho}$ durch $\rho$.
+Damit erhält man die Navier-Stokes-Gleichungen für homogene, inkompressible Fluide:
+\begin{align*}
+  \partial_t u - \nu \Delta u + (u \cdot \nabla) u + \nabla \pi &= f &t \in (0,T), x \in \Omega \\
+  \div(u) &= 0 &t \in (0,T), x \in \Omega\\
+  u(0) &= a &x \in \Omega \\
+  u|_{\partial\Omega} &= 0  &t \in (0,T),
+\end{align*}
+wobei $\nu = \frac{\mu}{\rho}$ die \emph{kinematische Viskosität} genannt wird.
+
+Die Linearisierung ist die Stokes-Gleichung:
+\begin{align*}
+  \partial_t u - \nu \Delta u + \nabla \pi &= f & t \in (0,T), x \in \Omega \\
+  \div(u) &= 0 &t \in (0,T), x \in \Omega \\
+  u(0) &= a & x \in \Omega) \\
+  u|_{\partial\Omega} &= 0 & t \in (0,T).
+\end{align*}
+
+In dieser Vorlesung werden wir das Anfagswertproblem, d.h. $f = 0$, dieser Systeme betrachten. 
+Außerdem setzen wir im Folgenden $\nu = 1$.
+
+\section{Existenz von Lösungen -- skizzenhafte Darstellung}
+
+\subsubsection*{1. Schritt}
+
+Konstruiere Operator $A$ mit Definitionsbereich $\DD(A)$ auf geeignetem Banachraum $X$, sodass $u \in \DD(A)$ gilt, genau dann, wenn $\div(u) = 0$, $u|_{\partial \Omega}$ gelten und ein $\pi$ existiert mit $Au = -\Delta u + \nabla \pi$.
+
+Die Stokes-Gleichungen können damit als gewöhnliche DGL auf $X$ interpretiert werden:
+\begin{align*}
+  u'(t) &= Au(t) \quad 0 < t < T\\
+  u(0) &= a.
+\end{align*}
+
+Entwickle nun einen Formalismus, um diese gewöhnliche DGL zu lösen. Dazu gebe dem Ausdruck ``$\, \e^{tA} a \, $'' einen Sinn.
+
+\subsubsection*{2.Schritt}
+
+Als Nächstes würde man gerne die Navier-Stokes-Gleichungen als Integralgleichung schreiben, d.h.
+$$
+ u(t) = \e^{-tA} a - \int_0^t \e^{-(t - s)A} (u(s) \cdot \nabla) u(s) \d x.
+$$
+
+\textbf{ACHTUNG}: $(u(s) \cdot \nabla) u(s)$ muss nicht in $X$ liegen. Darum: Konstruiere Projektion $\PP$ mit Bild $X$, sodass das Bild $I - \PP$ Gradientenfelder sind. Dies führt zur Helmholtz-Projektion.
+
+\subsubsection*{3. Schritt}
+
+Löse die auf $X$ projizierten Navier-Stokes-Gleichungen
+\begin{align*}
+  u'(t) + Au(t) &= -\PP(u(t) \cdot \nabla) u(t) \quad t \in (0,T) \\
+  u(0) &= a,
+\end{align*}
+indem man die Integralgleichung
+\begin{equation}
+  u(t) = \e^{-tA} a - \int_0^t \e^{-(t - s)A} \PP(u(s) \cdot \nabla)u(s) \d s \tag{$\ast$}
+\end{equation}
+löst.
+Lösungen dieses Typs bezeichnet man auch als \emph{milde Lösung}.
+Gehe hierzu iterativ vor: Starte mit linearem Problem
+$$
+u_0(t) \coloneqq \e^{-tA} a.
+$$
+Löse danach (formal) die Gleichung
+\begin{align*}
+  u'_{j + 1}(t) + A u_{j + 1} &= \PP(u_j(t) \cdot \nabla) u_j(t) \quad t \in (0,T) \\
+  u_{j + 1}(0) &= a,
+\end{align*}
+indem $u_{j + 1}$ definiert wird durch:
+$$
+u_{j + 1}(t) \coloneqq u_0(t) - \int_0^t \e^{-(t - s)A} \PP(u_j(s) \cdot \nabla) u_j(s) \d s.
+$$
+
+Falls $(u_j)_{j \in \N}$ (im geeigneten Sinne) konvergiert, so löst die Grenzfunktion $u$ die Gleichung ($\ast$)
+
+Um Konvergenz zu zeigen, weden benötigt:
+\begin{itemize}
+  \item Abbildungseigenschaften der Halbgruppe $\e^{tA}$;
+  \item ``Kleinheit'' entweder von $a$ oder $T$.
+\end{itemize}
+
+Im 1. Fall ist $u_0$ sehr klein.
+Da der Integralterm quadratisch in $u_0$ ist folgt, das der Integralterm sogar sehr, sehr klein ist. 
+Damit ist der Abstand zwischen $u_0$ und $u_1$ auch sehr, sehr klein und $u_1$ sehr klein. Dies geht für $u_2$ genauso weiter, bis zur Konvergenz.
+
+Im 2. Fall ist $u_0$ ``fast'' konstant in $t$ fall $T$ klein ist. 
+Damit ist der Integrand ``fast'' konstant und folglich der Integralterm sehr, sehr klein, fals $T$ sehr, sehr klein ist.
+Entsprechend ist der Abstand zwischen $u_0$ und $u_1$ sehr, sehr klein und $u_1$ ``fast'' konstant.
+Dies geht für $u_2$ genau so weiter, bis zur Konvergenz.

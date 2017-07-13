@@ -10,7 +10,7 @@
   $$
   \| \,\cdot\, \|_{X^{\frac{1}{p}}} \coloneqq 
   \begin{cases} 
-    \| \nabla^k \cdot \|_{\Ell^\infty}, \quad &\alpha = 0, \\ [ \nabla^k \, \cdot \, ]_\alpha, \quad &\alpha = 0,
+    \| \nabla^k \cdot \|_{\Ell^\infty}, \quad &\alpha = 0, \\ [ \nabla^k \, \cdot \, ]_\alpha, \quad &\alpha \neq 0,
   \end{cases}
   $$
   wobei $[\,\cdot\,]_\alpha$ die Hölder-Halbnorm zum Exponenten $\alpha$ bezeichne.
@@ -50,6 +50,37 @@ Für den Beweis benötigen wir einige Vorbetrachtungen.
   \frac{\left| u(x) - u(y) \right|}{|x - y|^{1 - \frac{d}{r}}} < C \, \|\nabla u\|_{\Ell^r}.
   $$
 \end{lem}
+
+\begin{proof}
+  Sei $\delta \coloneqq | x - y|$ und $\BB \coloneqq \BB(x,\delta) \cap \BB(y,\delta)$.
+  Dann gilt
+  $$
+  |u(x) - u(y)| \cdot |\BB|
+  \leq \int_{\BB} |u(x) - u(z)| \d z + \int_{\BB} |u(z) - u(y)| \d z.
+  $$
+  Anwendung des Hauptsatzes liefert für das erste Integral
+  \begin{align*}
+    \int_\BB |u(x) - u(z)| \d z 
+    &\leq \int_{\BB(x,\delta)} \int_0^{|x - z|} | \frac{\d{}}{\d t} [u(x + t \frac{z - x}{|z - x|})] \d t \d z \\
+    &= \int_{\BB(0,\delta)} \int_0^{|z'|} \Big| \frac{\d{}}{\d t} \big[\, u(x + t \frac{z'}{|z'|} ) \, \big] \Big| \d t \d z' \\
+    &= \int_{\partial\BB(0,1)} \int_0^\delta \Big( \int_0^\rho \Big| \frac{\d{}}{\d t} u(x + t \omega) \Big| \d t \Big) \; \rho^{d - 1} \d \rho \d \sigma(\omega)  \\
+    &= \int_{\partial\BB(0,1)} \int_0^\delta \Big( \int_t^\delta \rho^{d - 1} \d \rho \; \Big) \Big| \frac{\d{}}{\d t} \big[ u(x + t \omega) \big] \Big| \d t \d \sigma(\omega) \\
+    &\leq \frac{\delta^d}{d} \int_{\BB(0,\delta)} |z'|^{1 - d} |\nabla u(x + z')| \d z' \\
+    &\leq \frac{\delta^d}{d} \Big( \int_{\BB(0,\delta)} |z'|^{\frac{r(1 - d)}{r - 1}} \d z' \Big)^{\frac{r - 1}{r}} \, \|\nabla u\|_{\Ell^r(\BB(x,\delta))} \\
+    &= \sigma(\BB(0,1))^{\frac{r - 1}{r}} \frac{\delta^{d + 1 - \frac{d}{r}}}{d(d + \frac{r(1 - d)}{r - 1} )^{\frac{r - 1}{r}}} \, \| \nabla u\|_{\Ell^r(\BB(x,\delta))}
+  \end{align*}
+  Aus Symmetriegründen folgt
+  $$
+  \int_{\BB} |u(z) - u(y)| \d z
+  \leq C \delta^{d + 1 - \frac{d}{r}} \|\nabla u\|_{\Ell^r(\BB(y,\delta))}.
+  $$
+  Weiterhin folgt aus $\BB(\frac{1}{2}(x + y), \frac{\delta}{2}) \subset \BB$, dass $|\BB| \geq |\BB(0,1)| 2^{-d} \delta^d$.
+  Hieraus ergibt sich 
+  $$
+  |u(x) - u(y)| \delta^d \leq C \delta^{d + 1 - \frac{d}{r}} \| \nabla u\|_{\Ell^r(\R^d)},
+  $$
+  wobei $C = C(d,r)$.
+\end{proof}
 
 Das folgende Lemma reduziert den Beweis von Haupsatz \ref{hsatz:gagliardoNirenberg} auf wenige Spezialfälle.
 
