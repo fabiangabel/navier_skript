@@ -1,11 +1,11 @@
 \setcounter{chapter}{-1}
 \chapter{Motivation}
 
-Die Navier-Stokes-Gleichungen sind Modell für Beschreibung kompressibler, viskoser und Newton'scher Fluide (Flüssigkeiten/Gase).
-Viskos heißt \emph{zähe} Flüssigkeit durch innere Reibungseffekte.
-Newton'sch ist z.B. Luft oder Wasser, aber nicht z.B. Blut, Ketchup, Speisestärke in Wasser.
+Die Navier-Stokes-Gleichungen sind ein Modell zur Beschreibung kompressibler, viskoser und Newton'scher Fluide (Flüssigkeiten/Gase).
+Viskos heißt, dass die Flüssigkeit aufgrund innerer Reibungseffekte \emph{zähe} ist.
+Newton'sch ist z.B. Luft oder Wasser, aber nicht z.B. Blut, Ketchup oder Speisestärke in Wasser.
 
-Die Navier-Stokes-Gleichungen sind ein Szstem nicht-lineare pDGLen und sind gegeben durch:
+Die Navier-Stokes-Gleichungen sind ein System nicht-lineare pDGLen und sind gegeben durch:
 \begin{align*}
   \rho(\partial_t u + (u \cdot \nabla)u) - \mu \Delta u - (\lambda + \mu) \nabla \div(u) + \nabla \pi &= f \quad t \in (0,T), x \in \Omega \\
   \partial_t \rho + \div(u\rho) &= 0 \quad t \in (0,t), x \in \Omega.
@@ -13,12 +13,12 @@ Die Navier-Stokes-Gleichungen sind ein Szstem nicht-lineare pDGLen und sind gege
 
 Hierbei sind
 \begin{itemize}
-  \item $u \colon [0,T) \times \Omega \to \R^3$ Geschwindigkeit
-  \item $\pi \colon [0,T) \times \Omega \to \R$ Druck
-  \item $\rho \colon [0,T) \times \Omega \to \R$ Dichte
-  \item $f \colon [0,T) \times \Omega \to \R^3$ (bekannte) Volumenkraftdichte
-  \item $\mu > 0$ dynamische Viskosität
-  \item $\lambda$ Volumenviskosität, $2\mu + 3\lambda > 0$.
+  \item $u \colon [0,T) \times \Omega \to \R^3$, Geschwindigkeit
+  \item $\pi \colon [0,T) \times \Omega \to \R$, Druck
+  \item $\rho \colon [0,T) \times \Omega \to \R$, Dichte
+  \item $f \colon [0,T) \times \Omega \to \R^3$, (bekannte) Volumenkraftdichte
+  \item $\mu > 0$, dynamische Viskosität
+  \item $\lambda$, Volumenviskosität, wobei $2\mu + 3\lambda > 0$.
 \end{itemize}
 
 Das System wird durch Anfangs- und Randbedingungen komplementiert:
@@ -26,17 +26,17 @@ Das System wird durch Anfangs- und Randbedingungen komplementiert:
   u(0) &= a \quad x \in \Omega \\
   u|_{\partial\Omega} &= 0 \quad t \in (0,T)
 \end{align*}
-Die Bedingung $u|_{\partial\Omega} = 0$ heißt no-slip Randbedingung oder auch Dirichlet-Randbedingung.
+Die Bedingung $u|_{\partial\Omega} = 0$ heißt \emph{no-slip} Randbedingung oder auch \emph{Dirichlet}-Randbedingung.
 
 Wir stellen uns ein Testvolumen $V$ vor, welches sich mit der Strömung mitbewegt, wobei $V(t) = \phi(t, V(0))$ gelten soll. Hierbei ist $\phi(t,x)$ die Position des Fluidteilchens zum Zeitpunkt $t$, welches zum Zeitpunkt $0$ bei $x$ war.
-Die Abbildung $t \mapsto \phi(t,x)$ heißt \emph{Bahnkurve} von $x$, also gilt $\frac{\d\ }{\d t} \phi(t,x) = u(t, \phi(t,x))$ (\emph{Lagrange Koordinaten})
+Die Abbildung $t \mapsto \phi(t,x)$ heißt \emph{Bahnkurve} von $x$, also gilt $\frac{\d{}}{\d t} \phi(t,x) = u(t, \phi(t,x))$ (\emph{Lagrange Koordinaten})
 
 Wir rechnen
 \begin{align*}
   \partial_t \det J_\phi
   &= \partial_t \det (\nabla \phi_1, \nabla \phi_2, \nabla \phi_3) \\
   &= \det (\nabla \partial_t \phi_1, \nabla \phi_2, \nabla \phi_3) + \cdots  +  \det(\nabla\phi_1, \nabla\phi_2, \nabla\partial_t \phi_3) \\
-  &= \det( \sum_{i = 1}^3 \partial_i u_1 \nabla \phi_i, \partial\phi_2, \nabla \phi_3) + \cdots + \det(\nabla\phi_1, \nabla\phi_2, \sum_{i = 1}^3 \partial_i u_3  \nabla \phi_i) \\
+  &= \det( \sum_{i = 1}^3 \partial_i u_1 \nabla \phi_i, \nabla\phi_2, \nabla \phi_3) + \cdots + \det(\nabla\phi_1, \nabla\phi_2, \sum_{i = 1}^3 \partial_i u_3  \nabla \phi_i) \\
   &= \div(u)(t,\phi(t,x)) \cdot \det J_\phi.
 \end{align*}
 Da $\det J_\phi(0,x) = 1$, folgt 
