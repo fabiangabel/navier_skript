@@ -148,26 +148,26 @@ Im Folgenden bezeichnet $X$ immer einen Banachraum über $\C$.
       da $|\e^z| \leq \e^{|z|}$.
       Folglich ist $\e^{-z A} \in \Li(X)$ und $(\e^{-zA})_{z \in \Sec_\phi}$ ist gleichmäßig beschränkt.
 
-    \item Wie in Beobachtung \ref{obs:integrablePath} zeigt man erst, dass $\lambda \mapsto \lambda \e^{-z\lambda}(\lambda - A)^{-1}$ absolut integrierbar auf $\gamma_{\theta,R}$ für $\theta \in (\omega, \frac{\pi}{2} - \phi)$ ist.
-      Außerdem ist für $z \in \Sec_\phi$ und $h \in \C\setminus\{0\}$ mit $z + h \in \Sec_\phi$, wobei $\phi$ wie in (i) gewählt sei, 
+    \item Wie in Beobachtung \ref{obs:integrablePath} zeigt man erst, dass $\lambda \mapsto \lambda \e^{-z\lambda}(\lambda - A)^{-1}$ absolut integrierbar auf $\gamma_{\theta,R}$ für $\theta \in (\omega, \frac{\pi}{2} - \phi)$ ist, wobei $\phi$ wie in (i) gewählt sei.
+      Außerdem ist für $z \in \Sec_\phi$ und $h \in \C\setminus\{0\}$ mit $z + h \in \Sec_\phi$ 
       $$
       \left[ \frac{1}{h} \left( \e^{-(z + h)\lambda} - \e^{-z\lambda} \right) - (- \lambda \e^{-z\lambda}) \right] (\lambda - A)^{-1}
       = \left[ \frac{1}{h\lambda} \left( \e^{-h\lambda} - 1\right) + 1\right] \lambda \e^{-z\lambda}  (\lambda - A)^{-1}
       $$
       auf jedem kompakten Teilweg von $\gamma_{\theta,R}$ gleichmäßig konvergent (mit Grenzwert 0), da $\e^{-z\lambda}$ holomorph und damit insbesondere stetig komplex differenzierbar ist.
-      Weiter gilt
+      Weiter gilt für $|h| < c$
       \begin{align*}
         \Big| \frac{1}{h\lambda} (\e^{-h\lambda} - 1) + 1 \Big|
         &= \Big| \frac{1}{h\lambda} \big(\sum_{k = 1}^\infty \frac{(-h\lambda)^{n}}{n!} + h\lambda \big) \Big| \\
         &= \Big| \sum_{k = 2}^\infty \frac{(-h \lambda)^{n - 1}}{n!} \Big|
         \leq \sum_{n = 2}^\infty \frac{(|h| \, |\lambda|)^{n - 1}}{n!} \\
         &\leq \sum_{n = 2}^\infty \frac{(c |z| \, |\lambda|)^{n - 1}}{n!}
-        = \frac{1}{c|z|\, |\lambda|} (\e^{c|z|\,|\lambda|} - 1) - 1,
+        = \frac{1}{c|z|\, |\lambda|} (\e^{c\,|z|\,|\lambda|} - 1) - 1,
       \end{align*}
       woraus wiederum
       \begin{align*}
-        \left( \frac{1}{c |z|\, |\lambda|} (\e^{c |z| |\lambda|} - 1) - 1 \right) & | \lambda \e^{-z\lambda} | \| (\lambda - A)^{-1} \| \\
-        &\quad\overset{(i)}{\leq} \left( \frac{1}{c |z|\, |\lambda|} (\e^{c |z| |\lambda|} - 1) - 1 \right) | \lambda| \e^{-|z|\cos(\phi + \theta) |\lambda|} \frac{C}{|\lambda|}
+        \left( \frac{1}{c\, |z|\, |\lambda|} (\e^{c\, |z| |\lambda|} - 1) + 1 \right) & | \lambda \e^{-z\lambda} | \| (\lambda - A)^{-1} \| \\
+        &\quad\overset{\mathrm{(i)}}{\leq} \left( \frac{1}{c\, |z|\, |\lambda|} (\e^{c\, |z| |\lambda|} - 1) - 1 \right) | \lambda| \e^{-|z|\cos(\phi + \theta) |\lambda|} \frac{C}{|\lambda|}
       \end{align*}
       folgt.
       Wähle nun $c < \cos(\phi + \theta)$.
@@ -188,8 +188,8 @@ Im Folgenden bezeichnet $X$ immer einen Banachraum über $\C$.
         &= \frac{1}{(2\pi \ii)^2} \int_{\gamma_{R_z, \theta_z}} \int_{\gamma_{R_w, \theta_w}}  \frac{\e^{-z\lambda} \e^{-w \mu}}{\mu - \lambda} \langle (\lambda - A)^{-1} x, x' \rangle \d \mu \d \lambda\\
         &\quad - \frac{1}{(2\pi \ii)^2} \int_{\gamma_{R_z, \theta_z}} \int_{\gamma_{R_w, \theta_w}}  \frac{\e^{-z\lambda} \e^{-w \mu}}{\mu - \lambda} \langle (\mu - A)^{-1} x, x' \rangle \d \mu \d \lambda\\
         &= - \frac{1}{(2\pi \ii)^2} \int_{\gamma_{R_z, \theta_z}} \int_{\gamma_{R_w, \theta_w}}  \frac{\e^{-z\lambda} \e^{-w \mu}}{\mu - \lambda} \langle (\mu - A)^{-1} x, x' \rangle \d \mu \d \lambda\\
-        &= - \frac{1}{(2\pi \ii)^2} \int_{\gamma_{R_w, \theta_w}} \int_{\gamma_{R_z, \theta_z}}  \frac{\e^{-z\lambda} \e^{-w \mu}}{\mu - \lambda} \langle (\mu - A)^{-1} x, x' \rangle \d \mu \d \lambda\\
-        &= - \frac{1}{(2\pi \ii)^2} \int_{\gamma_{R_w, \theta_w}} \int_{\gamma_{R_z, \theta_z}}  \frac{\e^{-(z+ w)\lambda}}{\mu - \lambda} \langle (\mu - A)^{-1} x, x' \rangle \d \mu \d \lambda\\
+        &= - \frac{1}{(2\pi \ii)^2} \int_{\gamma_{R_w, \theta_w}} \int_{\gamma_{R_z, \theta_z}}  \frac{\e^{-z\lambda} \e^{-w \mu}}{\mu - \lambda} \langle (\mu - A)^{-1} x, x' \rangle \d \lambda \d \mu \\
+        &= - \frac{1}{(2\pi \ii)^2} \int_{\gamma_{R_w, \theta_w}} \int_{\gamma_{R_z, \theta_z}}  \frac{\e^{-(z+ w)\lambda}}{\mu - \lambda} \langle (\mu - A)^{-1} x, x' \rangle \d \lambda \d \mu\\
         &= \langle \e^{-(z + w)A} x, x' \rangle.
       \end{align*}
       Hahn-Banach liefert sodann $\e^{-zA}\e^{-wA} x = \e^{-(z + w)A}x$ für alle $x \in X$. 
@@ -205,10 +205,28 @@ Im Folgenden bezeichnet $X$ immer einen Banachraum über $\C$.
       Für $x \in \DD(A)$ folgt damit
      \begin{align*}
        \e^{-zA} x - x 
-       &= \frac{1}{2\pi \ii} \int_{\gamma_{1,\theta}} \e^{-z\lambda} \Big( (\lambda - A)^{-1} x - \frac{x}{\lambda} \Big) \d \lambda \\
+       &= \frac{1}{2\pi \ii} \int_{\gamma_{1,\theta}} \e^{-z\lambda} \Big( (\lambda - A)^{-1} x - \frac{x}{\lambda} \Big) \d \lambda\\
+       \intertext{und, da $(\lambda - A)^{-1} x - \lambda^{-1} x = \lambda^{-1}(\lambda(\lambda - A)^{-1}x - x) = \lambda^{-1} A (\lambda - A){-1}$, folgt weiter}
        &= \frac{1}{2\pi \ii} \int_{\gamma_{1,\theta}} \frac{\e^{-z\lambda}}{\lambda}  \lambda (\lambda - A)^{-1} A x \d \lambda \\
        &\to \frac{1}{2\pi \ii} \int_{\gamma_{1,\theta}} \frac{1}{\lambda} (\lambda - A)^{-1} A x \d \lambda, \quad \text{für } z \to 0.
      \end{align*}
+     Zudem gilt die folgende Majorisierung
+     $$
+     \| \frac{1}{\lambda} (\lambda - A)^{-1} A x \| \leq \frac{C}{|\lambda|^2} \|A x \|,
+     $$
+     woraus 
+     $$
+     \frac{1}{2\pi \ii} \int_{\gamma_{1,\theta}} \frac{1}{\lambda} (\lambda - A)^{-1} A x \d \lambda = \lim_{R \to \infty} \frac{1}{2\pi \ii} \int_{\gamma_{1,\theta}^R} \frac{1}{\lambda} (\lambda - A)^{-1} A x \d \lambda.
+     $$
+     Mit dem Cauchyschen Integralsatz (teste wieder mit $x' \in X'$) folgt
+     $$
+     \frac{1}{2\pi \ii} \int_{\gamma_{1,\theta}^R} \frac{1}{\lambda} (\lambda - A)^{-1} A x \d\lambda = 0 \quad\text{für alle }R > 1.
+     $$
+
+     Aus (i) und der Vorausgesetzten Dichtheit von $\DD(A)$ ergibt sich schließlich
+     \[
+     \lim_{\substack{z \to 0\\ z \in \Sec_\phi}} \|\e^{-zA} x - x \| = 0 \quad\text{für alle } x \in X. \qedhere
+     \]
   \end{enumerate}
 \end{proof}
 
@@ -221,6 +239,33 @@ Im Folgenden bezeichnet $X$ immer einen Banachraum über $\C$.
     Dann ist $\operatorname{Rg}(\e^{-zA}) \subset \DD(A)$ (Glättungseigenschaft) und falls $x \in \DD(A)$ gilt $A \e^{-zA} x = \e^{-z A} A x$.
     Weiterhin existiert $C > 0$, sodass $\sup_{t > 0} \|t A \e^{-t A} \|_{\Li(X)} \leq C$.
 \end{thm}
+
+\begin{proof}
+  Sei $R > 0$ und $\theta \in (w, \frac{\pi}{2} - |\arg(z)|)$.
+  Dann sind
+  $$
+  \lambda \mapsto \e^{-z\lambda}(\lambda - A)^{-1} \quad\text{und}\quad \lambda \mapsto \e^{-z\lambda} A(\lambda - A)^{-1} = \e^{-z\lambda} (\lambda - A)^{-1} - \e^{-z\lambda} \d \lambda
+  $$
+  auf $\gamma_{R,\theta}$ integrierbar.
+  Proposition \ref{prop:opInIntegral} liefert $\Rg(\e^{-zA}) \subset \DD(A)$ und 
+  $$
+  A \e^{-zA} = \frac{1}{2\pi \ii} \int_{\gamma_{R,\theta}} \e^{-z\lambda} A(\lambda - A)^{-1} \d \lambda.
+  $$
+  Ist $x \in \DD(A)$ gilt folglich $A \e^{-zA} x = \e^{-z A} A x$.
+  Für die zweite Aussage sei $t > 0,  R = \frac{1}{t}$ und $\theta \in (w, \frac{\pi}{2})$.
+  Dann gilt
+  \begin{align*}
+    A \e^{-tA}
+    &= \frac{1}{2 \pi \ii} \int_{\gamma_{t^{-1},\theta}} (\e^{-t\lambda}\lambda (\lambda - A)^{-1} - \e^{-z\lambda}) \d \lambda \\
+    &= \frac{1}{2 \pi \ii} \int_{\gamma_{t^{-1},\theta}} (\e^{-t\lambda} \lambda (\lambda - A)^{-1} - \e{-z\lambda}) \d \lambda.
+  \end{align*}
+  Sektorialität liefert
+  \begin{align*}
+    \| A \e^{-t A} \|_{\Li(X)}
+    &\leq C \Big( \int_{t^{-1}}^\infty \e^{-tr \cos \theta} \d x + \int_\theta^{2\pi - \theta} t^{-1} \e^{-t t^{-1} \cos \varphi} \d \varphi\Big) \\
+    &\leq C \Big( \int_1^\infty t^{-1} \e^{-s\cos \theta} \d s + \int_\theta^{2\pi - \theta} t^{-1} \e{-\cos \varphi} \d \varphi \Big). \qedhere
+  \end{align*}
+\end{proof}
 
 \section{Gebrochene Potenzen}
 
