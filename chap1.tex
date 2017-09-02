@@ -289,8 +289,8 @@ In diesem Abschnitt definieren und untersuchen wir gebrochene Potenzen $A^\alpha
   Seien $a > 0$ und $\theta \in (0,\pi)$.
   Dann definieren wir $\Gamma_{a,\theta} \coloneqq \Gamma_1 - \Gamma_2$, wobei
   $$
-    \Gamma_1 \colon [0,\infty) \to \C, t \mapsto a + t\e^{i\theta} \quad\text{und} \quad
-    \Gamma_2 \colon [0,\infty) \to \C, t \mapsto a + t\e^{-i\theta}.
+    \Gamma_1 \colon [0,\infty) \to \C, t \mapsto a + t\e^{\ii\theta} \quad\text{und} \quad
+    \Gamma_2 \colon [0,\infty) \to \C, t \mapsto a + t\e^{-\ii\theta}.
   $$
 \end{ntion}
 
@@ -299,14 +299,14 @@ In diesem Abschnitt definieren und untersuchen wir gebrochene Potenzen $A^\alpha
   Sei $\theta \in (\omega,\pi)$ und $0 < a < R$, mit $R > 0$ aus Proposition \ref{prop:resolventEstImproved}.
   Definiere für $\alpha > 0$
   $$
-  A^{-\alpha} \coloneqq \frac{1}{2\pi i} \int_{\Gamma_{a,\theta}} \lambda^{-\alpha} (\lambda - A)^{-1} \d \lambda.
+  A^{-\alpha} \coloneqq \frac{1}{2\pi \ii} \int_{\Gamma_{a,\theta}} \lambda^{-\alpha} (\lambda - A)^{-1} \d \lambda.
   $$
 \end{defn}
 
 \begin{prop}
   \label{prop:natPow}
   Sei $A$ sektoriell von Winkel $\omega \in (0,\pi)$ und $0 \in \rho(A)$.
-  Dann ist für $\alpha > 0$ die Definition vo $A^{-\alpha}$ unabhängig von $a$ und $A^{-\alpha} \in \Li(X)$ und falls $\alpha \in \N$, so stimmt $A^{-\alpha}$ mit der $\alpha$-ten Potenz von $A^{-1}$ überein.
+  Dann ist für $\alpha > 0$ die Definition von $A^{-\alpha}$ unabhängig von $a$ und $A^{-\alpha} \in \Li(X)$ und falls $\alpha \in \N$, so stimmt $A^{-\alpha}$ mit der $\alpha$-ten Potenz von $A^{-1}$ überein.
 \end{prop}
 
 \begin{proof}
@@ -338,7 +338,7 @@ In diesem Abschnitt definieren und untersuchen wir gebrochene Potenzen $A^\alpha
     &\quad\quad\quad\quad\quad\quad\quad\quad - \int_0^\infty \e^{-i\theta} |t|^{n - \alpha} \e^{-i(n - \alpha)\theta} (t \e^{-i\theta} - A)^{-(n + 1)} \d t\Bigg],\\
     \intertext{folgt und mit nochmaliger Anwendung des Satzes von der majorisierten Konvergenz schließlich}
     &\overset{\theta \to \pi}{\longrightarrow} \frac{1}{2\pi i} \frac{n!}{\prod_{i = 1}^n (i - \alpha)}
-    \left[ \e^{-i (n - \alpha) \pi} - \e^{i (n - \alpha)\pi} \right] \int_0^\infty t^{n -\alpha} (-t - A)^{n + 1} \d t.
+    \left[ \e^{-i (n - \alpha) \pi} - \e^{i (n - \alpha)\pi} \right] \int_0^\infty t^{n -\alpha} (-t - A)^{n + 1} \d t.\qedhere
   \end{align*}
 \end{proof}
 
@@ -348,7 +348,7 @@ In diesem Abschnitt definieren und untersuchen wir gebrochene Potenzen $A^\alpha
   Dann erfüllen die Operatoren $(A^{-\alpha})_{\alpha \geq 0}$, wobei $A^{-0} \coloneqq I$, das Halbgruppengesetz $A^{-\alpha - \beta} = A^{-\alpha} A^{-\beta}$, $\alpha,\beta \geq 0$.
   Ist $A$ dicht definiert, so ist die Abbildung
   $$
-  [0,\pi) \ni \alpha \to A^{-\alpha}
+  [0,\infty) \ni \alpha \to A^{-\alpha}
   $$
   stark stetig.
 \end{thm}
