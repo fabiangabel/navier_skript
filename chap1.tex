@@ -57,7 +57,7 @@ Im Folgenden bezeichnet $X$ immer einen Banachraum über $\C$.
   Wegen Symmetrie und Holomorphie der Resolvente auf $\C \setminus \overline{\Sec_\omega}$ genügt es Integrierbarkeit auf $\gamma_1$ nachzuweisen.
   Aus der Sektorialität von $A$ folgt zunächst
   $$
-    \int_{R}^\infty \| \e^{i\theta} \e^{-zt \e^{i\theta}} ( t\e^{i\theta} - A )^{-1} \|_{\Li(X)} \d t
+    \int_{R}^\infty \| \e^{\ii\theta} \e^{-zt \e^{\ii\theta}} ( t\e^{\ii\theta} - A )^{-1} \|_{\Li(X)} \d t
     \leq C_\theta \int_R^\infty \e^{-t \operatorname{Re}(z \e^{i \theta})} t^{-1} \d t.
   $$
   Dieses Integral ist endlich, da
@@ -72,7 +72,7 @@ Im Folgenden bezeichnet $X$ immer einen Banachraum über $\C$.
     Wähle $R > 0$ und $\theta \in (\omega, \frac{\pi}{2} - |\arg(z)|)$.
     Definiere
     $$
-    \e^{-zA} \coloneqq \frac{1}{2\pi i} \int_{\gamma_{R, \theta}} \e^{-z\lambda } (\lambda - A)^{-1} \d \lambda
+    \e^{-zA} \coloneqq \frac{1}{2\pi \ii} \int_{\gamma_{R, \theta}} \e^{-z\lambda } (\lambda - A)^{-1} \d \lambda
     $$
     und $\e^{-0A} \coloneqq I$.
     Die Familie $(\e^{-zA})_{z \in \Sec_{\frac{\pi}{2} - \omega \cup \{0\}}}$  wird \emph{beschränkte analytische Halbgruppe genannt} und falls $A$ dicht definiert ist, wird $-A$ Erzeuger/Generator von $(\e^{-zA})_{z \in \Sec_{\frac{\pi}{2} - \omega \cup \{0\}}}$ genannt.
@@ -174,7 +174,7 @@ Im Folgenden bezeichnet $X$ immer einen Banachraum über $\C$.
       Daraus folgt die uniforme Integrierbarkeit für $|h|$ klein, was wiederum
       $$
       \frac{1}{h} \left(\e^{-(z + h)A} - \e^{-zA} \right) \to 
-      \frac{1}{2\pi i} \int_{\gamma_{R, \theta}} \lambda \e^{-z\lambda}(\lambda - A)^{-1} \d \lambda, \quad\text{für } h \to 0
+      \frac{1}{2\pi \ii} \int_{\gamma_{R, \theta}} \lambda \e^{-z\lambda}(\lambda - A)^{-1} \d \lambda, \quad\text{für } h \to 0
       $$
       impliziert.
 
@@ -327,19 +327,20 @@ In diesem Abschnitt definieren und untersuchen wir gebrochene Potenzen $A^\alpha
   $n$-fache partielle Integration liefert
   \begin{align*}
     A^{-\alpha}
-    &= \frac{1}{2\pi i} \int_{\Gamma_{a, \theta}} \lambda^{-\alpha} (\lambda - A)^{-1} \d \lambda \\
-    &= \frac{1}{2\pi i} \frac{n!}{\prod_{i = 1}^n (i - \alpha)} \int_{\Gamma_{a , \theta}} \lambda^{n - \alpha} (\lambda - A)^{-(n+1)} \d \lambda \\
+    &= \frac{1}{2\pi \ii} \int_{\Gamma_{a, \theta}} \lambda^{-\alpha} (\lambda - A)^{-1} \d \lambda \\
+    &= \frac{1}{2\pi \ii} \frac{n!}{\prod_{i = 1}^n (i - \alpha)} \int_{\Gamma_{a , \theta}} \lambda^{n - \alpha} (\lambda - A)^{-(n+1)} \d \lambda \\
     \intertext{und mit der Definition von $\Gamma_{a,\theta}$ gilt}
-    &= \frac{1}{2\pi i} \frac{n!}{\prod_{i = 1}^n ( i - \alpha )} \Bigg[ \int_0^\infty \e^{i\theta} (t \e^{i\theta} + a )^{n - \alpha} (t \e^{i\theta} + a - A)^{-(n+1)} \d t  \\
-    &\quad\quad\quad\quad\quad\quad\quad\quad- \int_0^\infty \e^{-i\theta} (t \e^{-i\theta} + a)^{n - \alpha} (t \e^{-i\theta} + a - A)^{-(n + 1)} \d t\Bigg], \\
+    &= \frac{1}{2\pi \ii} \frac{n!}{\prod_{i = 1}^n ( i - \alpha )} \Bigg[ \int_0^\infty \e^{\ii\theta} (t \e^{\ii\theta} + a )^{n - \alpha} (t \e^{\ii\theta} + a - A)^{-(n+1)} \d t  \\
+    &\quad\quad\quad\quad\quad\quad\quad\quad- \int_0^\infty \e^{-\ii\theta} (t \e^{-\ii\theta} + a)^{n - \alpha} (t \e^{-\ii\theta} + a - A)^{-(n + 1)} \d t\Bigg], \\
     \intertext{woraus mit majorisierter Konvergenz dann}
-    &\overset{a \to 0}{\longrightarrow} \frac{1}{2\pi i} \frac{n!}{\prod_{i = 1}^n ( i - \alpha )} 
-    \Bigg[ \int_0^\infty \e^{i\theta} |t|^{n - \alpha} \e^{i(n - \alpha)\theta} (t \e^{i\theta} - A)^{-(n+1)} \d t  \\
-    &\quad\quad\quad\quad\quad\quad\quad\quad - \int_0^\infty \e^{-i\theta} |t|^{n - \alpha} \e^{-i(n - \alpha)\theta} (t \e^{-i\theta} - A)^{-(n + 1)} \d t\Bigg],\\
+    &\overset{a \to 0}{\longrightarrow} \frac{1}{2\pi \ii} \frac{n!}{\prod_{i = 1}^n ( i - \alpha )} 
+    \Bigg[ \int_0^\infty \e^{\ii\theta} |t|^{n - \alpha} \e^{i(n - \alpha)\theta} (t \e^{\ii\theta} - A)^{-(n+1)} \d t  \\
+    &\quad\quad\quad\quad\quad\quad\quad\quad - \int_0^\infty \e^{-\ii\theta} |t|^{n - \alpha} \e^{-i(n - \alpha)\theta} (t \e^{-\ii\theta} - A)^{-(n + 1)} \d t\Bigg],\\
     \intertext{folgt und mit nochmaliger Anwendung des Satzes von der majorisierten Konvergenz schließlich}
-    &\overset{\theta \to \pi}{\longrightarrow} \frac{1}{2\pi i} \frac{n!}{\prod_{i = 1}^n (i - \alpha)}
-    \left[ \e^{-i (n - \alpha) \pi} - \e^{i (n - \alpha)\pi} \right] \int_0^\infty t^{n -\alpha} (-t - A)^{n + 1} \d t.\qedhere
+    &\overset{\theta \to \pi}{\longrightarrow} \frac{1}{2\pi \ii} \frac{n!}{\prod_{i = 1}^n (i - \alpha)}
+    \left[ \e^{-i (n - \alpha) \pi} - \e^{i (n - \alpha)\pi} \right] \int_0^\infty t^{n -\alpha} (-t - A)^{n + 1} \d t.
   \end{align*}
+  Hierbei wurde von der Tatsache gebrauch gemacht, dass sich $|t \e^{\pm \ii \theta} + a|$ bis auf Konstanten so verhält, wie $|t| + |a|$ (siehe Lemma \ref{lem:inverseTriangle}.
 \end{proof}
 
 \begin{thm}
@@ -395,7 +396,7 @@ In diesem Abschnitt definieren und untersuchen wir gebrochene Potenzen $A^\alpha
 
 \begin{proof}
   Der Beweis folgt aus Kombination von Satz \ref{thm:fracPowSemigroup} und Definition \ref{defn:posFracPow}.
-  Zum Beispiel git für $\alpha, \beta \geq 0$
+  Zum Beispiel gilt für $\alpha, \beta \geq 0$
   $$
   A^\alpha A^\beta x 
   = A^\alpha A^\beta (A^{-(\alpha + \beta)} A^{\alpha + \beta}) x
@@ -408,21 +409,52 @@ In diesem Abschnitt definieren und untersuchen wir gebrochene Potenzen $A^\alpha
   Sei $A$ sektoriell von Winkel $\omega \in (0,\pi)$ und $0 \in \rho(A)$.
   Für alle $\alpha < \beta < \gamma$ existiert $C = C(\alpha, \beta, \gamma)$, sodass
   $$
-  \| A^\alpha x\|_X \leq C \|A^\alpha x\|_X^{\frac{\gamma - \beta}{\gamma - \alpha}} \, \|A^\gamma x \|_X^{\frac{\beta - \alpha}{\gamma - \alpha}}, \quad\text{für alle }x \in \DD(A^\gamma).
+  \| A^\beta x\|_X^{\frac{}{}} \leq C \|A^\alpha x\|_X^{\frac{\gamma - \beta}{\gamma - \alpha}} \, \|A^\gamma x \|_X^{\frac{\beta - \alpha}{\gamma - \alpha}}, \quad\text{für alle }x \in \DD(A^\gamma).
   $$
 \end{thm}
 
 \begin{proof}
-Sei erst $\alpha_0 > \beta_0 > 0$ und $n \in \N$ mit $\alpha+0 \in (n, n + 1]$. 
+Sei erst $\alpha_0 > \beta_0 > 0$ und $n \in \N$ mit $\alpha_0 \in (n, n + 1]$. 
 Dann gilt insbesondere $\beta_0 \in (0,n+1)$.
 Angenommen es gelten die Ungleichungen
 \begin{align}
   \|s^{n - \beta_0} (s + A)^{-(n + 1)} x_0 \|_X &
   \leq C s^{\alpha_0 - \beta_0 - 1} \|A^{-\alpha_0} x\|_X \tag{1} \\
-  \|s^{n - \beta_0} (s+ A)^{-(n + 1)} x_0 \|_X \leq C s^{-\beta_0 - 1} \|x_0\|_X \tag{2}
+  \|s^{n - \beta_0} (s+ A)^{-(n + 1)} x_0 \|_X &
+  \leq C s^{-\beta_0 - 1} \|x_0\|_X \tag{2}
 \end{align}
 für alle $s < 0, x_0 \in X$. 
 Sei $\tau > 0$ beliebig. Dann folgt mit Satz \ref{thm:negFracPower} und Korollar \ref{kor:negFracPower}
 \begin{align*}
+  \|A^{-\beta_0} x_0 \|_X
+  &\leq C \, \Big\|\int_0^\infty s^{n - \beta_0} (s + A)^{-(n+1)} x_0 \d s \Big\|_X \\
+  &= C \, \Big\| \int_0^\tau s^{n - \beta_0} (s + A)^{-(n + 1)} x_0 \d s  + \int_\tau^\infty s^{n - \beta_0} (s + A)^{-(n + 1)} x_0 \d s\Big\|_X \\
+  &\overset{\text{(1),(2)}}{\leq} C \, \Big( \int_0^\tau s^{\alpha_0 - \beta_0 - 1} \| A^{-\alpha_0} x_0 \|_X \d s + \int_\tau^\infty s^{-\beta_0 - 1} \|x_0\|_X \d s \Big) \\
+  &= \frac{C}{\alpha_0 - \beta_0} \tau^{\alpha_0 - \beta_0} \|A^{-\alpha_0} x_0 \|_X + \frac{C}{\beta_0} \tau^{-\beta_0} \|x_0\|_X.
 \end{align*}
+  Nehme nun $\tau = \|A ^{-\alpha_0} x\|_X^{-\frac{1}{\alpha_0}} \|x_0\|_X^{\frac{1}{\alpha_0}}$. 
+  Dann folgt
+  $$
+  \|A^{-\beta_0} x_0\|_X \leq C \, \|A^{-\alpha_0} x_0\|^{\frac{\beta_0}{\alpha_0}} \|x_0\|_X^{1 - \frac{\beta_0}{\alpha_0}}.
+  $$
+  Wähle nun $x_0 = A^\gamma x$, $\alpha = \gamma - \alpha_0$, $\beta = \gamma - \beta_0$, dann folgt daraus die Ungleichung.
+
+  Beweise nun die Ungleichungen (1) und (2).
+  (2) Folgt aus $(n + 1)$-facher Anwendung der Sektorialitätsabschätzung.
+  Zu (1): Mit $(s + A)^{-(n + 1)} = A^{-n - 1 + \alpha_0} A (s + A)^{-1} A^n (s + A)^{-n} A^{-\alpha_0}$ gilt
+  \begin{align*}
+    \|s^{n - \beta_0} &(s + A)^{- (n + 1)} x_0 \|_X \\
+    &\leq s^{\alpha_0 - \beta_0 - 1} \|A^{-n - 1+ \alpha_0} s^{n + 1 - \alpha} A(s + A)^{-1}\|_{\Li(X)} \|A^n(s+A)^{-n}\|_{\Li(X)} \|A^{-\alpha_0} x_0 \|_X
+  \end{align*}
+  Falls $\alpha_0 = n + 1$ folgt daraus bereits die Behauptung.
+  Sei also im Folgenden $\alpha_0 \in (n, n + 1)$.
+  Mit Satz \ref{thm:negFracPower} ergibt sich
+  \begin{alignat*}{2}
+    A^{-(n + 1 - \alpha_0)} s^{n + 1 - \alpha_0} A (s + A)^{-1}
+    &= -\frac{1}{\pi} \sin(\alpha \pi) &&\int_0^\infty s^{n + 1 - \alpha_0} t^{-(n + 1 - \alpha_0)} A (s + A)^{-1} (t + A)^{-1} \d t \\
+    &= -\frac{1}{\pi} \sin(\alpha \pi) &&\int_0^\infty s^{n + 1 - \alpha_0} \lambda^{-(n + 1 - \alpha_0)} s A(s + A)^{-1} (s\lambda + A)^{-1} \d \lambda \\
+    &= -\frac{1}{\pi} \sin(\alpha \pi) \big[ &&\int_0^1 \lambda^{-(n + 1 - \alpha_0)} s (s + A)^{-1} A (s \lambda + A)^{-1} \d \lambda \\
+    &  &&+\int_1^\infty \lambda^{-(n + 2 - \alpha_0)} A (s + A)^{-1} s \lambda (s \lambda + A)^{-1} \d \lambda \Big].
+  \end{alignat*}
+  Mit der Sektorialität von $A$ ergibt sich Ungleichung (1).
 \end{proof}
