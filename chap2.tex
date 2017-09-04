@@ -4,7 +4,7 @@ In diesem Kapitel untersuchen wir Lösungen der (instationären) Stokes-Gleichun
 $$
 \begin{cases}
   \partial_t u - \Delta u + \nabla p &= 0, \quad x \in \Omega, t > 0 \\
-  \div u &= 0, x \in \Omega, t > 0 \\
+  \div u &= 0, \quad x \in \Omega, t > 0 \\
   u(0) &= a, \quad x \in \Omega \\
   u &= 0, \quad x \in \partial\Omega, t > 0,
 \end{cases}
@@ -16,27 +16,23 @@ wobei $a \in \Ell^2(\Omega, \C^d)$, $d \geq 2$ und \glqq$\div(a) = 0$\grqq gelte
 
 Sei $\Omega \subset \R^d$, $d \geq 2$ und $1 < p < \infty$.
 Definiere
-$$
-\CC_{0,\sigma}^\infty(\Omega) \coloneqq \{ \varphi \in \CC_c^\infty(\Omega, \C^d) \colon \div(\varphi) =0 \}.
-$$
-Weiterhin sei
-$$
-\Ell^p_\sigma(\Omega) \coloneqq \overline{\CC_{c,\sigma}^\infty(\Omega)}^{\Ell^p} \quad\text{mit} \|\cdot\|_{\Ell^p_\sigma} = \|\cdot\|_{\Ell^p}
-$$
-und
-$$
-\WW_{0,\sigma}^{1,p} \coloneqq \overline{\C_{c,\sigma}^\infty(\Omega)}^{\WW^{1,p}} \quad\text{mit} \|\cdot\|_{\WW_{0,\sigma}^{1,p}} \coloneqq \|\cdot\|_{\WW^{1,p}}.
-$$
+\begin{align*}
+  \CC_{0,\sigma}^\infty(\Omega) &\coloneqq \{ \varphi \in \CC_c^\infty(\Omega, \C^d) \colon \div(\varphi) =0 \}.
+  \intertext{ Weiterhin sei }
+  \Ell^p_\sigma(\Omega) &\coloneqq \overline{\CC_{c,\sigma}^\infty(\Omega)}^{\Ell^p} \quad\text{mit}\quad \|\cdot\|_{\Ell^p_\sigma} = \|\cdot\|_{\Ell_{}^p}
+  \intertext{ und }
+  \WW_{0,\sigma}^{1,p} &\coloneqq \overline{\C_{c,\sigma}^\infty(\Omega)}^{\WW^{1,p}} \quad\text{mit}\quad \|\cdot\|_{\WW_{0,\sigma}^{1,p}} \coloneqq \|\cdot\|_{\WW_{}^{1,p}}.
+\end{align*}
 Im Falle $p= 2$ schreibt man auch $\HH_{0,\sigma}^1(\Omega)$ für $\WW_{0,\sigma}^{1,2}(\Omega)$.
 Um den Stokes-Operator zu definieren, definiere folgende Sesquilinearform
 $$
-a \colon \HH_{0,\sigma}^1(\Omega) \times \HH_{0,\sigma}^1(\Omega) \to \C, \quad (u,v) \mapsto \int_\Omega \nabla u \cdot \overline{\nabla v} \d x = \sum_{i,j=1}^d \int_\Omega \partial_i u_j \partial_i \overline{v_j} \d x
+a \colon \HH_{0,\sigma}^1(\Omega) \times \HH_{0,\sigma}^1(\Omega) \to \C, \quad (u,v) \mapsto \int_\Omega \nabla u \cdot \overline{\nabla v} \d x = \sum_{i,j=1}^d \int_\Omega \partial_i u_j \, \partial_i \overline{v_j} \d x
 $$
 
 \begin{defn}
-  Der Stokes-Operator $A$ auf $\Ell_\sigma^2(\Omega)$ ist gegeben durch
+  Der \emph{Stokes-Operator} $A$ auf $\Ell_\sigma^2(\Omega)$ ist gegeben durch
   \begin{align*}
-  \DD(A) &\coloneqq \left\{ u \in \HH_{0,\sigma}^1(\Omega) \colon \exists! \colon f \in \Ell_\sigma^2(\Omega) \forall v \in \HH_{0,\sigma}^1(\Omega) \colon a(u,v) = \int_\Omega f \cdot \overline v \d x\right\}, \\
+  \DD(A) &\coloneqq \left\{ u \in \HH_{0,\sigma}^1(\Omega) \colon \exists!  f \in \Ell_\sigma^2(\Omega) \colon \forall v \in \HH_{0,\sigma}^1(\Omega) \colon a(u,v) = \int_\Omega f \cdot \overline v \d x\right\}, \\
   Au &\coloneqq f,
 \end{align*}
 wobei $f$ und $u$ durch $\DD(A)$ gegeben sind.
@@ -60,7 +56,7 @@ wobei $f$ und $u$ durch $\DD(A)$ gegeben sind.
   $$
   a(u,v) 
   = \lim_{n \to \infty} a(u_n,v)
-  = \lim_{n \to \infty} \int_\Omega f_n \overline{v} \d x
+  = \lim_{n \to \infty} \int_\Omega f_n \cdot \overline{v} \d x
   = \int_\Omega f \cdot \overline v \d x,
   $$
  für alle $v \in \HH_{0,\sigma}^1(\Omega)$.
@@ -69,19 +65,17 @@ wobei $f$ und $u$ durch $\DD(A)$ gegeben sind.
  $$
  a(u,v) = -\int_\Omega \Delta u \cdot \overline v \d x.
  $$
- Aus dem Satz von Schwartz folgt $\Delta u \in \CC_{c,\sigma}^\infty(\Omega)$ und damit $\CC_{c,\sigma}^\infty(\Omega) \subset \DD(A)$..
+ Aus dem Satz von Schwartz folgt $\Delta u \in \CC_{c,\sigma}^\infty(\Omega)$ und damit $\CC_{c,\sigma}^\infty(\Omega) \subset \DD(A)$.
 \end{proof}
 
 \begin{lem*}[Lax-Milgram]
-   Sei $H$ ein Hilbertraum über $C$ und $b \colon H \times H \to \C$ eine Sesquilinearform, die stetig und koerziv ist, d.h., es existieren $\alpha, C > 0$, sodass 
-   \begin{align*}
-     |b(u,v)| &\leq C \|u\|_H \|v\|_H, \quad \text{für alle }u,v \in H, \\
-     |b(u,v)| &\geq \alpha \|u\|_H^2, \quad\text{für alle } u \in H.
-   \end{align*}
-   Dann existiert für jedes $F \in H^*$ ein eindeutiges $u \in H$ mit 
-   $$
-   b(u,v) = F[v], \quad\text{für alle } v \in H.
-   $$
+   Sei $H$ ein Hilbertraum über $\C$ und $b \colon H \times H \to \C$ eine Sesquilinearform, die stetig und koerziv ist, d.h., es existieren $\alpha, C > 0$, sodass 
+   \begin{alignat*}{2}
+     |b(u,v)| &\leq C\, \|u\|_H \|v\|_H, \quad && \text{für alle }u,v \in H, \\
+     |b(u,v)| &\geq \alpha \, \|u\|_H^2, \quad&& \text{für alle } u \in H.
+     \intertext{Dann existiert für jedes $F \in H^*$ ein eindeutiges $u \in H$ mit }
+     b(u,v) &= F[v], \quad&&\text{für alle } v \in H.
+   \end{alignat*}
 \end{lem*}
 
 \begin{prop}
@@ -106,12 +100,34 @@ wobei $f$ und $u$ durch $\DD(A)$ gegeben sind.
   Seien $\theta, \phi \in [0,\pi)$ mit $\theta + \phi < \pi$.
     Dann existiert $C = C(\phi,\theta) > 0$, sodass für alle $w \in \Sec_\theta, z \in \Sec_\phi$ gilt
     $$
-    |w| + |z| \leq c |w + z|.
+    |w| + |z| \leq C \,|w + z|.
     $$
 \end{lem}
 
 \begin{proof}
-  Übung.
+  Eigentlich Übung, aber empirische Studien haben gezeigt, dass die Vorlesungsbesucher nicht notwendigerweise über Kenntnisse des Rechnens mit komplexen Zahlen verfügen.
+
+  Wir rechnen
+  \begin{align*}
+    |w + z|^2 
+    &= (w + z)(\overline w + \overline z)  
+    = w \overline w + w \overline z + z \overline w + z \overline z 
+    = |w|^2 + |z|^2 + 2 \operatorname{Re}(w \overline z) \\
+    &= |w|^2 + |z|^2 + 2 \cos (\phi + \theta) |w \overline z|
+    = |w|^2 + |z|^2 + 2|w||z| (\cos(\phi)\cos(\theta) - \sin(\phi)\sin(\theta)).
+  \end{align*}
+  Wir unterscheiden nun 2 Fälle.
+  \begin{enumerate}[1.]
+    \item $\phi +  \theta \leq \frac{\pi}{2}$: Dann sind die Cosinusterme der obigen Gleichung positiv und wir schätzen weiter ab zu
+      $$
+      |w + z|^2 \geq |w|^2 + |z|^2 - 2|w||z|\sin(\phi)\sin(\theta) \geq (1 + \sin(\phi)\sin(\theta)) (|w|^2 + |z|^2).
+      $$
+    \item $\phi + \theta > \frac{\pi}{2}$: Dann gilt $\cos(\phi + \theta) < 0$ und wir schätzen wie folgt ab:
+      $$
+      |w + z|^2 \geq (1 + \cos(\phi + \theta)) (|w|^2 + |z|^2 ).
+      $$
+  \end{enumerate}
+  Die Behauptung folgt also für $C(\phi,\theta) \coloneqq \frac{1}{\sqrt{2}}\, \Big(1 + \min\{\cos(\phi + \theta), \sin(\phi)\sin(\theta)\}\Big)^{\frac{1}{2}}$.
 \end{proof}
 
 \begin{prop}
