@@ -116,7 +116,7 @@ wobei $f$ und $u$ durch $\DD(A)$ gegeben sind.
     &= |w|^2 + |z|^2 + 2 \cos (\phi + \theta) |w \overline z|
     = |w|^2 + |z|^2 + 2|w||z| (\cos(\phi)\cos(\theta) - \sin(\phi)\sin(\theta)).
   \end{align*}
-  Wir unterscheiden nun 2 Fälle.
+  Wir unterscheiden nun 2 Fälle:
   \begin{enumerate}[1.]
     \item $\phi +  \theta \leq \frac{\pi}{2}$: Dann sind die Cosinusterme der obigen Gleichung positiv und wir schätzen weiter ab zu
       $$
@@ -133,27 +133,27 @@ wobei $f$ und $u$ durch $\DD(A)$ gegeben sind.
 \begin{prop}
   Sei $\Omega \subset \R^d, d\geq2$, offen und $A$ der Stokes Operator auf $\Ell^2_\sigma(\Omega)$. Dann gilt $\sigma(A) \subset [0,\infty)$ und für alle $\theta \in (0,\pi]$ existiert $C > 0$, sodass
   $$
-  \| \lambda (\lambda - A)^{-1}\|_{\Li(\Ell^2_\sigma(\Omega)} \leq C, \quad\text{für alle } \lambda \in \C \setminus \overline \Sec_\theta
+  \| \lambda (\lambda - A)^{-1}\|_{\Li(\Ell^2_\sigma(\Omega))} \leq C, \quad\text{für alle } \lambda \in \C \setminus \overline{\Sec_\theta}
   $$
   und
   $$
-  \| |\lambda|^{\frac{1}{2}} \nabla (\lambda - A)^{-1} \|_{\Li(\Ell_\sigma^2, \Ell^2)} \leq C, \quad\text{für alle } \lambda \in \C \setminus \overline \Sec_\theta.
+  \| |\lambda|^{\frac{1}{2}} \nabla (\lambda - A)^{-1} \|_{\Li(\Ell_\sigma^2, \Ell^2)} \leq C, \quad\text{für alle } \lambda \in \C \setminus \overline{\Sec_\theta}.
   $$
 \end{prop}
 
 \begin{proof}
-  Für $\lambda \in \C \setminus \overline \Sec_\theta$ definiere
+  Für $\lambda \in \C \setminus \overline{\Sec_\theta}$ definiere
   $$
-  a_\lambda \colon \HH_{0,\sigma}^1(\Omega) \times \HH_{0,\sigma}^1(\Omega) \to \CC, \quad (u,v) \mapsto \lambda \int_\Omega u \cdot \overline v - \int_\Omega \nabla u \cdot \overline{\nabla v} \d x,
+  a_\lambda \colon \HH_{0,\sigma}^1(\Omega) \times \HH_{0,\sigma}^1(\Omega) \to \C, \quad (u,v) \mapsto \lambda \int_\Omega u \cdot \overline v \d x - \int_\Omega \nabla u \cdot \overline{\nabla v} \d x,
   $$
   dann ist $a_\lambda$ stetig.
-  Für die Koerzivität beobachten wir, dass
+  Für die Koerzivität beobachten wir, dass zunächst $- \C \setminus \overline{\Sec_\theta} = \Sec_{\pi - \theta}$ gilt, was
   $$
   |a_\lambda(u,u)| 
   = \Big| \underbrace{- \lambda\int_\Omega |u|^2 \d x}_{\Sec_{\pi - \theta}} + \underbrace{\int_\Omega |\nabla u|^2 \d x}_{\in \Sec_0} \Big| 
   \geq \frac{1}{C} \left( |\lambda| \int_\Omega |u|^2 \d x + \int_\Omega |\nabla u|^2 \d x\right)
   $$
-  gilt, woraus mittels Lemma von Lax-Milgram $\lambda \in \rho(A)$ folgt.
+  ergibt, woraus mittels Lemma von Lax-Milgram $\lambda \in \rho(A)$ folgt.
   
   Um die Abschätzungen nachzuweisen, teste mit Lösung!
 
@@ -168,13 +168,13 @@ wobei $f$ und $u$ durch $\DD(A)$ gegeben sind.
   \leq \frac{1}{C} \left(|\lambda| \int_\Omega |u|^2 \d x + \int_\Omega |\nabla u|^2\right) 
   \leq \|f\|_{\Ell^2(\Omega)} \|u\|_{\Ell^2(\Omega)}
   $$
-  und folglich die Resolventenabschätzung.
-  Weiterhin gilt mit Young's Ungleichung
+  und damit gilt die Resolventenabschätzung.
+  Weiterhin folgt mit Young's Ungleichung
   $$
   \frac{1}{C} \left(|\lambda| \int_\Omega |u|^2 \d x + \int_\Omega |\nabla u|^2 \d x \right)
-  \leq \frac{1}{2\varepsilon} \|f\|_{\Ell^2(\Omega)}^2 + \frac{\varepsilon}{2} \|u\|_{\Ell^2(\Omega)}.
+  \leq \frac{1}{2\varepsilon} \|f\|_{\Ell^2(\Omega)}^2 + \frac{\varepsilon}{2} \|u\|_{\Ell^2(\Omega)}^2.
   $$
-  Wähle $\varepsilon = \frac{2|\lambda|}{C}$, dann gilt
+  Wähle $\varepsilon = \frac{2| \lambda|}{C}$, dann gilt
   $$
   \frac{1}{C} \int_\Omega |\nabla u|^2 \d x \leq \frac{C}{4|\lambda|} \|f \|_{\Ell^2(\Omega)}^2,
   $$
