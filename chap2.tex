@@ -114,20 +114,20 @@ wobei $f$ und $u$ durch $\DD(A)$ gegeben sind.
     = w \overline w + w \overline z + z \overline w + z \overline z 
     = |w|^2 + |z|^2 + 2 \operatorname{Re}(w \overline z) \\
     &= |w|^2 + |z|^2 + 2 \cos (\phi + \theta) |w \overline z|
-    = |w|^2 + |z|^2 + 2|w||z| (\cos(\phi)\cos(\theta) - \sin(\phi)\sin(\theta)).
+    = |w|^2 + |z|^2 + 2|w||z| \big(\cos(\phi)\cos(\theta) - \sin(\phi)\sin(\theta)\big).
   \end{align*}
   Wir unterscheiden nun 2 Fälle:
   \begin{enumerate}[1.]
     \item $\phi +  \theta \leq \frac{\pi}{2}$: Dann sind die Cosinusterme der obigen Gleichung positiv und wir schätzen weiter ab zu
       $$
-      |w + z|^2 \geq |w|^2 + |z|^2 - 2|w||z|\sin(\phi)\sin(\theta) \geq (1 + \sin(\phi)\sin(\theta)) (|w|^2 + |z|^2).
+      |w + z|^2 \geq |w|^2 + |z|^2 - 2|w||z|\sin(\phi)\sin(\theta) \geq (1 - \sin(\phi)\sin(\theta)) (|w|^2 + |z|^2).
       $$
     \item $\phi + \theta > \frac{\pi}{2}$: Dann gilt $\cos(\phi + \theta) < 0$ und wir schätzen wie folgt ab:
       $$
       |w + z|^2 \geq (1 + \cos(\phi + \theta)) (|w|^2 + |z|^2 ).
       $$
   \end{enumerate}
-  Die Behauptung folgt also für $C(\phi,\theta) \coloneqq \frac{1}{\sqrt{2}}\, \Big(1 + \min\{\cos(\phi + \theta), \sin(\phi)\sin(\theta)\}\Big)^{\frac{1}{2}}$.
+  Die Behauptung folgt also für $C(\phi,\theta) \coloneqq \frac{1}{\sqrt{2}}\, \Big(\min\{1 + \cos(\phi + \theta), 1 - \sin(\phi)\sin(\theta)\}\Big)^{\frac{1}{2}}$.
 \end{proof}
 
 \begin{prop}
@@ -210,19 +210,19 @@ Betrachte das Problem
   \div(u) &= f \quad\text{in } \Omega, \\
   u &= 0 \quad\text{auf } \partial \Omega.
 \end{align*}
-Ist $\Omega$ ein beschränktes Lipschitz-Gebiet, wo wurde ein Lösungsoperator (Bogowski\u{\i}-Operator) für diese Gleichung konstruiert.
+Ist $\Omega$ ein beschränktes Lipschitz-Gebiet, so wurde ein Lösungsoperator (Bogowski\u{\i}-Operator) für diese Gleichung konstruiert.
 
 \begin{thm}
   \label{thm:bogowskii}
-  Sei $\Omega \subset \R^d, d \geq 2$, ein beschranktes Lipschitz-Gebiet, dann existiert ein Operator $\BB$, sodass für jedes $1 < p < \infty$ gilt:
+  Sei $\Omega \subset \R^d, d \geq 2$, ein beschränktes Lipschitz-Gebiet, dann existiert ein Operator $\BB$, sodass für jedes $1 < p < \infty$ gilt:
   \begin{align*}
-    &\BB \colon \Ell_0^p(\Omega) \to \WW_0^{1,p}(\Omega, \C^d), \quad B \in \Li(\Ell_0^p(\Omega), \WW_0^{1,p}(\Omega, \C^d) \\
+    &\BB \colon \Ell_0^p(\Omega) \to \WW_0^{1,p}(\Omega, \C^d), \quad \BB \in \Li\big(\Ell_0^p(\Omega), \WW_0^{1,p}(\Omega, \C^d)\big) \\
     &\div(\BB f) = f, \quad\text{für alle } f \in \Ell_0^p(\Omega).
   \end{align*}
 \end{thm}
 
 \begin{proof}
-  Siehe z.B. Galdi, ``An introduction to the Mathematical Theory of the Navier-Stokes Equations'', Seiten 161--172.
+  Siehe z.B. \cite[Seiten 161-172]{galdi}.
 \end{proof}
 
 Für $u \in \Ell^p(\Omega)$ definiere $\nabla u \in \WW^{-1,p}(\Omega, \C^d)$ durch
@@ -237,13 +237,13 @@ wobei $\frac{1}{p} + \frac{1}{p'} = 1$.
   Sei $\Omega \subset \R^d, d \geq 2$, ein beschränktes Lipschitz-Gebiet und $1 < p< \infty$.
   Dann existiert $C > 0$, sodass für alle $u \in \Ell^p(\Omega)$
   $$
-  \| u - u_\Omega\|_{\Ell^p(\Omega)} \leq \| \nabla u\|_{\WW^{-1,p}(\Omega)}
+  \| u - u_\Omega\|_{\Ell^p(\Omega)} \leq C\, \| \nabla u\|_{\WW^{-1,p}(\Omega)}
   $$
   gilt.
 \end{lem}
 
 \begin{proof}
-  Sei $\BB$ der Bogowski\u{\i}-Operator aus Satz \ref{thm:bogowskii} $f \in \Ell^{p'}(\Omega)$ wobei $\frac{1}{p} + \frac{1}{p'} = 1$.
+  Sei $\BB$ der Bogowski\u{\i}-Operator aus Satz \ref{thm:bogowskii} und $f \in \Ell^{p'}(\Omega)$, wobei $\frac{1}{p} + \frac{1}{p'} = 1$.
   Dann gilt
   \begin{align*}
   \Big| \int_\Omega (u - u_\Omega) \, \overline f \d x \Big|
@@ -274,7 +274,7 @@ wobei $\frac{1}{p} + \frac{1}{p'} = 1$.
     \|u_n\|_{\Ell^p(\Omega)} > n \|\nabla u_n \|_{\WW^{-1,p}(\Omega)} \tag{$\ast$}
   \end{align*}
   Sei ohne Einschränkung $\|u_n\|_{\Ell^p(\Omega)} = 1$.
-  Da $(u_n)_{n \in \N} \subset \Ell^p(\Omega)$ beschränkt und $\Ell^p(\Omega)$ reflexif ist besitzt $(u_n)_{n \in \N}$ eine schwach konvergente Teilfolge.
+  Da $(u_n)_{n \in \N} \subset \Ell^p(\Omega)$ beschränkt und $\Ell^p(\Omega)$ reflexiv ist, besitzt $(u_n)_{n \in \N}$ eine schwach konvergente Teilfolge.
   Bezeichne diese Teilfolge ohne Einschränkung wieder mit $(u_n)_{n \in \N}$.
   Dann existiert ein $u \in \Ell^p(\Omega)$ mit $\lim_{n \to \infty} \int_\Omega u_n \overline v \d x = \int_\Omega u \overline v \d x$ für alle $v \in \Ell^{p'}(\Omega)$.
   Hieraus folgt, dass
@@ -293,17 +293,17 @@ wobei $\frac{1}{p} + \frac{1}{p'} = 1$.
   Folglich ist $u$ schwach differenzierbar mit $\nabla u = 0$ und damit konstant.
   Mit ($\ast\ast$) folgt hieraus $u = 0$.
   Aus Lemma \ref{lem:poincare} ergibt sich
-  $$
+  \[
   1 = \|u_n\|_{\Ell^p(\Omega)}
-  \leq C \left[ \int_\Omega f_\Omega u_n \d x + \|\nabla u_n\|_{\WW^{-1,p}(\Omega)} \right] \to 0, \quad\text{für } n \to \infty.
-  $$
+  \leq C \left[ |(u_n)_\Omega| + \|\nabla u_n\|_{\WW^{-1,p}(\Omega)} \right] \to 0, \quad\text{für } n \to \infty. \qedhere
+  \]
 \end{proof}
 
-Das folgende Lemma ist die Rechtfertigung dafür, die Stokes/Navier-Stokes-Gleichungen erst auf $L_\sigma^p(\Omega)$ zu lösen und liefert den zugehörigen Druck.
+Das folgende Lemma ist die Rechtfertigung dafür, die Stokes/Navier-Stokes-Gleichungen erst auf $\Ell_\sigma^p(\Omega)$ zu lösen und liefert den zugehörigen Druck.
 
 Hierzu definieren wir
 $$
-f \in \WW_{\loc}^{-1,p}(\Omega, \C^d) \iff f \in \WW^{-1,p}(\Omega, \C^d) \text{ f. a. beschränkten Teilgebiete } \Omega_0 \subset \Omega \text{ mit } \overline\Omega_0 \subset \Omega
+f \in \WW_{\loc}^{-1,p}(\Omega, \C^d) \iff f \in \WW^{-1,p}(\Omega, \C^d) \text{ f. a. beschränkten Teilgebiete } \Omega_0 \subset \Omega \text{ mit } \overline\Omega_0 \subset \Omega.
 $$
 
 \begin{lem}
@@ -362,37 +362,37 @@ $$
   \begin{align*}
     \div(V_{\gamma,\varepsilon}(x))
     &= \int_0^1 \sum_{j = 1}^d (\partial_j \rho_\varepsilon)(x - \gamma(t)) \gamma_j'(t) \d t
-    = - \int_0^1 \frac{\d\ }{\d t} \rho_\varepsilon(x - \gamma(t)) \d t \\
+    = - \int_0^1 \frac{\d{} }{\d t} \rho_\varepsilon(x - \gamma(t)) \d t \\
     &= \rho_\varepsilon(x - \gamma(0)) - \rho_\varepsilon(x - \gamma(1))
     = 0.
   \end{align*}
   Daraus folgt $V_{\gamma,\varepsilon} \in \CC_{\cc, \sigma}^\infty(\Omega_2)$ und weiter
   \begin{align*}
     \int_0^1(\div(F^\varepsilon))(\gamma(t)) \cdot \gamma'(t) \d t
-    &= \int_0^1 \int_{\Omega_2} \sum_{i,j = 1}^d (\partial_i \rho_\varepsilon(\gamma(t) - x) \gamma_j'(t) \d t \, F_{ij}(x)  \d x \\
+    &= \int_0^1 \int_{\Omega_2} \sum_{i,j = 1}^d \big(\partial_i \rho_\varepsilon(\gamma(t) - x)\big) \gamma_j'(t) \d t \, F_{ij}(x)  \d x \\
     %&= -\int_{\Omega_2} \int_0^1 \sum_{i,j = 1}^d \partial_i \rho_\varepsilon(\gamma(t) - x) \gamma_j'(t) \d t \, F_{ij}(x) \d x \\
-    &= -\int_{\Omega_2} \int_0^1 \sum_{i,j = 1}^d \partial_i(\rho_\varepsilon(\gamma(t) - x)) \gamma_j'(t) \d t \, F_{ij}(x) \d x \\
-    &= -\int_{\Omega_2} \sum_{i,j=1}^d \partial_i \int_0^1 \rho_\varepsilon(x - \gamma(t)) \gamma_j'(t) \d t \, F_{ij}(x) \d x \\
+    &= -\int_{\Omega_2} \int_0^1 \sum_{i,j = 1}^d (\partial_i \rho_\varepsilon) (\gamma(t) - x) \gamma_j'(t) \d t \, F_{ij}(x) \d x \\
+    &= -\int_{\Omega_2} \sum_{i,j=1}^d \partial_i\big(  \int_0^1 \rho_\varepsilon(x - \gamma(t)) \gamma_j'(t) \d t \big) \, F_{ij}(x) \d x \\
     &= \langle V_{\gamma,\varepsilon}, \div F \rangle_{\WW_0^{1,p'}(\Omega_2), \WW^{-1,p}(\Omega_2)} \\
     &= 0.
   \end{align*}
   Hieraus ergibt sich dass ein $U_\varepsilon \in \CC^\infty(\overline\Omega_1)$ existiert mit $\nabla U_\varepsilon = \div(F^\varepsilon)$, welches eindeutig bis auf eine additive Konstante ist.
-  Wähle diese Konstante derart, dass $\int_{\Omega_0} u_\varepsilon \d x = 0$.
+  Wähle diese Konstante derart, dass $\int_{\Omega_0} U_\varepsilon \d x = 0$.
 
   Lemma \ref{lem:poincare2} liefert nun
   \begin{align*}
   \| U_\varepsilon\|_{\Ell^p(\Omega_1)} 
   &\leq C \|\nabla U_\varepsilon\|_{\WW^{-1,p}(\Omega_1, \C^d)} 
     = C \| \div(\F^\varepsilon)\|_{\WW^{-1,p}(\Omega_1,\C^d)} \\
-    &= C \sup_{\substack{v \in \CC_{\cc}^\infty(\Omega_1, \C^d) \\ \|v\|_{\WW^{1,p'} \leq 1}}} \Big| \sum_{j = 1}^d \langle F_{ij}^\varepsilon, \nabla v_j \rangle_{\Ell^p(\Omega_2), \Ell^{p'}(\Omega_2)} \Big| \\
-    &\leq C \|F^\varepsilon\|_{\Ell^p(\Omega_1)}
+    &= C \sup_{\substack{v \in \CC_{\cc}^\infty(\Omega_1, \C^d) \\ \|v\|_{\WW^{1,p'}} \leq 1}} \Big| \sum_{j = 1}^d \langle F_{ij}^\varepsilon, \nabla v_j \rangle_{\Ell^p(\Omega_2), \Ell^{p'}(\Omega_2)} \Big| \\
+    &\leq C \|F^\varepsilon\|_{\Ell^p(\Omega_1)}.
   \end{align*}
   Mit demselben Argument zeigt man, dass für $0< \eta < \varepsilon$ gilt
   $$
-  \|u_\varepsilon - u_\eta \|_{\Ell^p(\Omega_1)} \leq C \| F^\varepsilon - F^\eta\|_{\Ell^p(\Omega_1)}.
+  \|U_\varepsilon - U_\eta \|_{\Ell^p(\Omega_1)} \leq C \| F^\varepsilon - F^\eta\|_{\Ell^p(\Omega_1)}.
   $$
-  Aus Ana IV weiß man, dass $F^\varepsilon \to F$ in $\Ell^p(\Omega_1, \C^{d\times d}$, für $\varepsilon \to 0$ gilt, woraus mittels obiger Abschätzung folgt, dass $(U_\varepsilon)_\varepsilon$ ein Cauchy-Netz in $\Ell^p(\Omega_1)$ ist.
-  Daher existiert ein $U \in \Ell^p(\Omega_1)$ mit $\int_{\Omega_0} u \d x = 0$, $\|u_\varepsilon - u\|_{\Ell^p(\Omega_1)} \to 0$ für $\varepsilon \to 0$ und
+  Aus Ana IV weiß man, dass $F^\varepsilon \to F$ in $\Ell^p(\Omega_1, \C^{d\times d})$, für $\varepsilon \to 0$ gilt, woraus mittels obiger Abschätzung folgt, dass $(U_\varepsilon)_\varepsilon$ ein Cauchy-Netz in $\Ell^p(\Omega_1)$ ist.
+  Daher existiert ein $U \in \Ell^p(\Omega_1)$ mit $\int_{\Omega_0} U \d x = 0$, $\|u_\varepsilon - u\|_{\Ell^p(\Omega_1)} \to 0$ für $\varepsilon \to 0$ und
   \begin{align*}
     \langle v, \nabla U \rangle_{\WW_0^{1,p'}(\Omega_1), \WW^{-1,p}(\Omega_1)}
     &= - \int_{\Omega_1} U \, \overline{\div v } \d x
@@ -421,7 +421,7 @@ $$
 $$
 Andererseits ist für jedes $t > 0$ 
 $$
-v \mapsto \int_\Omega u'(t) \overline v \d x + \int_\Omega \nabla u(t) \overline{\nabla v} \d x \in \WW^{-1,2}(\Omega, \C^d)
+\big( v \mapsto \int_\Omega u'(t) \overline v \d x + \int_\Omega \nabla u(t) \overline{\nabla v} \d x \big) \in \WW^{-1,2}(\Omega, \C^d)
 $$
 und mit Lemma \ref{lem:pressureGrad} folgt daher, dass $\pi(t) \in \Ell^2_{\loc}(\Omega)$ existiert mit
 $$
@@ -462,7 +462,7 @@ D.h. $u$ und $\pi$ lösen im Sinne von Distributionen die Stokes-Gleichung:
   Es genügt $\Ell^2_\sigma(\Omega)^\perp = G(\Omega)$ zu zeigen.
   Die restlichen Aussagen folgen dann aus der Funktionalanalysis.
   
-  Sei $\nabla\pi \in G(\Omega)$ und $\varphi \in \CC_{\cc, \gamma}^\infty(\Omega)$.
+  Sei $\nabla\pi \in G(\Omega)$ und $\varphi \in \CC_{\cc, \sigma}^\infty(\Omega)$.
   Dann gilt
   $$
   \int_\Omega \varphi \cdot \overline{\nabla\pi} \d x = -\int_\Omega \div \varphi \, \overline \pi \d x = 0.
@@ -476,12 +476,12 @@ D.h. $u$ und $\pi$ lösen im Sinne von Distributionen die Stokes-Gleichung:
   $$
   Die Hölder-Ungleichung liefert nun, dass
   $$
-  v \mapsto \int_\Omega f \cdot \overline v \d x \in \WW^{-1,2}(\Omega,\C^d).
+  \big( v \mapsto \int_\Omega f \cdot \overline v \d x \big) \in \WW^{-1,2}(\Omega,\C^d).
   $$
   Mit Lemma \ref{lem:pressureGrad} folgt sodann die Existenz von $\pi \in \Ell^2_{\loc}(\Omega)$ mit $\nabla \pi = f$ im Sinne von Distributionen, d.h.
   $$
   \int_\Omega f \cdot \overline v \d x 
   = - \int_\Omega \pi \cdot \overline{\div v} \d x, \quad \text{für alle } v \in \CC_{\cc}^\infty(\Omega, \C^d).
   $$
-  Daraus folgt $\nabla \pi \in G(\Omega)$.
+  Daraus folgt $f = \nabla \pi \in G(\Omega)$.
 \end{proof}
