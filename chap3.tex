@@ -4,11 +4,11 @@
   Sei $-\infty < \frac{1}{p} \leq 1$.
   Fall $0 \leq \frac{1}{p} \leq 1$, dann definiere
   $$
-  \| \,\cdot\, \|_{X_{\frac{1}{p}}} \coloneqq \| \,\cdot\, \|_{\Ell^p}
+  \| \cdot \|_{X_{\frac{1}{p}}} \coloneqq \| \cdot \|_{\Ell^p}
   $$
   und falls $-\infty < \frac{1}{p} < 0$ sei $\alpha \in [0,1)$ und $k \in \N_0$ derart, dass $-\frac{d}{p} = k + \alpha$. Definiere
   $$
-  \| \,\cdot\, \|_{X^{\frac{1}{p}}} \coloneqq 
+  \| \cdot \|_{X^{\frac{1}{p}}} \coloneqq 
   \begin{cases} 
     \| \nabla^k \cdot \|_{\Ell^\infty}, \quad &\alpha = 0, \\ [ \nabla^k \, \cdot \, ]_\alpha, \quad &\alpha \neq 0,
   \end{cases}
@@ -61,19 +61,22 @@ Für den Beweis benötigen wir einige Vorbetrachtungen.
   Anwendung des Hauptsatzes liefert für das erste Integral
   \begin{align*}
     \int_\BB |u(x) - u(z)| \d z 
-    &\leq \int_{\BB(x,\delta)} \int_0^{|x - z|} | \frac{\d{}}{\d t} [u(x + t \frac{z - x}{|z - x|})] \d t \d z \\
-    &= \int_{\BB(0,\delta)} \int_0^{|z'|} \Big| \frac{\d{}}{\d t} \big[\, u(x + t \frac{z'}{|z'|} ) \, \big] \Big| \d t \d z' \\
+    &\leq \int_{\BB(x,\delta)} \int_0^{|x - z|} \Big| \frac{\d{}}{\d t} \Big[u(x + t \frac{z - x}{|z - x|})\Big] \Big| \d t \d z \\
+    &= \int_{\BB(0,\delta)} \int_0^{|z'|} \Big| \frac{\d{}}{\d t} \Big[\, u(x + t \frac{z'}{|z'|} ) \, \Big] \Big| \d t \d z' \\
     &= \int_{\partial\BB(0,1)} \int_0^\delta \Big( \int_0^\rho \Big| \frac{\d{}}{\d t} u(x + t \omega) \Big| \d t \Big) \; \rho^{d - 1} \d \rho \d \sigma(\omega)  \\
     &= \int_{\partial\BB(0,1)} \int_0^\delta \Big( \int_t^\delta \rho^{d - 1} \d \rho \; \Big) \Big| \frac{\d{}}{\d t} \big[ u(x + t \omega) \big] \Big| \d t \d \sigma(\omega) \\
     &\leq \frac{\delta^d}{d} \int_{\BB(0,\delta)} |z'|^{1 - d} |\nabla u(x + z')| \d z' \\
     &\leq \frac{\delta^d}{d} \Big( \int_{\BB(0,\delta)} |z'|^{\frac{r(1 - d)}{r - 1}} \d z' \Big)^{\frac{r - 1}{r}} \, \|\nabla u\|_{\Ell^r(\BB(x,\delta))} \\
-    &= \sigma(\BB(0,1))^{\frac{r - 1}{r}} \frac{\delta^{d + 1 - \frac{d}{r}}}{d(d + \frac{r(1 - d)}{r - 1} )^{\frac{r - 1}{r}}} \, \| \nabla u\|_{\Ell^r(\BB(x,\delta))}
+    &\leq\frac{\delta^d}{d}\sigma(\BB(0,1))^{\frac{r - 1}{r}}  \Big( \int_0^\delta s^{d - 1} s^{\frac{r(1 - d)}{r - 1}} \d s \Big)^{\frac{r - 1}{r}} \, \|\nabla u\|_{\Ell^r(\BB(x,\delta))} \\
+    \intertext{und, da $d - 1 + \frac{r(1 - d)}{r - 1} = \frac{(d - 1)(r - 1) + r - rd}{r - 1} = \frac{1 - d}{r - 1}$, folgt}
+    &= \sigma(\BB(0,1))^{\frac{r - 1}{r}} \frac{\delta^{d + 1 - \frac{d}{r}}}{d(\frac{r - d}{r - 1})^{\frac{r - 1}{r}}} \, \| \nabla u\|_{\Ell^r(\BB(x,\delta))}\;.
   \end{align*}
   Aus Symmetriegründen folgt
   $$
   \int_{\BB} |u(z) - u(y)| \d z
-  \leq C \delta^{d + 1 - \frac{d}{r}} \|\nabla u\|_{\Ell^r(\BB(y,\delta))}.
+  \leq C \delta^{d + 1 - \frac{d}{r}} \|\nabla u\|_{\Ell^r(\BB(y,\delta))},
   $$
+  wobei $ C \coloneqq (d(\frac{r - d}{r - 1})^{\frac{r - 1}{r}})^{-1} $.
   Weiterhin folgt aus $\BB(\frac{1}{2}(x + y), \frac{\delta}{2}) \subset \BB$, dass $|\BB| \geq |\BB(0,1)| 2^{-d} \delta^d$.
   Hieraus ergibt sich 
   $$
@@ -103,7 +106,138 @@ Das folgende Lemma reduziert den Beweis von Haupsatz \ref{hsatz:gagliardoNirenbe
 \end{lem}
 
 \begin{proof}
-  Übung.
+  Übung für Ehrgeizige. Für Faule folgt der Beweis:
+
+  \begin{enumerate}[a)]
+    \item Angenommen, die Aussage gelte bis einschließlich $m - 1$ für ein $m \in \N$. Sei $1 < j < m - 1$ und damit $\alpha = \frac{j}{m}$. 
+      Seien zusätzlich $1 \leq q,r < \infty$ und damit
+      \begin{align*}
+        \frac{1}{p} = \frac{j}{d} + \alpha \Big( \frac{1}{r} - \frac{m}{d} \Big) + (1 - \alpha) \cdot \frac{1}{q} = \frac{j}{mr}  + \Big( 1 - \frac{j}{m} \Big) \frac{1}{q} 
+      \end{align*}
+      Insbesondere gilt also $0 \leq \frac{1}{p} \leq 1$.
+      Wir setzen
+      $$
+      j^* = 1, \quad m^* = m - j + 1 \leq m - 1 \quad\text{und}\quad \alpha^* = \frac{j^*}{m^*}
+      $$
+      sowie
+      $$
+      j^{**} = j - 1, \quad m^{**} = j \quad\text{und}\quad \alpha^{**}=\frac{j^{**}}{m^{**}}
+      $$
+      und rechnen
+      \begin{align*}
+        \|\nabla^j u \|_p
+        &= \|\nabla^1(\nabla^{j - 1} u)u\|_p \\
+        &\leq \|\nabla^{m^*}(\nabla^{j-1}) u \|_{r_1}^{\alpha^*} \|\nabla^{j - 1} u\|_{q_1}^{(1 - \alpha^*)} \\
+        &\leq \|\nabla^m u\|_{r_1}^{\alpha^*} \Big[ \|\nabla^{m^{**}} u \|_{r_2}^{\alpha^{**}} \|u\|_{q_2}^{(1 - \alpha^{**})} \Big]^{(1 - \alpha^*)} ,
+        %&= \|\nabla^m u\|_{r_1} \|\nabla^j u\|_{r_2}^{\alpha^{**}(1 - \alpha^*)} \|u\|_{q_2}^{(1 - \alpha^{**})(1 - \alpha^*)}
+      \end{align*}
+      wobei $r_i, q_i$, $i \in \{1,2\}$ passend gewählt seien.
+      Wir verechnen zunächst die Exponenten:
+      \begin{align*}
+        \alpha^{**}(1 - \alpha^*) 
+        &= \frac{j^{**}}{m^{**}} ( 1 - \frac{j^*}{m^*}) \\
+        &= \frac{j - 1}{j} ( 1 - \frac{1}{m - j + 1}) \\
+        &= \frac{j(m - j + 1) - (m - j + 1) - j + 1}{j(m - j + 1)} \\
+        &= \frac{j(m - j + 1) - m}{j(m - j + 1)}
+        \intertext{weiter erhalten wir}
+        (1 - \alpha^{**})(1 - \alpha^*)
+        &= 1 - \alpha^{**} - \alpha^* + \alpha^*\alpha^{**} \\
+        &= 1 - \frac{j - 1}{j} - \frac{1}{m - j + 1} + \frac{1}{m - j + 1} \cdot \frac{j - 1}{j} \\
+        &= 1 + \frac{-(j - 1)(m - j + 1) -j + j + 1}{j(m - j + 1)} \\
+        &= \frac{j(m - j + 1) + (m - j + 1) - j(m - j + 1) - 1}{j(m - j + 1)} \\
+        &= \frac{m - j}{j (m - j + 1)}.
+      \end{align*}
+      Setzen wir nun
+      $$
+      \beta \coloneqq 1 - \alpha^{**}(1 - \alpha^*) = \frac{m}{j(m - j + 1)},
+      $$
+      so erhalten wir
+      \begin{align*}
+        \frac{\alpha^*}{\beta} 
+        &= \frac{1}{m - j + 1} \cdot \frac{j(m - j + 1)}{m} = \frac{j}{m} 
+        \intertext{sowie}
+        \frac{(1 - \alpha^{**})(1 - \alpha^*)}{\beta}  
+        &= \frac{m - j}{j(m - j + 1)} \cdot \frac{j(m - j + 1)}{m} = 1 - \frac{j}{m}
+      \end{align*}
+      Nehmen wir zusätzlich an, dass
+      $$
+      r_1 = r, \quad r_2 = p \quad\text{und}\quad q_2 = q
+      $$
+      gelten, so folgt
+      $$
+      \|\nabla^j u\|_p^\beta \leq \|\nabla^m u\|_r^{\alpha^*} \|u\|_q^{(1 - \alpha^{**})(1 - \alpha^*)}
+      $$
+      und daraus durch $(\cdot)^{\frac{1}{\beta}}$ die Behauptung.
+
+      Wir prüfen nun, ob sich $r_1$, $r_2$ und $q_2$ nach unserem Wunsch wählen lassen. 
+      Dazu müssen folgende Gleichunge erfüllt werden.
+      \begin{align*}
+        \frac{1}{p} &= \frac{j}{mr} + (1 - \frac{j}{m}) \frac{1}{q} \tag{I}\\
+        \frac{1}{p} &= \frac{j^*}{m^* r} + (1 - \frac{j^*}{m^*}) \frac{1}{q_1} = \frac{1}{r(m - j + 1)} + (1 - \frac{1}{m - j + 1}) \frac{1}{q_1} \tag{II} \\
+        \frac{1}{q_1} &= \frac{j^{**}}{m^{**}p} + (1 - \frac{j^{**}}{m^{**}} )\frac{1}{q} = \frac{j - 1}{jp} + (1 - \frac{j - 1}{j}) \frac{1}{q} \tag{III}.
+      \end{align*}
+      Einsetzen von (III) in (II) ergibt:
+      \begin{align*}
+        \frac{1}{p} \underbrace{\Big[ 1 - (1 - \frac{1}{m - j + 1})(\frac{j - 1}{j}) \Big]}_{\eqqcolon A}
+        &= \frac{1}{r(m - j + 1)} + \underbrace{(1 - \frac{1}{m - j + 1})(1 - \frac{j - 1}{j})}_{\eqqcolon B} \frac{1}{q} \tag{IV}
+      \end{align*}
+      Und weiter
+      $$
+      A = 1 - \frac{j - 1}{j} + \frac{j - 1}{j(m - j + 1)} = \frac{1}{j} + \frac{j - 1}{j(m - j + 1)} = \frac{m - j + 1 + j - 1}{j(m - j + 1)} = \frac{m}{j(m - j + 1)}
+      $$
+      sowie
+      $$
+      B = \frac{m - j}{m - j + 1} \cdot \frac{1}{j} = \frac{m - j}{j(m - j + 1)}
+      $$
+      Division durch $A$ in (IV) ergibt
+      \begin{align*}
+        \frac{1}{p} 
+        &= \frac{j(m - j + 1)}{m} \cdot \frac{1}{m - j + 1} \cdot \frac{1}{r} + \frac{j(m - j + 1)}{m} \cdot \frac{m - j}{j(m - j + 1} \cdot \frac{1}{q} \\
+        &= \frac{j}{m} \cdot \frac{1}{r} + (1 - \frac{j}{m}) \frac{1}{q}.
+      \end{align*}
+
+      Im Falle $j = 1$ schätzen wir wie folgt ab:
+      \begin{align*}
+        \| \nabla u\|_p &\leq \|\nabla^{m - 1} u\|_{r_1}^{\alpha^*} \|u\|_{q_1}^{1 - \alpha^*} \\
+        &= \|\nabla^{m - 2} \nabla u \|_{r_1}^{\alpha^*} \|u\|_{q_1}^{1 - \alpha^*} \\
+        &\leq \Big[ \|\nabla^{m - 1} \nabla u\|_{r_2}^{\alpha^{**}} \|\nabla u\|_{q_2}^{1 - \alpha^{**}} \Big]^{\alpha^*} \|u\|_{q_1}^{1 - \alpha^*}
+      \end{align*}
+      Im Falle $j = m - 1$ schätzen wir ähnlich ab:
+      \begin{align*}
+        \| \nabla^{m - 1} u\|_p 
+        &= \|\nabla^{m - 2} \nabla u \|_p \\
+        &\leq \|\nabla^{m - 1} \nabla u\|_{r_1}^{\alpha^*} \|\nabla u\|_{q_1}^{1 - \alpha^*} \\
+        &\leq \|\nabla^{m } u\|_{r_1} \Big[ \|\nabla^{m - 1} u\|_{r_2}^{\alpha^{**}} \|u\|_{q_2}^{1 - \alpha^{**}} \Big]^{1 - \alpha^*}
+\end{align*}
+Analoge Rechnungen ergeben, dass sich $r_i$, $q_i$, $i \in \{1,2\}$ immer passend wählen lassen.
+    \item Angenommen, die Aussage gelte bis einschließlich $m - 1$ für ein $m \in \N$. Sei $0 \leq j < m $ und $\alpha = 1$. 
+      Sei zusätzlich $1 \leq r < \infty$ und damit
+      $$
+      \frac{1}{p} = \frac{j}{d} + (\frac{1}{r} - \frac{m}{d}) = \frac{1}{d} ( j - m + \frac{d}{r}),
+      $$
+      wobei wir voraussetzen wollen, dass $-(j - m + \frac{d}{r}) \notin \N_0$.
+      Wir rechnen
+      $$
+      \|\nabla^j u\|_p \leq  \|\nabla^{m - 1} u\|_{r_1} \leq \|\nabla \nabla^{m - 1} u\|_{r_2} = \|\nabla^m u\|_{r_2},
+      $$
+      wobei wir gerne $r_2 = r$ wählen würden.
+      Um zu gewährleisten, dass dies möglich ist müssen folgende Gleichungen erfüllt sein:
+      \begin{align*}
+        \frac{1}{p} = \frac{1}{d}( j - (m - 1) + \frac{d}{r_1} ) \tag{I} \\
+        \frac{1}{r_1} = \frac{1}{d} ( 0 - 1 + \frac{d}{r} ) \tag{II}.
+      \end{align*}
+      Einsetzen von (II) in (I) ergibt
+      $$
+      \frac{1}{d}( j - (m - 1) + (- 1 + \frac{d}{r})) = \frac{1}{d} (j - m + \frac{d}{r}).
+      $$
+      Somit ist die Behauptung erfüllt, falls $1 - \frac{d}{r} \notin \N_0$ gilt. Angenommen, das Gegenteil wäre der Fall, so würde gelten
+      $$
+      m - j - \frac{d}{r} = m - j - 1 + 1 - \frac{d}{r} \in \N_0
+      $$
+      im Widerpsruch zur Voraussetzung.
+  \end{enumerate}
+
+
 \end{proof}
 
 Nun sind wir in der Lage Haupsatz \ref{hsatz:gagliardoNirenberg} zu beweisen.
