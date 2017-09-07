@@ -305,6 +305,61 @@ Nun sind wir in der Lage Haupsatz \ref{hsatz:gagliardoNirenberg} zu beweisen.
       $$
       Damit wäre die Behauptung im Falle $1 < r < d$ gezeigt.
     \item 
+      Es seien $0 < \alpha < 1$, $j = $, $m = 1$, $d = r$.
+      Dann ist $ \frac{1}{p} = \frac{1 - \alpha}{q} $ und wir definieren
+      $$
+      q_k \coloneqq q + k \cdot \frac{d}{d - 1}, \quad k \in \N, \quad q_0 \coloneqq q.
+      $$
+      Wenn $k \geq 1$, so gilt $q_k \cdot \frac{d - 1}{d} > 1$.
+      Idee: Wähle $k$ groß genug, sodass $q < p < q_k$ gilt, um Interpolationsungleichung anzuwenden.
+      Definiere
+      $$
+      v_k \coloneqq |u|^{q_k \cdot \frac{d - 1}{d}}.
+      $$
+      Dan gilt $v_k \in \CC_c^1(\R^d)$ und aus ($\ast$) mit $u = v_k$ folgt
+      \begin{align*}
+        \Big( \int_{\R^d} |u(x)|^{q_k} \d x \Big)^{\frac{1}{q_k}}
+        &= \Big( \int_{\R^d} |v_k(x)|^{\frac{d}{d - 1}} \d x \Big)^{\frac{1}{q_k}} \\
+        &\leq C(d,q,k) \Bigg[ \prod_{i = 1}^d \Big( \int_{\R^d} |\partial^i u(x)||u(x)|^{\frac{q_k(d - 1)}{d }} \d x \Big)^{\frac{1}{d - 1}} \Bigg]^{\frac{1}{q_k}} \\
+        &\leq C(d,q,k) \Bigg[ \big\|\nabla u\big\|_{\Ell^d}^{\frac{d}{d - 1 }} \; \Big\| |u|^{\frac{q_k (d - 1)}{d} - 1} \Big\|_{\Ell^{\frac{d}{d - 1}}}^{\frac{d}{d - 1}} \Bigg]^{\frac{1}{q_k}} \\
+        &= C(d,q,k) \, \big\|\nabla u\big\|_{\Ell^d}^{\frac{d}{q_k (d - 1)}} \; \big\|u\big\|_{\Ell^{q_{k - 1}}}^{\frac{q_{k - 1}}{q_k}}.
+      \end{align*}
+      Wähle nun $k \in \N$ mit $q_{k - 1} \leq p \leq q_k$ und definiere 
+      $$
+      \mu \coloneqq \frac{1}{p}, \quad \nu \coloneqq \frac{1}{q}, \quad \lambda_k \coloneqq \frac{1}{q_k} \quad\text{und}\quad \lambda_l \coloneqq \frac{1}{q_l} \quad\text{für } l < k.
+      $$
+      Dann gilt
+      \begin{align*}
+        \|u\|_{\Ell^p}
+        &\leq C \, \|u\|_{\Ell^{q_k}}^{\frac{\nu - \mu}{\nu - \lambda_k}} \, \|u\|_{\Ell^q}^{\frac{\mu - \lambda_k}{\nu - \lambda_k}} 
+        \leq C \, \|\nabla u\|_{\Ell^d}^{\lambda_k \cdot \frac{d}{d - 1} \, \frac{\nu - \mu}{\nu - \lambda_k}} \; \|u\|_{\Ell^{q_{k - 1}}}^{\frac{\lambda_k}{\lambda_{k - 1}} \frac{\nu - \mu}{\nu - \lambda_k}}  \; \|u\|_{\Ell^{q}}^{\frac{\mu - \lambda_k}{\nu - \lambda_k}}  \tag{\#}
+      \end{align*}
+      Falls $k = 1$, so gelten 
+      $$
+      q_{k - 1} = q, \quad \lambda_k \cdot \frac{d}{d - 1}\frac{\nu - \mu}{\nu - \lambda_k} = \alpha \quad\text{und}\quad \frac{\lambda_k}{\lambda_{k - 1}} \frac{\nu - \mu}{\nu - \lambda_k} + \frac{\mu - \lambda_k}{\nu - \lambda_k}=  (1 - \alpha),
+      $$
+      denn
+      \begin{align*}
+      \lambda_k \cdot \frac{d}{d - 1} \cdot \frac{\nu - \mu}{\nu - \lambda_k}
+        &= \frac{1}{q_1} \cdot \frac{d}{d - 1} \cdot \frac{\frac{1}{q} - \frac{1}{p}}{\frac{1}{q} - \frac{1}{q_1}} 
+        = \frac{1}{q + \frac{d}{d - 1}} \cdot \frac{d}{d - 1} \cdot \frac{\frac{1}{q} - \frac{1 - \alpha}{q}}{\frac{1}{q} - \frac{1}{q + \frac{d}{d - 1}}}  \\
+        &= \frac{d}{q(d - 1) + d} \cdot \frac{\alpha}{1 - \frac{q}{q + \frac{d}{d - 1}}} 
+        = \frac{d}{q(d - 1) + d} \cdot \frac{\alpha (q + \frac{d}{d - 1})}{q + \frac{d}{d - 1} - q} \\
+        &= \frac{d}{q(d - 1) + d} \cdot \frac{(q(d - 1) + d) \alpha}{d} 
+        = \alpha.
+      \end{align*}
+      Falls $k \geq 2$ so rechnen wir weiter
+      \begin{align*}
+        (\#) 
+        &\leq C\, \|\nabla u\|_{\Ell^d}^{\lambda_k \cdot \frac{d}{d - 1} \cdot \frac{\nu - \mu}{\nu - \lambda_k} + \lambda_{k - 1} \cdot \frac{\lambda_k}{\lambda_{k - 1}} \cdot \frac{d}{d - 1} \frac{\nu - \mu}{\nu - \lambda_k}}
+        \cdot \| u\|_{\Ell^{q_{k - 2}}}^{\frac{\lambda_k}{\lambda_{k - 1}} \cdot \frac{\nu - \mu}{\nu - \lambda_k} \cdot \frac{\lambda_{k - 1}}{\lambda_{k - 2}}} 
+        \cdot \|u\|_{\Ell^q}^{\frac{\mu - \lambda_k}{\nu - \lambda_k}} \\
+        &\dots \\
+        &\leq C \, \|\nabla u\|_{\Ell^d}^{k \cdot \frac{d}{d - 1} \cdot \frac{\nu - \mu}{\nu - \lambda_k}} \|u\|_{\Ell^q}^{\frac{\mu - \lambda_k}{\nu - \lambda_k} + \frac{\lambda_k}{\lambda_0} \cdot \frac{\nu - \mu}{\nu - \lambda_k}} \\
+        &\leq C \, \|\nabla u\|_{\Ell^d}^{\alpha} \|u\|_{\Ell^q}^{1 - \alpha}.
+      \end{align*}
+      Die Verallgemeinerung $0 < \alpha < 1$, $0 \leq j < m$, $m - j - \frac{d}{r} \in \N_0$ ist Übungsaufgabe.
+    \item
   \end{enumerate}
 
 \end{proof}
