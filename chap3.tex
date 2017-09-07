@@ -106,7 +106,7 @@ Das folgende Lemma reduziert den Beweis von Haupsatz \ref{hsatz:gagliardoNirenbe
 \end{lem}
 
 \begin{proof}
-  Übung für Ehrgeizige. Für Faule folgt der Beweis:
+  Übung für Ehrgeizige. Für Faule folgt der Beweis. Alle Ungleichungen sind bis auf Konstanten zu verstehen.
 
   \begin{enumerate}[a)]
     \item Angenommen, die Aussage gelte bis einschließlich $m - 1$ für ein $m \in \N$. Sei $1 < j < m - 1$ und damit $\alpha = \frac{j}{m}$. 
@@ -247,11 +247,11 @@ Nun sind wir in der Lage Haupsatz \ref{hsatz:gagliardoNirenberg} zu beweisen.
 \begin{proof}[Beweis von Haupsatz \ref{hsatz:gagliardoNirenberg}]
   Dass $\frac{1}{p} \leq 1$ gilt, ist Übungsaufgabe.
   Lemma \ref{lem:reducingGagliardo} reduziert den Beweis auf die folgenden Fälle
-  \begin{itemize}
+  \begin{enumerate}[\text{Fall} 1:]
     \item $\alpha = 1$, $j = 0$, $m = 1$ (für $r \neq d$).
     \item $\frac{j}{m} < \alpha < 1$ und $m - j - \frac{d}{r} \in \N_0$.
     \item $\alpha = \frac{1}{2}$, $j = 1$, $m = 2$.
-  \end{itemize}
+  \end{enumerate}
 
   \begin{enumerate}[\text{Fall} 1:]
     \item $\alpha = 1$, $j = 0$, $m = 1$.
@@ -261,8 +261,8 @@ Nun sind wir in der Lage Haupsatz \ref{hsatz:gagliardoNirenberg} zu beweisen.
       -\frac{d}{p} = 1 - \frac{d}{r} \quad\text{(Hölder-Exponent zu $X_{\frac{1}{p}}$)}
       $$
       Dann folgt die Behauptung aus Lemma \ref{lem:hoelderIneq}.
-      Sei nun $r = 1 < d$, $x \in \R^d$, $1 \leq i \leq d$ und $\gamma_i \colon (-\infty, \infty) \to \R^d$ definiert durch $\gamma_i (t) \coloneqq x - t e_i$.
-      Es besitze $u$ einen kompakten Träger. Dann gilt
+      Sei nun $r = 1 < d$, $x \in \R^d$, $1 \leq i \leq d$ und $\gamma_i \colon (-\infty, \infty) \to \R^d$ definiert durch $\gamma_i (t) \coloneqq x + t e_i$.
+      Es sei $u \in \CC^1(\R^d)$ mit kompaktem Träger. Dann gilt
       $$
       u(x) = \int_{-\infty}^0 \frac{\d{}}{\d t} (u(\gamma_i(t))) \d t = -\int_0^\infty \frac{\d{}}{\d t} (u(\gamma_i(t))) \d t.
       $$
@@ -276,15 +276,34 @@ Nun sind wir in der Lage Haupsatz \ref{hsatz:gagliardoNirenberg} zu beweisen.
       $$
       Integration über $x_1$ ergibt
       \begin{align*}
-      \int_\R |u(x)|^{\frac{\d{}}{d - 1}} \d x_1 
-      & \leq \frac{1}{2^{\frac{d}{d - 1}}} \Big( \int_{\R} \big| u(\gamma_1(t)) \big| \d t \Big)^{\frac{1}{d - 1}} \int_{\R} \prod_{i = 2}^d \int_{-\infty}^\infty \big( \frac{\d{}}{\d t} u(\gamma_i(t)) \big| \d t \Big)^{\frac{1}{d - 1}} \d x_1 \\
-      &\leq \frac{1}{2^{\frac{d}{d - 1}}} \Big( \int_{\R} |\partial_i u(x)| \d x_1 \Big)^{\frac{1}{d - 1}} \prod_{i = 2}^d \Big(\int_{-\infty}^\infty \int_{\R} \big| \frac{\d{}}{\d t} u(\gamma_i(t)) \big| \d x_1 \d t \Big)^{\frac{1}{d - 1}}
+        &\int_{-\infty}^\infty |u(x)|^{\frac{\d{}}{d - 1}} \d x_1  \\
+        &\quad \leq \frac{1}{2^{\frac{d}{d - 1}}} \Big( \int_{-\infty}^\infty \big| \frac{\d{}}{\d t} u(\gamma_1(t)) \big| \d t \Big)^{\frac{1}{d - 1}} \int_{-\infty}^\infty \prod_{i = 2}^d \Big(\int_{-\infty}^\infty  \big| \frac{\d{}}{\d t} u(\gamma_i(t)) \big| \d t \Big)^{\frac{1}{d - 1}} \d x_1 \\
+      &\quad \leq \frac{1}{2^{\frac{d}{d - 1}}} \Big( \int_{-\infty}^\infty |\partial_i u(x)| \d x_1 \Big)^{\frac{1}{d - 1}} \prod_{i = 2}^d \Big(\int_{-\infty}^\infty \int_{-\infty}^\infty \big| \frac{\d{}}{\d t} u(\gamma_i(t)) \big| \d x_1 \d t \Big)^{\frac{1}{d - 1}}
       \end{align*}
       Induktive Integration über $x_1,\dots,x_d$ liefert
       \begin{align*}
-        \int_{\R} |u(x)|^{\frac{d}{d - 1}} \d x \leq \frac{1}{2^{\frac{d}{d - 1}}} \prod_{i = 1}^d \Big( \int_{\R} \big|\partial_i u(x) \big| \d x \Big)^{\frac{1}{d - 1}}
+        \int_{\R^d} |u(x)|^{\frac{d}{d - 1}} \d x \leq \frac{1}{2^{\frac{d}{d - 1}}} \prod_{i = 1}^d \Big( \int_{\R^d} \big|\partial_i u(x) \big| \d x \Big)^{\frac{1}{d - 1}} \tag{$\ast$}
       \end{align*}
       Daraus ergibt sich die Behauptung für $r = 1$.
+      Sei nun $1 < r < d$. 
+      Definiere $v \coloneqq |u|^{\frac{(d - 1) r}{d - r}}$.
+      Da $\frac{(d - 1)r}{d - r} > 1$ folgt $v \in \CC_{\mathrm{c}}^1(\R^d)$, somit ist ($\ast$) mit $u = v$ anwendbar und wir rechnen
+      \begin{align*}
+        \Big( \int_{\R^d} |u(x)|^{\frac{rd}{d - r}} \d x \Big)^{\frac{d - 1}{d} }
+       &= \Big( \int_{\R^d} |v(x)|^{\frac{d}{d - 1}} \d x \Big)^{ \frac{d - 1}{d}} \\
+        &\leq \frac{1}{2^{\frac{d - r}{r(d - 1)}}} \prod_{i = 1}^d \Big( \int_{\R^d} |\partial_i v(x) | \d x \Big)^{\frac{1}{d}} \\
+        &\leq C(d,r) \prod_{i = 1}^d \Big( \int_{\R^d} |\partial_i u(x)| |u(x)|^{\frac{d (r - 1)}{d - r}} \d x \Big)^{\frac{1}{d}} \\
+        &\leq C(d,r) \Bigg[ \prod_{i = 1}^d \Big( \int_{\R^d} |\partial_i u(x)|^r \Big)^{\frac{1}{r d}} \Bigg] \Big( \int_{\R^d} |u(x)|^{\frac{rd}{d - r}} \d x \Big)^{\frac{(r - 1)}{r}}.
+      \end{align*}
+      Abschließend teilen wir durch das $u$ Integral und erhalten
+      $$
+      \Big( \int_{\R^d} |u(x)|^{\frac{rd}{d - r}} \d x \Big)^{\frac{d - r}{rd}} \leq C(d,r) \prod_{i = 1}^d \Big( \int_{R^d} |\partial_i u(x)|^r \d x \Big)^{\frac{1}{rd}}.
+      $$
+      Es gilt übrigens
+      $$
+      C(d,r) = \frac{r}{2} \, \frac{d - 1}{d - r}.
+      $$
+      Damit wäre die Behauptung im Falle $1 < r < d$ gezeigt.
     \item 
   \end{enumerate}
 
