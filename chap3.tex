@@ -404,9 +404,54 @@ Nun sind wir in der Lage Haupsatz \ref{hsatz:gagliardoNirenberg} zu beweisen.
 
       Falls $I_1 \subset [0,L]$, wiederhole Prozedur und wähle $I_2$ derart, dass der linke Endpunkt von $I_2$ der rechte Endpunkt von $I_1$ ist.
       Wiederhole so lange, bis $[0,L] \subset \bigcup_{i = 1}^N I_i$ enthalten ist.
-      Per constructionem gilt $N \subseteq k$.
+      Per constructionem gilt $N \leq k$.
       Es folgt
-  \end{enumerate}
+      \begin{align*}
+        &\int_0^L |\partial_i u(x)|^p \d x_i \\
+        &\quad\leq \sum_{i = 1}^N \int_{I_i} |\partial_i u(x)|^p \d x_i \\ 
+        &\quad\leq 2k \Big( \frac{L}{k} \Big)^{1 - p - \frac{p}{r}} + 2C^p \sum_{\substack{i = 1 \\ |I_i| > \frac{L}{k}}}^N \Big( \int_{I_i} |\partial_i \partial_i u(x)|^r \d x_i \Big)^{\frac{p}{2r}} \cdot \Big( \int_{I_i} |u(x)|^q \d x_i \Big)^{\frac{p}{2q}} \\
+        &\quad\leq 2C^p L \Big(\frac{L}{k}\Big)^{p - \frac{p}{r}} + 2C^p \Big( \sum_{\substack{i = 1 \\ |I_i| > \frac{L}{k}}} \int_{I_i} |\partial_i \partial_i u(x)|^r \d x_i \Big)^{\frac{p}{2r}} \cdot \Big( \sum_{\substack{i = 1 \\ |I_i| > \frac{L}{k}}} \int_{I_i} |u(x)|^q \d x_i \Big)^{\frac{p}{2q}},
+      \end{align*}
+      wobei $C$ die Konstante aus ($\heartsuit$) ist.
+      Da $r > 0$ folgt ($\square$) für $k \to \infty$.
 
+      Um ($\heartsuit$) zu zeigen, sei $I = [a,b]$ ein kompaktes Intervall.
+      Definiere
+      $$
+      v(y) \coloneqq u(x_1,\dots,x_{i - 1},y,x_{i + 1},\dots,x_d).
+      $$
+      Sei $y \in I$, $y_1 \in [a,a + \frac{|I|}{4}]$, $y_2 \in [b - \frac{|I|}{4}, b]$ und $y_{12} \in [y_1, y_2]$ mit
+      $$
+      \frac{v(y_1) - v(y_2)}{y_1 - y_2} = v'(y_{12}).
+      $$
+      So folgt
+      $$
+      v'(y) 
+      = v'(y_{12}) + \int_{y_{12}}^y v''(z) \d z
+      = \frac{v(y_1) - v(y_2)}{y_1 - y_2} + \int_{y_{12}}^y v''(z) \d z
+      $$
+      Hieraus ergibt sich
+      $$
+      |v'(y)| \leq 2\; \frac{|v(y_1)| + |v(y_2)|}{|I|} + \int_I |v''(z)| \d z.
+      $$
+      Integrieren wir nun über $y_1$ und dann $y_2$, so erhalten wir
+      \begin{align*}
+        \Big( \frac{|I|}{4} \Big)^2 |v'(y)|
+        &\leq 2 \frac{|I|}{4} \frac{1}{|I|} 2 \int_I |v(y)| \d y + \Big( \frac{|I|}{4}\Big)^2 \int_I |v''(z)| \d z \\
+        &\leq |I|^{\frac{q - 1}{q}} \Big( \int_I |v(y)|^q \d y \Big)^{\frac{1}{q}} + \Big( \frac{|I|}{4} \Big)^2 |I|^{\frac{r - 1}{r}} \Big( \int_I |v''(z)|^r \d z \Big)^{\frac{1}{r}}.
+      \end{align*}
+      Bildung der $p$-ten Potenz und Integration über $y$ liefert
+      \begin{align*}
+        &\Big(\frac{|I|}{4}\Big)^{2p} \int_I |v'(y)|^p \d y\\  
+        &\quad\leq 2^{p - 1} \Bigg[ |I|^{1 + p - \frac{p}{q}} \Big( \int_I |v(y)|^q \d y \Big)^{\frac{p}{q}} + \Big(\frac{1}{16}\Big)^p |I|^{1 + 2p + p - \frac{p}{r}} \Big(\int_I |v''(z)|^r \d z \Big)^{\frac{p}{r}} \Bigg].
+      \end{align*}
+      Stellen wir die Gleichung noch etwas um, so erhalten wir
+      \begin{align*}
+        &\int_I |v'(y)|^p \d y  \\
+        &\quad \leq 2^{5p - 1} \Bigg[ |I|^{1 - p - \frac{p}{q}} \Big( \int_I |v(y)|^q \d y \Big)^{\frac{p}{r}} + \Big(\frac{1}{16})^p |I|^{1 + p - \frac{p}{r}} \Big( \int_I |v''(z)|^r \d z \Big)^{\frac{p}{r}} \Bigg].
+      \end{align*}
+      Aus $\frac{2}{p} = \frac{1}{r} + \frac{1}{q}$ folgt $1 - p - \frac{p}{q} = 1 - p - (2 - \frac{p}{r}) = -1 - p + \frac{p}{r}$ und damit folgt ($\heartsuit$) mit $C$ unabhängig von $r$.
+\end{enumerate}
+Damit sind alle Fälle bewiesen.
 \end{proof}
 
