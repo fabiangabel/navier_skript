@@ -214,10 +214,10 @@ Ist $\Omega$ ein beschränktes Lipschitz-Gebiet, so wurde ein Lösungsoperator (
 
 \begin{thm}
   \label{thm:bogowskii}
-  Sei $\Omega \subset \R^d, d \geq 2$, ein beschränktes Lipschitz-Gebiet, dann existiert ein Operator $\BB$, sodass für jedes $1 < p < \infty$ gilt:
+  Sei $\Omega \subset \R^d, d \geq 2$, ein beschränktes Lipschitz-Gebiet, dann existiert ein Operator $\Bog$, sodass für jedes $1 < p < \infty$ gilt:
   \begin{align*}
-    &\BB \colon \Ell_0^p(\Omega) \to \WW_0^{1,p}(\Omega, \C^d), \quad \BB \in \Li\big(\Ell_0^p(\Omega), \WW_0^{1,p}(\Omega, \C^d)\big) \\
-    &\div(\BB f) = f, \quad\text{für alle } f \in \Ell_0^p(\Omega).
+    &\Bog \colon \Ell_0^p(\Omega) \to \WW_0^{1,p}(\Omega, \C^d), \quad \Bog \in \Li\big(\Ell_0^p(\Omega), \WW_0^{1,p}(\Omega, \C^d)\big) \\
+    &\div(\Bog f) = f, \quad\text{für alle } f \in \Ell_0^p(\Omega).
   \end{align*}
 \end{thm}
 
@@ -243,14 +243,14 @@ wobei $\frac{1}{p} + \frac{1}{p'} = 1$.
 \end{lem}
 
 \begin{proof}
-  Sei $\BB$ der Bogowski\u{\i}-Operator aus Satz \ref{thm:bogowskii} und $f \in \Ell^{p'}(\Omega)$, wobei $\frac{1}{p} + \frac{1}{p'} = 1$.
+  Sei $\Bog$ der Bogowski\u{\i}-Operator aus Satz \ref{thm:bogowskii} und $f \in \Ell^{p'}(\Omega)$, wobei $\frac{1}{p} + \frac{1}{p'} = 1$.
   Dann gilt
   \begin{align*}
   \Big| \int_\Omega (u - u_\Omega) \, \overline f \d x \Big|
     &= \Big| \int_\Omega (u - u_\Omega) \, (\overline{f - f_\Omega})  \d x \Big|
     = \Big| \int_\Omega u \, (\overline{f - f_\Omega}) \d x \Big| \\
-    &= \Big| \int_\Omega u \, \div( \BB(\overline{f - f_\Omega}) ) \d x \Big|
-    \leq \|\nabla u\|_{\WW^{-1,p}(\Omega)} \, \|\BB(\overline{f - f_\Omega}) \|_{\WW_0^{1,p'}(\Omega)} \\
+    &= \Big| \int_\Omega u \, \div( \Bog(\overline{f - f_\Omega}) ) \d x \Big|
+    \leq \|\nabla u\|_{\WW^{-1,p}(\Omega)} \, \|\Bog(\overline{f - f_\Omega}) \|_{\WW_0^{1,p'}(\Omega)} \\
     &\overset{\text{Satz } \ref{thm:bogowskii}}{\leq}  C \,  \|\nabla u\|_{\WW^{-1,p}(\Omega)} \, \|f - f_\Omega\|_{\Ell^{p'}(\Omega)}
     \leq C \, \|\nabla u\|_{\WW^{-1,p}(\Omega)} \, \|f\|_{\Ell^{p'}(\Omega)},
   \end{align*}
@@ -325,7 +325,7 @@ $$
 
   Sei $\Omega_2$ ein weiteres beschränktes Lipschitzgebiet mit $\overline\Omega_1 \subset \Omega_2, \overline\Omega_2 \subset \Omega$ mit 
   $$
-  \Omega_2 \coloneqq (\Omega \cap \BB(x_0, r)) \setminus \bigcup_{k = 1}^N \BB(x_n , \varepsilon)
+  \Omega_2 \coloneqq (\Omega \cap \Bog(x_0, r)) \setminus \bigcup_{k = 1}^N \BB(x_n , \varepsilon)
   $$
   so folgt aus $f \in \WW_{\loc}^{-1,p}(\Omega, \C^d)$, dass $f \in \WW^{-1,p}(\Omega_2, \C^d)$.
   Da $\Omega_2$ beschränkt ist, existiert (Übung) ein $F \in \Ell^p(\Omega_2, \C^{d\times d})$ mit $f = \div(F)$, wobei
@@ -472,9 +472,9 @@ D.h. $u$ und $\pi$ lösen im Sinne von Distributionen die Stokes-Gleichung:
   Nun sei $f \in \Ell_\sigma^2(\Omega)^\perp$.
   Dann gilt 
   $$
-  \int_\Omega f \cdot \overline v \d x \in \WW^{-1, 2}(\Omega, \C^d), \quad\text{für alle } v \in \Ell^2_\sigma(\Omega).
+  \int_\Omega f \cdot \overline v \d x = 0 \quad\text{für alle } v \in \Ell^2_\sigma(\Omega).
   $$
-  Die Hölder-Ungleichung liefert nun, dass
+  Die Hölder-Ungleichung liefert nun
   $$
   \big( v \mapsto \int_\Omega f \cdot \overline v \d x \big) \in \WW^{-1,2}(\Omega,\C^d).
   $$

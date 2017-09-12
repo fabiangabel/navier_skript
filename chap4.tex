@@ -31,7 +31,7 @@ Formal gilt: Schreibt man $f = \nabla \phi$, wobei $\phi \in \Ell^{p'}_{\loc}(\O
      &= -\int_{\partial\Omega} n \cdot [u - \nabla\pi] \overline \phi \d x
         - \int_\Omega \div(u) \overline\phi \d x,
 \end{align*}
-d.h. $\phi$ löst (formal) das Neumann-Problem
+d.h. $\pi$ löst (formal) das Neumann-Problem
 $$
 \begin{cases}
   -\Delta \pi = \div (u)         &\quad\text{in } \Omega \\
@@ -42,7 +42,7 @@ Hier bezeichnet $n$ den äußeren Einheitsnormalenvektor von $\Omega$.
 
 \begin{thm}
   \label{thm:helmholtzIffNeumann}
-  Sei $\Omega \subset \R^d, d \geq 2$, offen und $1 < p < \infty$.
+  Sei $\Omega \subset \R^d, d \geq 2$ (ausreichend regulär), offen und $1 < p < \infty$.
   Dann existiert genau dann die Helmholtz-Zerlegung auf $\Ell^p(\Omega; \C^d)$, wenn (NP) für alle $u \in \Ell^p(\Omega; \C^d)$ lösbar ist.
 \end{thm}
 
@@ -70,7 +70,7 @@ Hier bezeichnet $n$ den äußeren Einheitsnormalenvektor von $\Omega$.
   Aus ($\ast$) folgt zunächst $u_0 \in \GG_{p'}(\Omega)^\perp$.
   Gilt nun auch noch 
   \begin{displaymath}
-    \Ell^p_\sigma(\Omega) \subset \GG_{p'}(\Omega) \tag{$\ast\ast$}
+    \Ell^p_\sigma(\Omega)^\perp \subset \GG_{p'}(\Omega) \tag{$\ast\ast$}
   \end{displaymath}
   so folgt die Behauptung aus nochmaliger Bildung des Annihilators, also
   $$
@@ -106,7 +106,7 @@ Hier bezeichnet $n$ den äußeren Einheitsnormalenvektor von $\Omega$.
 \end{proof}
 
 Satz \ref{thm:helmholtzIffNeumann} wird benutzt, um die Existenz der Helmholtz-Zerlegung auf $\Ell^p(\Omega; \C^d)$ zu beweisen.
-Auf beschränkten Lipschitz-Gebieten wurde z.B. folgendes Resultat durch Fabes, Mendez und Mitrea im Jahr 1998 bewiesen.
+Auf beschränkten Lipschitz-Gebieten wurde z.B. folgendes Resultat durch Fabes, Mendez und Mitrea im Jahr 1998 \cite{fabes} bewiesen.
 
 \begin{hsatz}
   \label{hsatz:contProj}
@@ -138,19 +138,20 @@ Auf beschränkten Lipschitz-Gebieten wurde z.B. folgendes Resultat durch Fabes, 
   Wir wissen, dass aus der Beschränktheit von $\PP_p$ auch die Beschränktheit von $(\PP_p)'$ folgt.
   Ist $\PP_p$ eine Projektion, so ist insbesondere $(\PP_p)'$ eine Projektion.
   Sei nun $\PP_{p'}$ die kanonische Identifizierung von $(\PP_p)'$ auf $\Ell^{p'}(\Omega; \C^d)$.
-  Seien $\varphi \in \CC_{c, \sigma}^\infty(\Omega)$, $f \in \CC_c^\infty(\Omega; \CC^d)$.
-  Dann gilt
+  Der Beweis gliedert sich in 3 Schritte.
+  \begin{enumerate}[(i)]
+    \item In diesem Schritt bestimmen wir das Bild der Projektion, genauer wollen wir zeigen, dass $\Rg \PP_{p'} = L_\sigma^{p'}(\Omega)$ gilt.
+  Seien dazu $\varphi \in \CC_{c, \sigma}^\infty(\Omega)$, $f \in \CC_c^\infty(\Omega; \CC^d)$.
+  Dann gilt mit der Definition dualen Abbildung
   \begin{align*}
     \int_\Omega \PP_{p'}\varphi \cdot \overline f 
-    &= \int_\Omega \varphi \cdot \overline{\PP_p f} \d x,  \\
-    \intertext{nach Definition der dualen Abbildung,}
-    &= \int_\Omega \varphi \cdot \overline{\PP_2 f} \d x, \\
-    \intertext{da $\Omega$ beschränkt und die Helmholtz-Zerlegung eindeutig ist und schließlich}
-    &= \int_\Omega \varphi \cdot \overline{f} \d x,
+    = \int_\Omega \varphi \cdot \overline{\PP_p f} \d x  
+    = \int_\Omega \varphi \cdot \overline{\PP_2 f} \d x 
+    = \int_\Omega \varphi \cdot \overline{f} \d x,
   \end{align*}
-  da $\PP_2$ selbstadjungiert ist.
+      da $\Omega$ beschränkt (es gilt $\Ell^2 \subseteq \Ell^p$ oder $\Ell^p \subseteq \Ell^2$) und die Helmholtz-Zerlegung eindeutig ist und schließlich auch $\PP_2$ selbstadjungiert ist.
   Hieraus ergibt sich $\PP_{p'} \varphi = \varphi$.
-  Da $\CC_{c, \sigma}^\infty(\Omega)$ dicht liegt in $\Ell^{p'}_\sigma(\Omega)$ $\PP_{p'}$ beschränkt ist und zudem als Projektion ein abgeschlossenes Bild besitzt, folgt
+  Da $\CC_{c, \sigma}^\infty(\Omega)$ dicht liegt in $\Ell^{p'}_\sigma(\Omega)$, $\PP_{p'}$ beschränkt ist und zudem als Projektion ein abgeschlossenes Bild besitzt, folgt
   $$
   \Ell^{p'}_\sigma(\Omega) \subset \Rg(\PP_{p'}).
   $$
@@ -179,7 +180,7 @@ Auf beschränkten Lipschitz-Gebieten wurde z.B. folgendes Resultat durch Fabes, 
   $$
   \Rg(\PP_{p'}) = \Ell_\sigma^{p'}(\Omega).
   $$
-  Wir bestimmen nun den Kern von $\PP_{p'}$.
+\item Wir bestimmen nun den Kern von $\PP_{p'}$.
   Genauer zeigen wir
   $$
   \ker(\PP_{p'}) = \GG_{p'}(\Omega).
@@ -210,12 +211,12 @@ Auf beschränkten Lipschitz-Gebieten wurde z.B. folgendes Resultat durch Fabes, 
   Daraus folgt $f = \nabla\phi \in \Ell^{p'}(\Omega; \C^d)$, also $\ker(\PP_{p'}) \subset \GG_{p'}(\Omega)$.
   Damit ist $\PP_{p'}$ die Helmholtz-Zerlegung auf $\Ell^{p'}(\Omega; \C^d)$.
 
-  Zeige nun, dass $(\Ell_\sigma^{p}(\Omega))' \simeq \Ell^{p'}_\sigma(\Omega)$.
+\item Zeige nun, dass $(\Ell_\sigma^{p}(\Omega))' \simeq \Ell^{p'}_\sigma(\Omega)$.
   Die Inklusion $\Ell_\sigma^{p'}(\Omega) \subseteq (\Ell_\sigma^p(\Omega))'$ folgt aus Hölders Ungleichung.
   Sei $f \in (\Ell_\sigma^p(\Omega))'$.
   Setze $f$ auf $\Ell^p(\Omega; \C^d)$ fort durch
   $$
-  F(g) \coloneqq f(\PP_p g).
+  F(g) \coloneqq f(\PP_p g), \quad g \in \Ell^p(\Omega; \C^d)
   $$
   Dann ist $F \in (\Ell^p(\Omega; \C^d))'$. Weiterhin existiert ein $\tilde f \in \Ell^{p'}(\Omega; \C^d)$ mit 
   $$
@@ -232,6 +233,7 @@ Auf beschränkten Lipschitz-Gebieten wurde z.B. folgendes Resultat durch Fabes, 
   = 0, \quad\text{für alle } g \in \Ell^p(\Omega; \C^d).
   $$
   Dies liefert $(I - \PP_{p'}) \tilde f = 0$ woraus wiederum $\tilde f \in \Ell_\sigma^{p'}(\Omega)$ folgt.
+  \end{enumerate}
 \end{proof}
 
 \begin{defn}
@@ -253,7 +255,7 @@ ein wohldefinierter abgeschlossener Operator.
     \DD(A_p) &\coloneqq \{ u \in \DD(A_2) \cap \Ell_\sigma^p(\Omega) \colon A_2 u \in \Ell_\sigma^p(\Omega) \} \\
     A_p u &\coloneqq A_2 u, \quad\text{für alle } u \in \DD(A_p).
   \end{align*}
-  Ist $p < 2$ und falls $A_2$ abschließbar ist in $\Ell_\sigma^p(\Omega)$, so ist der Stokes-Operator $A_p$ auf $\Ell_\sigma^p(\Omega)$ definiert als der Abschluss von $A_2$ in $\Ell_\sigma^p(\Omega)$.
+  Ist $p < 2$ und $A_2$ abschließbar in $\Ell_\sigma^p(\Omega)$, so ist der Stokes-Operator $A_p$ auf $\Ell_\sigma^p(\Omega)$ definiert als der Abschluss von $A_2$ in $\Ell_\sigma^p(\Omega)$.
 \end{defn}
 
 \begin{prop}
@@ -275,16 +277,17 @@ ein wohldefinierter abgeschlossener Operator.
   Übung.
 \end{proof}
 
-Folgendes Resultat liefert auf einem abstrakten Weg die Dichtheit eines Definitionsbereiches, falls man in der Lage ist Resolventenabschätzungen zu beweisen.  (Siehe \emph{Haase, The functional calculus of sectorial operators}.)
+Folgendes Resultat liefert auf einem abstrakten Weg die Dichtheit eines Definitionsbereiches, falls man in der Lage ist Resolventenabschätzungen zu beweisen.  (Siehe \cite[Prop. 2.1.1]{haase}.)
 
 \begin{thm}
   Sei $A$ ein sekotrieller Operator auf einem reflexiven Banachraum $X$.
   Dann ist $A$ dicht definiert.
 \end{thm}
 
-Folgendes Durchbruchresultat ist von Shen, 2012.
+Folgendes Durchbruchresultat ist von Shen \cite{shen}.
 
 \begin{hsatz}
+  \label{hsatz:shen}
   Sei $\Omega \subset \R^d, d \geq 3$ ein beschränktes Lipschitz-Gebiet und $\theta \in [0,\pi)$.
     Dann existiert $\varepsilon(\theta, d, \Omega) > 0$, sodass für alle
     $$
@@ -301,6 +304,7 @@ Folgendes Durchbruchresultat ist von Shen, 2012.
 Folgendes Resultat ist von Tolksdorf, 2017.
 
 \begin{hsatz}
+  \label{hsatz:tolksdorf}
   Sei $\Omega \subset \R^d, d \geq 3$ ein beschränktes Lipschitz-Gebiet.
   Dann existiert $\varepsilon = \varepsilon(d,\Omega) > 0$, sodass für alle 
   $
@@ -315,3 +319,62 @@ Folgendes Resultat ist von Tolksdorf, 2017.
   C^{-1} \, \|\nabla u\|_{\Ell^p} \leq \| A^{\frac{1}{2}} u\|_{\Ell^p} \leq C \, \|\nabla u\|_{\Ell^p}.
   $$
 \end{hsatz}
+
+\begin{thm}
+  Sei $\Omega \subset \R^d$, $d \geq 3$, ein beschränktes Lipschitzgebiet.
+  Dann existiert ein $\varepsilon >0$, sodass für alle $\frac{2d}{d + 1} - \varepsilon < p \leq q < \frac{2d}{d - 1} + \varepsilon$ gilt:
+  \begin{enumerate}[i)]
+    \item Für alle $t > 0$ ist $\Rg(\e^{-tA_p}) \subset \WW_{0,\sigma}^{1,p}(\Omega)$ und es existiert $C > 0$, sodass für alle $t > 0$ und $a \in \Ell_\sigma^p(\Omega)$
+      $$
+      \|\nabla \e^{-tA_p} a \|_{\Ell^p} \leq C t^{-\frac{1}{2}} \|a\|_{\Ell^p}.
+      $$
+    \item Für alle $t > 0$ ist $\Rg(\e^{-t A_p}) \subset \Ell^q(\Omega; \C^d)$ und es existiert $C > 0$, sodass für alle $t > 0$ und $a \in \Ell_\sigma^p(\Omega)$ gilt
+      $$
+      \|\e^{-tA_p} a\|_{\Ell^q} \leq C t^{-\frac{d}{2}(\frac{1}{p} - \frac{1}{q})} \|a\|_{\Ell^p}.
+      $$
+  \end{enumerate}
+\end{thm}
+
+\begin{proof}
+  \begin{enumerate}[i)]
+    \item Nach Hauptsatz \ref{hsatz:shen} ist $(\e^{-tA_p})_{t \geq 0}$ eine analytische Halbgruppe.
+      Daraus folgt zunächst die Relation
+      $$
+      \Rg(\e^{-tA_p}) \subset \DD(A_p) \subset \DD(A_p^{\frac{1}{2}}) = \WW_{0,\sigma}^{1,p}(\Omega).
+      $$
+      Hieraus erhalten wir durch Anwendung von Hauptsatz \ref{hsatz:tolksdorf}, Satz \ref{thm:moment} und Hauptsatz \ref{hsatz:shen}
+      \begin{align*}
+        \|\nabla \e^{-t A_p a}\|_{\Ell^p}
+        &\leq C \, \|A_p^{\frac{1}{2}} \e^{-t A_p} a\|_{\Ell^p} \\
+        &\leq C\, \|\e^{-tA_p} a \|_{\Ell^p}^{\frac{1}{2}} \, \|A_p \e^{-t A_p} a\|_{\Ell^p}^{\frac{1}{2}} \\
+        &\leq C\, \|a\|_{\Ell^p}^{\frac{1}{2}} t^{-\frac{1}{2}} \|a\|_{\Ell^p}^{\frac{1}{2}} 
+      \end{align*}
+
+    \item Gagliardo-Nirenberg \ref{hsatz:gagliardoNirenberg} mit $p = q$, $r = p$, $q = p$, $j = 0$ und $m = 1$ liefert
+      $$
+      \frac{1}{q} = \alpha\cdot \big(\frac{1}{p} - \frac{1}{d}\big) + \big(1 - \alpha \big) \cdot \frac{1}{p},
+      $$
+      was genau dann der fall ist, wenn
+      $$
+      \alpha = d \, \big( \frac{1}{p} - \frac{1}{q} \big).
+      $$
+      Da $0 \leq \alpha < 1$ gelten muss, betrachte erst den Fall
+      $$
+      \frac{1}{p} - \frac{1}{q} < \frac{1}{d}
+      $$
+      Identifiziere $\e^{-tA_p} a \in \WW_{0,\sigma}^{1,p}(\Omega)$ mit seiner Fortsetzung durch Null auf $\R^d$, d.h. $\e^{-t A_p} a \in \WW^{1,p}(\R^d)$.
+      Die Gagliardo-Nirenberg Ungleichung liefert
+      $$
+      \|\e^{-t A_p} a \|_{\Ell^q} \leq C \| \nabla \e^{-t A_p} a \|_{\Ell^p}^\alpha \|\e^{-t A_p} a \|_{\Ell^p}^{1 - \alpha}
+      \leq C \cdot t^{-\frac{d}{2} \, \big( \frac{1}{p} - \frac{1}{q} \big)} \|a\|_{\Ell^p}.
+      $$
+      Falls $\frac{1}{p} - \frac{1}{q} < \frac{2}{d}$, dann wähle $r$ mit $\frac{1}{p} - \frac{1}{r} > \frac{1}{d}$ und $\frac{1}{r} - \frac{1}{q} < \frac{1}{d}$.
+      Anwendung des Halbgruppengesetze ergibt
+      \begin{align*}
+        \|\e^{-tA_p} a\|_{\Ell^q} 
+        &\leq C \, t^{-\frac{d}{2} \, \big( \frac{1}{r} - \frac{1}{q} \big)} \|\e^{-\frac{t}{2} A_p} a \|_{\Ell^r}  \\
+        &\leq C\, t^{-frac{d}{2} \, \big( \frac{1}{r} - \frac{1}{q} \big) - \frac{d}{2} \, \big( \frac{1}{p} - \frac{1}{r} \big)} \|a\|_{\Ell^p}.
+      \end{align*}
+      Iterativ folgt hieraus die Behauptung.
+  \end{enumerate}
+\end{proof}

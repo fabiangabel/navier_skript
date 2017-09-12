@@ -305,18 +305,18 @@ Nun sind wir in der Lage Haupsatz \ref{hsatz:gagliardoNirenberg} zu beweisen.
       $$
       Damit wäre die Behauptung im Falle $1 < r < d$ gezeigt.
     \item 
-      Es seien $0 < \alpha < 1$, $j = $, $m = 1$, $d = r$.
+      Es seien $0 < \alpha < 1$, $j = 0$, $m = 1$, $d = r$.
       Dann ist $ \frac{1}{p} = \frac{1 - \alpha}{q} $ und wir definieren
       $$
       q_k \coloneqq q + k \cdot \frac{d}{d - 1}, \quad k \in \N, \quad q_0 \coloneqq q.
       $$
       Wenn $k \geq 1$, so gilt $q_k \cdot \frac{d - 1}{d} > 1$.
-      Idee: Wähle $k$ groß genug, sodass $q < p < q_k$ gilt, um Interpolationsungleichung anzuwenden.
+      Idee: Wähle $k$ groß genug, sodass $q < p < q_k$ gilt, um die Interpolationsungleichung anzuwenden.
       Definiere
       $$
       v_k \coloneqq |u|^{q_k \cdot \frac{d - 1}{d}}.
       $$
-      Dan gilt $v_k \in \CC_c^1(\R^d)$ und aus ($\ast$) mit $u = v_k$ folgt
+      Dann gilt $v_k \in \CC_c^1(\R^d)$ und aus ($\ast$) mit $u = v_k$ folgt
       \begin{align*}
         \Big( \int_{\R^d} |u(x)|^{q_k} \d x \Big)^{\frac{1}{q_k}}
         &= \Big( \int_{\R^d} |v_k(x)|^{\frac{d}{d - 1}} \d x \Big)^{\frac{1}{q_k}} \\
@@ -394,17 +394,18 @@ Nun sind wir in der Lage Haupsatz \ref{hsatz:gagliardoNirenberg} zu beweisen.
       \end{align*}
       wobei $I$ ein beliebiges kompaktes Intervall bezeichne.
       Dies sieht man wie folgt: 
-      Sei $k \in \N$ und nehme an, dass 
+      Sei $k \in \N$ fest und nehme an, dass 
       $$
       \int_0^\infty |\partial_i \partial_i u(x)|^r \d x_i = 1.
       $$
+      Wir werden das Intervall $[0,L]$ durch eine Folge von (nicht notwendigerweise disjunkten) Intervallen $I_1,I_2,\dots,I_N$ überdecken.
       Falls $J \coloneqq [0, \frac{L}{k}]$ die Eigenschaft hat, dass der erste Summand auf der rechten Seite von ($\heartsuit$) größer als der zweite ist, setze $I_1 = J$.
       Falls nicht, vergrößere $J$ (mit fixiertem linken Endpunkt) so lange, bis beide Summanden gleich groß sind (dies geht, da $1 + p - \frac{p}{r} > 0$ ist). 
       Setze dann ebenso $I_1 \coloneqq J$.
 
-      Falls $I_1 \subset [0,L]$, wiederhole Prozedur und wähle $I_2$ derart, dass der linke Endpunkt von $I_2$ der rechte Endpunkt von $I_1$ ist.
+      Falls $I_1 \subset [0,L]$, wiederhole Prozedur für das oben festgelegte $k$ und wähle $I_2$ derart, dass der linke Endpunkt von $I_2$ der rechte Endpunkt von $I_1$ ist.
       Wiederhole so lange, bis $[0,L] \subset \bigcup_{i = 1}^N I_i$ enthalten ist.
-      Per constructionem gilt $N \leq k$.
+      Per constructionem gilt $N \leq k$, da $|I_j| \geq \frac{L}{k}$ für alle $j = 1,\dots,N$ gewählt wurde.
       Es folgt
       \begin{align*}
         &\int_0^L |\partial_i u(x)|^p \d x_i \\
