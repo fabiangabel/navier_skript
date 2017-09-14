@@ -17,11 +17,11 @@ wobei $a \in \Ell^2(\Omega, \C^d)$, $d \geq 2$ und \glqq$\div(a) = 0$\grqq gelte
 Sei $\Omega \subset \R^d$, $d \geq 2$ und $1 < p < \infty$.
 Definiere
 \begin{align*}
-  \CC_{0,\sigma}^\infty(\Omega) &\coloneqq \{ \varphi \in \CC_c^\infty(\Omega, \C^d) \colon \div(\varphi) =0 \}.
+  \CC_{\mathrm{c},\sigma}^\infty(\Omega) &\coloneqq \{ \varphi \in \CC_\mathrm{c}^\infty(\Omega, \C^d) \colon \div(\varphi) =0 \}.
   \intertext{ Weiterhin sei }
-  \Ell^p_\sigma(\Omega) &\coloneqq \overline{\CC_{c,\sigma}^\infty(\Omega)}^{\Ell^p} \quad\text{mit}\quad \|\cdot\|_{\Ell^p_\sigma} = \|\cdot\|_{\Ell_{}^p}
+  \Ell^p_\sigma(\Omega) &\coloneqq \overline{\CC_{\mathrm{c},\sigma}^\infty(\Omega)}^{\Ell^p} \quad\text{mit}\quad \|\cdot\|_{\Ell^p_\sigma} = \|\cdot\|_{\Ell_{}^p}
   \intertext{ und }
-  \WW_{0,\sigma}^{1,p} &\coloneqq \overline{\C_{c,\sigma}^\infty(\Omega)}^{\WW^{1,p}} \quad\text{mit}\quad \|\cdot\|_{\WW_{0,\sigma}^{1,p}} \coloneqq \|\cdot\|_{\WW_{}^{1,p}}.
+  \WW_{0,\sigma}^{1,p} &\coloneqq \overline{\C_{\mathrm{c},\sigma}^\infty(\Omega)}^{\WW^{1,p}} \quad\text{mit}\quad \|\cdot\|_{\WW_{0,\sigma}^{1,p}} \coloneqq \|\cdot\|_{\WW_{}^{1,p}}.
 \end{align*}
 Im Falle $p= 2$ schreibt man auch $\HH_{0,\sigma}^1(\Omega)$ für $\WW_{0,\sigma}^{1,2}(\Omega)$.
 Um den Stokes-Operator zu definieren, definiere folgende Sesquilinearform
@@ -61,7 +61,7 @@ wobei $f$ und $u$ durch $\DD(A)$ gegeben sind.
   $$
  für alle $v \in \HH_{0,\sigma}^1(\Omega)$.
 
- Zur Dichtheit: Für $u \in \CC_{c,0}^\infty(\Omega)$, $v \in \HH_{0,\sigma}^1(\Omega)$ gilt
+  Zur Dichtheit: Für $u \in \CC_{\mathrm{c},0}^\infty(\Omega)$, $v \in \HH_{0,\sigma}^1(\Omega)$ gilt
  $$
  a(u,v) = -\int_\Omega \Delta u \cdot \overline v \d x.
  $$
@@ -105,7 +105,7 @@ wobei $f$ und $u$ durch $\DD(A)$ gegeben sind.
 \end{lem}
 
 \begin{proof}
-  Eigentlich Übung, aber empirische Studien haben gezeigt, dass die Vorlesungsbesucher nicht notwendigerweise über Kenntnisse des Rechnens mit komplexen Zahlen verfügen.
+  Eigentlich Übung.
 
   Wir rechnen
   \begin{align*}
@@ -142,6 +142,7 @@ wobei $f$ und $u$ durch $\DD(A)$ gegeben sind.
 \end{prop}
 
 \begin{proof}
+  Sei $\theta \in (0,\pi]$. 
   Für $\lambda \in \C \setminus \overline{\Sec_\theta}$ definiere
   $$
   a_\lambda \colon \HH_{0,\sigma}^1(\Omega) \times \HH_{0,\sigma}^1(\Omega) \to \C, \quad (u,v) \mapsto \lambda \int_\Omega u \cdot \overline v \d x - \int_\Omega \nabla u \cdot \overline{\nabla v} \d x,
@@ -153,7 +154,7 @@ wobei $f$ und $u$ durch $\DD(A)$ gegeben sind.
   = \Big| \underbrace{- \lambda\int_\Omega |u|^2 \d x}_{\Sec_{\pi - \theta}} + \underbrace{\int_\Omega |\nabla u|^2 \d x}_{\in \Sec_0} \Big| 
   \geq \frac{1}{C} \left( |\lambda| \int_\Omega |u|^2 \d x + \int_\Omega |\nabla u|^2 \d x\right)
   $$
-  ergibt, woraus mittels Lemma von Lax-Milgram $\lambda \in \rho(A)$ folgt.
+  unter Verwendung von Lemma \ref{lem:inverseTriangle} ergibt, woraus mittels Lemma von Lax-Milgram $\lambda \in \rho(A)$ folgt.
   
   Um die Abschätzungen nachzuweisen, teste mit Lösung!
 
@@ -187,7 +188,7 @@ wobei $f$ und $u$ durch $\DD(A)$ gegeben sind.
   Diese wird als Stokes-Halbgruppe bezeichnet.
   Weiterhin ist für jedes $t > 0, \Rg(\e^{-tA}) \subset \HH_{0,\sigma}^1(\Omega)$ und es existiert $C > 0$, sodass für alle $t > 0$ und $a \in \Ell_\sigma^2(\Omega)$ gilt:
   $$
-  \|\nabla \e^{-tA} a \|_{\Ell^2(\Omega)} \leq C t^{1\frac{1}{2}} \|a\|_{\Ell_\sigma^2(\Omega)}
+  \|\nabla \e^{-tA} a \|_{\Ell^2(\Omega)} \leq C t^{-\frac{1}{2}} \|a\|_{\Ell_\sigma^2(\Omega)}
   $$
 \end{thm}
 
@@ -197,14 +198,14 @@ wobei $f$ und $u$ durch $\DD(A)$ gegeben sind.
 
 \section{Wie man den Druck erhält}
 
-Zuerst führen wir ein nützliches Handwerkszeug, den sogenannten Bogowski\u{\i}-Operator ein.
+Zuerst führen wir ein nützliches Handwerkszeug, den sogenannten Bogowski\u{\i}-Operator, ein.
 Hierzu definieren wir für $1 < p < \infty$ und ein beschränktes Gebiet $\Omega \subset \R^d$ den Raum
 $$
 \Ell^p_0(\Omega) \coloneqq \Big\{ f \in \Ell^p(\Omega) \colon \frac{1}{|\Omega|} \int_\Omega f \d x \eqqcolon \dashint_\Omega f \d x \eqqcolon f_\Omega = 0 \Big\}
 $$
 der mittelwertfreien $\Ell^p$-Funktionen.
 
-Wegen $\int_\Omega \div (u) \d x = 0$ für alle $u \in \WW_0^{1,p}(\Omega, \C^d)$ ist es notwendig, dass die rechte Seite $f$ der folgenden Gleichung in $\Ell^p_0(\Omega)$ liegt.
+Wegen $\int_\Omega \div (u) \d x = 0$ für alle $u \in \WW_0^{1,p}(\Omega; \C^d)$ ist es notwendig, dass die rechte Seite $f$ der folgenden Gleichung in $\Ell^p_0(\Omega)$ liegt.
 Betrachte das Problem
 \begin{align*}
   \div(u) &= f \quad\text{in } \Omega, \\
@@ -216,7 +217,7 @@ Ist $\Omega$ ein beschränktes Lipschitz-Gebiet, so wurde ein Lösungsoperator (
   \label{thm:bogowskii}
   Sei $\Omega \subset \R^d, d \geq 2$, ein beschränktes Lipschitz-Gebiet, dann existiert ein Operator $\Bog$, sodass für jedes $1 < p < \infty$ gilt:
   \begin{align*}
-    &\Bog \colon \Ell_0^p(\Omega) \to \WW_0^{1,p}(\Omega, \C^d), \quad \Bog \in \Li\big(\Ell_0^p(\Omega), \WW_0^{1,p}(\Omega, \C^d)\big) \\
+    &\Bog \colon \Ell_0^p(\Omega) \to \WW_0^{1,p}(\Omega; \C^d), \quad \Bog \in \Li\big(\Ell_0^p(\Omega), \WW_0^{1,p}(\Omega, \C^d)\big) \\
     &\div(\Bog f) = f, \quad\text{für alle } f \in \Ell_0^p(\Omega).
   \end{align*}
 \end{thm}
@@ -225,7 +226,7 @@ Ist $\Omega$ ein beschränktes Lipschitz-Gebiet, so wurde ein Lösungsoperator (
   Siehe z.B. \cite[Seiten 161-172]{galdi}.
 \end{proof}
 
-Für $u \in \Ell^p(\Omega)$ definiere $\nabla u \in \WW^{-1,p}(\Omega, \C^d)$ durch
+Für $u \in \Ell^p(\Omega)$ definiere $\nabla u \in \WW^{-1,p}(\Omega; \C^d)$ durch
 $$
 \langle v, \nabla u\rangle_{\WW_0^{1,p'}(\Omega), \WW^{-1,p}(\Omega)}
 = -\int_\Omega u \cdot \overline{\div(v)}, \quad\text{für alle } v \in \WW^{1,p'}_0(\Omega, \C^d),
@@ -269,7 +270,7 @@ wobei $\frac{1}{p} + \frac{1}{p'} = 1$.
 
 \begin{proof}
   Angenommen die Aussage wäre falsch.
-  Dannn existiert für jedes $n \in \N$ ein $u_n \in \Ell^p(\Omega)$ mit $(u_n)_\Omega = 0$ und
+  Dann existiert für jedes $n \in \N$ ein $u_n \in \Ell^p(\Omega)$ mit $(u_n)_\Omega = 0$ und
   \begin{align*}
     \|u_n\|_{\Ell^p(\Omega)} > n \|\nabla u_n \|_{\WW^{-1,p}(\Omega)} \tag{$\ast$}
   \end{align*}
@@ -281,14 +282,14 @@ wobei $\frac{1}{p} + \frac{1}{p'} = 1$.
   \begin{align*}
   \int_{\Omega_0} u \d x 
   = \int_\Omega u \chi_{\Omega_0} \d x
-  = \lim_{n \to \infty} \int_\Omega u_n \chi_{\Omega_0} \d x = 0. \tag{$\ast\ast$}
+  = \lim_{n \to \infty} \int_\Omega u_n \chi_{\Omega_0} \d x = 0. \tag{$\ast\ast$}.
   \end{align*}
   Mit ($\ast$) folgt $\|\nabla u_n\|_{\WW^{-1,p}(\Omega)} < \frac{1}{n} \to 0$ für $n \to \infty$.
-  Weiterhin folgt für $v \in \CC_\cc^\infty(\Omega,\C^d)$
+  Weiterhin folgt für $v \in \CC_\cc^\infty(\Omega;\C^d)$
   $$
   \Big| \int_\Omega u \, \overline{\div(v)} \d x \Big|
   = \lim_{n \to \infty} \Big| \int_\Omega u_n \overline{\div(v)} \d x \Big|
-  \leq \lim_{n \to \infty} \Big| \langle v, \nabla u_n \rangle_{\WW_0^{1,p'}, \WW^{-1,p}(\Omega)} \Big|
+  = \lim_{n \to \infty} \Big| \langle v, \nabla u_n \rangle_{\WW_0^{1,p'}, \WW^{-1,p}(\Omega)} \Big|.
   $$
   Folglich ist $u$ schwach differenzierbar mit $\nabla u = 0$ und damit konstant.
   Mit ($\ast\ast$) folgt hieraus $u = 0$.
@@ -303,13 +304,13 @@ Das folgende Lemma ist die Rechtfertigung dafür, die Stokes/Navier-Stokes-Gleic
 
 Hierzu definieren wir
 $$
-f \in \WW_{\loc}^{-1,p}(\Omega, \C^d) \iff f \in \WW^{-1,p}(\Omega, \C^d) \text{ f. a. beschränkten Teilgebiete } \Omega_0 \subset \Omega \text{ mit } \overline\Omega_0 \subset \Omega.
+f \in \WW_{\loc}^{-1,p}(\Omega; \C^d) \iff f \in \WW^{-1,p}(\Omega_0; \C^d) \text{ f. a. beschränkten Teilgebiete } \Omega_0 \subset \Omega \text{ mit } \overline\Omega_0 \subset \Omega.
 $$
 
 \begin{lem}
   \label{lem:pressureGrad}
   Sei $\Omega \subset \R^d, d \geq 2,$ ein Gebiet und $\Omega_0 \subset \Omega$ ein beschränktes Teilgebiet mit $\overline\Omega_0 \subset \Omega$ und $\Omega_0 \neq \emptyset$.
-  Weiterhin sei $1 < p < \infty$ und $f \in \WW_{\loc}^{-1,p}(\Omega, \C^d)$ mit
+  Weiterhin sei $1 < p < \infty$ und $f \in \WW_{\loc}^{-1,p}(\Omega; \C^d)$ mit
   $$
   \langle v , f \rangle_{\WW_0^{1,p'}(\Omega), \WW_{\loc}^{-1,p}(\Omega)} = 0 \quad\text{für alle } v \in \CC_{\cc,\sigma}^\infty(\Omega).
   $$
@@ -323,11 +324,12 @@ $$
 \begin{proof}
   Wir beweisen erst folgende Aussage: \emph{Für jedes beschränkte Lipschitz-Teilgebiet $\Omega_1 \subset \Omega$ mit $\overline\Omega_0 \subset \Omega_1$ und $\overline\Omega_1 \subset \Omega$ existiert ein eindeutiges $\pi \in \Ell^p(\Omega_1)$ mit $\nabla\pi = f$ im Sinne von Distributionen und $\int_{\Omega_0} \pi \d x = 0$}:
 
-  Sei $\Omega_2$ ein weiteres beschränktes Lipschitzgebiet mit $\overline\Omega_1 \subset \Omega_2, \overline\Omega_2 \subset \Omega$ mit 
+  Sei $\Omega_2$ ein weiteres beschränktes Lipschitz-Gebiet mit $\overline\Omega_1 \subset \Omega_2, \overline\Omega_2 \subset \Omega$ mit 
   $$
-  \Omega_2 \coloneqq (\Omega \cap \Bog(x_0, r)) \setminus \bigcup_{k = 1}^N \BB(x_n , \varepsilon)
+  \Omega_2 \coloneqq (\Omega \cap \Bog(x_0, r)) \setminus \bigcup_{k = 1}^N \BB(x_n , \varepsilon),
   $$
-  so folgt aus $f \in \WW_{\loc}^{-1,p}(\Omega, \C^d)$, dass $f \in \WW^{-1,p}(\Omega_2, \C^d)$.
+  wobei $\varepsilon < \dist(\partial\Omega_1, \partial(\Omega \cap \BB(x_0,1))$,
+  so folgt aus $f \in \WW_{\loc}^{-1,p}(\Omega, \C^d)$, dass $f \in \WW^{-1,p}(\Omega_2; \C^d)$.
   Da $\Omega_2$ beschränkt ist, existiert (Übung) ein $F \in \Ell^p(\Omega_2, \C^{d\times d})$ mit $f = \div(F)$, wobei
   $$
   \div F = \sum_{i = 1}^d \left( \begin{array}{c} \partial_i F_{i1} \\ \vdots \\ \partial_i F_{id} \end{array} \right).
@@ -357,7 +359,7 @@ $$
   $$
   V_{\gamma,\varepsilon}(x) \coloneqq \int_0^1 \rho_\varepsilon(x - \gamma(t))\gamma'(t) \d t, \quad\text{für alle } x \in \Omega_2.
   $$
-  Dann gilt $V_{\gamma,\varepsilon} \in \CC_{\cc}^\infty(\Omega_2, \R^d)$.
+  Dann gilt $V_{\gamma,\varepsilon} \in \CC_{\cc}^\infty(\Omega_2; \R^d)$.
   Weiterhin gilt für alle $x \in \Omega_2$
   \begin{align*}
     \div(V_{\gamma,\varepsilon}(x))
@@ -403,7 +405,7 @@ $$
   \end{align*}
   Also gilt $\nabla U = \div F$ in $\WW^{-1,p}(\Omega_1, \C^d)$.
   
-  Schöpfe $\Omega$ nun durch beschränkte Lipschitzgebiete $\Omega_n$ aus, mit $\overline\Omega_0 \subset \Omega_1$ und $\overline\Omega_n \subset \Omega_{n + 1}, n \in \N$.
+  Schöpfe $\Omega$ nun durch beschränkte Lipschitz-Gebiete $\Omega_n$ aus, mit $\overline\Omega_0 \subset \Omega_1$ und $\overline\Omega_n \subset \Omega_{n + 1}, n \in \N$.
   Auf jedem $\Omega_n$ erhält man ein eindeutiges $\pi_n \in \Ell^p(\Omega_n)$ mit $\nabla \pi_n = f$ und $\int_{\Omega_0} \pi_n \d x = 0$.
   Aus der Eindeutigkeit folgt $\pi_n = \pi_{n -1}$ auf $\Omega_{n - 1}$.
   Also existiert ein $\pi \in \Ell^p_{\loc}(\Omega)$ mit $\nabla\pi = f$ und $\int_{\Omega_0} \pi \d x = 0$.

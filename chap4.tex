@@ -321,7 +321,8 @@ Folgendes Resultat ist von Tolksdorf, 2017.
 \end{hsatz}
 
 \begin{thm}
-  Sei $\Omega \subset \R^d$, $d \geq 3$, ein beschränktes Lipschitzgebiet.
+  \label{thm:lplqSmoothing}
+  Sei $\Omega \subset \R^d$, $d \geq 3$, ein beschränktes Lipschitz-Gebiet.
   Dann existiert ein $\varepsilon >0$, sodass für alle $\frac{2d}{d + 1} - \varepsilon < p \leq q < \frac{2d}{d - 1} + \varepsilon$ gilt:
   \begin{enumerate}[i)]
     \item Für alle $t > 0$ ist $\Rg(\e^{-tA_p}) \subset \WW_{0,\sigma}^{1,p}(\Omega)$ und es existiert $C > 0$, sodass für alle $t > 0$ und $a \in \Ell_\sigma^p(\Omega)$
@@ -347,14 +348,14 @@ Folgendes Resultat ist von Tolksdorf, 2017.
         \|\nabla \e^{-t A_p a}\|_{\Ell^p}
         &\leq C \, \|A_p^{\frac{1}{2}} \e^{-t A_p} a\|_{\Ell^p} \\
         &\leq C\, \|\e^{-tA_p} a \|_{\Ell^p}^{\frac{1}{2}} \, \|A_p \e^{-t A_p} a\|_{\Ell^p}^{\frac{1}{2}} \\
-        &\leq C\, \|a\|_{\Ell^p}^{\frac{1}{2}} t^{-\frac{1}{2}} \|a\|_{\Ell^p}^{\frac{1}{2}} 
+        &\leq C\, \|a\|_{\Ell^p}^{\frac{1}{2}} \; t^{-\frac{1}{2}} \|a\|_{\Ell^p}^{\frac{1}{2}} 
       \end{align*}
 
     \item Gagliardo-Nirenberg \ref{hsatz:gagliardoNirenberg} mit $p = q$, $r = p$, $q = p$, $j = 0$ und $m = 1$ liefert
       $$
       \frac{1}{q} = \alpha\cdot \big(\frac{1}{p} - \frac{1}{d}\big) + \big(1 - \alpha \big) \cdot \frac{1}{p},
       $$
-      was genau dann der fall ist, wenn
+      was genau dann der Fall ist, wenn
       $$
       \alpha = d \, \big( \frac{1}{p} - \frac{1}{q} \big).
       $$
@@ -372,9 +373,9 @@ Folgendes Resultat ist von Tolksdorf, 2017.
       Anwendung des Halbgruppengesetze ergibt
       \begin{align*}
         \|\e^{-tA_p} a\|_{\Ell^q} 
-        &\leq C \, t^{-\frac{d}{2} \, \big( \frac{1}{r} - \frac{1}{q} \big)} \|\e^{-\frac{t}{2} A_p} a \|_{\Ell^r}  \\
-        &\leq C\, t^{-frac{d}{2} \, \big( \frac{1}{r} - \frac{1}{q} \big) - \frac{d}{2} \, \big( \frac{1}{p} - \frac{1}{r} \big)} \|a\|_{\Ell^p}.
+        &\leq C \, t^{-\frac{d}{2} \, \big( \frac{1}{r} - \frac{1}{q} \big)} \|\e^{-\frac{t}{2} A_p} a \|_{\Ell^r}  
+        \leq C\, t^{-\frac{d}{2} \, \big( \frac{1}{r} - \frac{1}{q} \big) - \frac{d}{2} \, \big( \frac{1}{p} - \frac{1}{r} \big)} \|a\|_{\Ell^p}.
       \end{align*}
-      Iterativ folgt hieraus die Behauptung.
+      Iterativ folgt hieraus die Behauptung. \qedhere
   \end{enumerate}
 \end{proof}

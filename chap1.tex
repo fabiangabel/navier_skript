@@ -15,7 +15,7 @@ $$
 $$
 Ist $I$ nicht kompakt und $t \mapsto \|f(t)\|_X$ uneigentlich Riemann-integrierbar, so existiert für alle kompakten Intervalle $I_k$ mit $I_k \subset I_{k + 1} \subset I$ und $\bigcup_k I_k = I$ der eindeutige Grenzwert
 $$
-\lim_{k \to \infty} \int_{I_k} f(t) dt \eqqcolon \int_I f(t) \d t \in X
+\lim_{k \to \infty} \int_{I_k} f(t) dt \eqqcolon \int_I f(t) \d t \in X.
 $$
 In allen Fällen gilt
 $$
@@ -64,7 +64,7 @@ Im Folgenden bezeichnet $X$ immer einen Banachraum über $\C$.
   $$
   |\arg(z \e^{i \theta})| \leq |\arg(z)| + \theta < \frac{\pi}{2} - \theta + \theta = \frac{\pi}{2}
   $$
-  und damit $\operatorname{Re}z \e^{\ii\theta} < 0$ folgt.
+  und damit $\operatorname{Re}z \e^{\ii\theta} > 0$ folgt.
 \end{obs}
 
 \begin{defn}
@@ -223,7 +223,7 @@ Im Folgenden bezeichnet $X$ immer einen Banachraum über $\C$.
      \frac{1}{2\pi \ii} \int_{\gamma_{1,\theta}^R} \frac{1}{\lambda} (\lambda - A)^{-1} A x \d\lambda = 0 \quad\text{für alle }R > 1.
      $$
 
-     Aus (i) und der Vorausgesetzten Dichtheit von $\DD(A)$ ergibt sich schließlich
+     Aus (i) und der vorausgesetzten Dichtheit von $\DD(A)$ ergibt sich schließlich
      \[
      \lim_{\substack{z \to 0\\ z \in \Sec_\phi}} \|\e^{-zA} x - x \| = 0 \quad\text{für alle } x \in X. \qedhere
      \]
@@ -244,7 +244,7 @@ Im Folgenden bezeichnet $X$ immer einen Banachraum über $\C$.
   Sei $R > 0$ und $\theta \in (w, \frac{\pi}{2} - |\arg(z)|)$.
   Dann sind
   $$
-  \lambda \mapsto \e^{-z\lambda}(\lambda - A)^{-1} \quad\text{und}\quad \lambda \mapsto \e^{-z\lambda} A(\lambda - A)^{-1} = \e^{-z\lambda} (\lambda - A)^{-1} - \e^{-z\lambda} \d \lambda
+  \lambda \mapsto \e^{-z\lambda}(\lambda - A)^{-1} \quad\text{und}\quad \lambda \mapsto \e^{-z\lambda} A(\lambda - A)^{-1} = \e^{-z\lambda} \lambda (\lambda - A)^{-1} - \e^{-z\lambda} 
   $$
   auf $\gamma_{R,\theta}$ integrierbar.
   Proposition \ref{prop:opInIntegral} liefert $\Rg(\e^{-zA}) \subset \DD(A)$ und 
@@ -256,14 +256,15 @@ Im Folgenden bezeichnet $X$ immer einen Banachraum über $\C$.
   Dann gilt
   \begin{align*}
     A \e^{-tA}
-    &= \frac{1}{2 \pi \ii} \int_{\gamma_{t^{-1},\theta}} (\e^{-t\lambda}\lambda (\lambda - A)^{-1} - \e^{-z\lambda}) \d \lambda \\
-    &= \frac{1}{2 \pi \ii} \int_{\gamma_{t^{-1},\theta}} (\e^{-t\lambda} \lambda (\lambda - A)^{-1} - \e{-z\lambda}) \d \lambda.
+    &= \frac{1}{2 \pi \ii} \int_{\gamma_{t^{-1},\theta}} (\e^{-t\lambda}\lambda A (\lambda - A)^{-1} \d \lambda \\
+    &= \frac{1}{2 \pi \ii} \int_{\gamma_{t^{-1},\theta}} (\e^{-t\lambda} \lambda (\lambda - A)^{-1} - \e{-z\lambda}) \d \lambda\\
+    &= \frac{1}{2 \pi \ii} \int_{\gamma_{t^{-1},\theta}} (\e^{-t\lambda} \lambda (\lambda - A)^{-1} \d \lambda.
   \end{align*}
   Sektorialität liefert
   \begin{align*}
     \| A \e^{-t A} \|_{\Li(X)}
-    &\leq C \Big( \int_{t^{-1}}^\infty \e^{-tr \cos \theta} \d x + \int_\theta^{2\pi - \theta} t^{-1} \e^{-t t^{-1} \cos \varphi} \d \varphi\Big) \\
-    &\leq C \Big( \int_1^\infty t^{-1} \e^{-s\cos \theta} \d s + \int_\theta^{2\pi - \theta} t^{-1} \e{-\cos \varphi} \d \varphi \Big). \qedhere
+    &\leq C\, \Big( \int_{t^{-1}}^\infty \e^{-tr \cos \theta} \d r + \int_\theta^{2\pi - \theta} t^{-1} \e^{-t t^{-1} \cos \varphi} \d \varphi\Big) \\
+    &\leq C\, \Big( \int_1^\infty t^{-1} \e^{-s\cos \theta} \d s + \int_\theta^{2\pi - \theta} t^{-1} \e^{-\cos \varphi} \d \varphi \Big). \qedhere
   \end{align*}
 \end{proof}
 
@@ -306,7 +307,7 @@ In diesem Abschnitt definieren und untersuchen wir gebrochene Potenzen $A^\alpha
 \begin{prop}
   \label{prop:natPow}
   Sei $A$ sektoriell von Winkel $\omega \in (0,\pi)$ und $0 \in \rho(A)$.
-  Dann ist für $\alpha > 0$ die Definition von $A^{-\alpha}$ unabhängig von $a$ und $A^{-\alpha} \in \Li(X)$ und falls $\alpha \in \N$, so stimmt $A^{-\alpha}$ mit der $\alpha$-ten Potenz von $A^{-1}$ überein.
+  Dann ist für $\alpha > 0$ die Definition von $A^{-\alpha}$ unabhängig von $a$ sowie von $\theta$ und es gilt $A^{-\alpha} \in \Li(X)$. Falls $\alpha \in \N$, so stimmt $A^{-\alpha}$ mit der $\alpha$-ten Potenz von $A^{-1}$ überein.
 \end{prop}
 
 \begin{proof}
@@ -340,7 +341,7 @@ In diesem Abschnitt definieren und untersuchen wir gebrochene Potenzen $A^\alpha
     &\overset{\theta \to \pi}{\longrightarrow} \frac{1}{2\pi \ii} \frac{n!}{\prod_{i = 1}^n (i - \alpha)}
     \left[ \e^{-i (n - \alpha) \pi} - \e^{i (n - \alpha)\pi} \right] \int_0^\infty t^{n -\alpha} (-t - A)^{n + 1} \d t.
   \end{align*}
-  Hierbei wurde von der Tatsache gebrauch gemacht, dass sich $|t \e^{\pm \ii \theta} + a|$ bis auf Konstanten so verhält, wie $|t| + |a|$ (siehe Lemma \ref{lem:inverseTriangle}.
+  Hierbei wurde von der Tatsache gebrauch gemacht, dass sich $|t \e^{\pm \ii \theta} + a|$ bis auf Konstanten so verhält, wie $|t| + |a|$ (siehe Lemma \ref{lem:inverseTriangle}).
 \end{proof}
 
 \begin{thm}
@@ -396,13 +397,23 @@ In diesem Abschnitt definieren und untersuchen wir gebrochene Potenzen $A^\alpha
 
 \begin{proof}
   Der Beweis folgt aus Kombination von Satz \ref{thm:fracPowSemigroup} und Definition \ref{defn:posFracPow}.
-  Zum Beispiel gilt für $\alpha, \beta \geq 0$
-  $$
+  Wir unterscheiden dazu folgende Fälle:
+  \begin{enumerate}[(i)]
+    \item Für $\alpha, \beta \geq 0$ gilt
+  \[
   A^\alpha A^\beta x 
   = A^\alpha A^\beta (A^{-(\alpha + \beta)} A^{\alpha + \beta}) x
   = A^\alpha A^\beta (A^{-\beta} A^{-\alpha} A^{\alpha + \beta} ) x 
-  = A^{\alpha + \beta} x.
-  $$
+  = A^{\alpha + \beta} x. 
+  \]
+\item Für $\alpha > -\beta \geq 0$ gilt
+  \[
+    A^\alpha A^\beta x
+      = A^{\alpha + \beta - \beta} A^\beta x
+      \overset{\text{(i)}}{=} A^{\alpha + \beta} A^{-\beta} A^\beta x.
+    \]
+  \end{enumerate}
+  Alle anderen Fälle folgen aus ähnlichen Überlegungen.
 \end{proof}
 
 \begin{thm}[Momentenungleichung]
@@ -454,7 +465,7 @@ Sei $\tau > 0$ beliebig. Dann folgt mit Satz \ref{thm:negFracPower} und Korollar
     A^{-(n + 1 - \alpha_0)} s^{n + 1 - \alpha_0} A (s + A)^{-1}
     &= -\frac{1}{\pi} \sin(\alpha \pi) &&\int_0^\infty s^{n + 1 - \alpha_0} t^{-(n + 1 - \alpha_0)} A (s + A)^{-1} (t + A)^{-1} \d t \\
     &= -\frac{1}{\pi} \sin(\alpha \pi) &&\int_0^\infty s^{n + 1 - \alpha_0} \lambda^{-(n + 1 - \alpha_0)} s A(s + A)^{-1} (s\lambda + A)^{-1} \d \lambda \\
-    &= -\frac{1}{\pi} \sin(\alpha \pi) \big[ &&\int_0^1 \lambda^{-(n + 1 - \alpha_0)} s (s + A)^{-1} A (s \lambda + A)^{-1} \d \lambda \\
+    &= -\frac{1}{\pi} \sin(\alpha \pi) \Big[ &&\int_0^1 \lambda^{-(n + 1 - \alpha_0)} s (s + A)^{-1} A (s \lambda + A)^{-1} \d \lambda \\
     &  &&+\int_1^\infty \lambda^{-(n + 2 - \alpha_0)} A (s + A)^{-1} s \lambda (s \lambda + A)^{-1} \d \lambda \Big].
   \end{alignat*}
   Mit der Sektorialität von $A$ ergibt sich Ungleichung (1).
