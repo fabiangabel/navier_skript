@@ -123,7 +123,7 @@ Dies motiviert die folgende Definition:
 Für den Beweis von Hauptsatz \ref{hsatz:momomoney} definieren wir iterativ
 \begin{align*}
   u_0(t) &\coloneqq \e^{-t A} a \\
-  u_{j + 1}(t) &\coloneqq u_0(t) - \int_0^t \e^{-(t - s)} A \PP(u_j(s) \cdot \nabla) u_j(s) \d s \quad\text{für alle } j \in \N_0.
+  u_{j + 1}(t) &\coloneqq u_0(t) - \int_0^t \e^{-(t - s) A} \PP(u_j(s) \cdot \nabla) u_j(s) \d s \quad\text{für alle } j \in \N_0.
 \end{align*}
 Für $p \geq r$ definiere weiterhin $\sigma \coloneqq \frac{3}{2} \big( \frac{1}{r} - \frac{1}{p} \big)$ und für $T > 0$ definieren wir die Größen
 \begin{align*}
@@ -160,6 +160,21 @@ Der Parameter $\sigma$ stammt aus Satz \ref{thm:lplqSmoothing}.
   da nach Voraussetzung $\sigma < \frac{1}{4}$ gilt.
   Daraus folgt mit der Substitution $s = xt$
   $$
-  \int_0^t (t - s)^{-\frac{3}{2p}} s^{-2\sigma - \frac{1}{2}} \d s = t^{1 - \frac{3}{2p} - 2\sigma - \frac{1}{2}} \int_0^1 ( 1 - x )^{-\frac{3}{2p}}  x^{- 2\sigma - \frac{1}{2}} \d x
+  \int_0^t (t - s)^{-\frac{3}{2p}} s^{-2\sigma - \frac{1}{2}} \d s = t^{1 - \frac{3}{2p} - 2\sigma - \frac{1}{2}} \int_0^1 ( 1 - x )^{-\frac{3}{2p}}  x^{- 2\sigma - \frac{1}{2}} \d x.
   $$
+  Und da
+  $$
+  \frac{1}{2} - \frac{3}{2p} - \sigma = \frac{1}{2} - \frac{3}{2r}
+  $$
+  gilt folgt
+  $$
+  K_{j + 1} \leq K_0 + C\; T^{\frac{1}{2} - \frac{3}{2r}} K_j R_j.
+  $$
+  Für den Gradienten gilt mit analoger Argumentation
+  \begin{align*}
+    \|\nabla u_{j + 1}(t) \|_{\Ell^p}
+    &\leq \|\nabla u_0 (t) \|_{\Ell^p} + \int_0^t \|\nabla \e^{-(t - s) A} \PP(u_j(s) \cdot \nabla) u_j(s) \|_{\Ell^p} \d s \\
+    &\leq \|\nabla u_0(t) \|_{\Ell^p} + C \int_0^t (t - s)^{-\frac{1}{2}} \; \|\e^{-\frac{1}{2}(t - s)A} \PP(u_j(s) \cdot \nabla) u_j(s) \|_{\Ell^p} \d s \\
+    &\leq \|\nabla u_0(t) \|_{\Ell^p} + C \int_0^t (t - s)^{-\frac{1}{2} - \frac{3}{2p}} \|(u_j(s) \cdot \nabla) u_j(s) \|_{\Ell^{\frac{p}{2}}} \d s
+  \end{align*}
 \end{proof}
