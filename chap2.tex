@@ -85,7 +85,11 @@ wobei $f$ und $u$ durch $\DD(A)$ gegeben sind.
 
 \begin{proof}
   Für $f \in \Ell_\sigma^2(\Omega)$ ist $v \mapsto \int_\Omega f \cdot \overline v \d x \in \HH_{0,\sigma}^1(\Omega)^*$ (Antidualraum).
-  Weiterhin ist $$a \colon \HH_{0,\sigma}^1(\Omega) \times \HH_{0,\sigma}^1(\Omega) \to \C,\quad (u,v) \mapsto \int_\Omega \nabla u \cdot \overline{\nabla v} \d x$$ stetig.
+  Weiterhin ist 
+  $$
+  a \colon \HH_{0,\sigma}^1(\Omega) \times \HH_{0,\sigma}^1(\Omega) \to \C,\quad (u,v) \mapsto \int_\Omega \nabla u \cdot \overline{\nabla v} \d x
+  $$ 
+  stetig.
   Außerdem folgt mit der Poincar\'e-Ungleichung
   $$
   |a(u,u)| = \|\nabla u\|_{\Ell^2}^2 \geq \frac{1}{2} \|\nabla u\|_{\Ell^2}^2 + \frac{1}{2 c^2} \|u\|_{\Ell^2}^2
@@ -474,12 +478,12 @@ und für alle $v \in \CC_{\cc}^\infty(\Omega; \C^d)$, d.h. $u$ und $\pi$ lösen 
   $$
   Die Hölder-Ungleichung liefert nun
   $$
-  \big( v \mapsto \int_\Omega f \cdot \overline v \d x \big) \in \WW^{-1,2}(\Omega;\C^d).
+  \Big( v \mapsto \int_\Omega f \cdot \overline v \d x \Big) \in \WW^{-1,2}(\Omega;\C^d).
   $$
   Mit Lemma \ref{lem:pressureGrad} folgt sodann die Existenz von $\pi \in \Ell^2_{\loc}(\Omega)$ mit $\nabla \pi = f$ im Sinne von Distributionen, d.h.
   $$
   \int_\Omega f \cdot \overline v \d x 
-  = - \int_\Omega \pi \cdot \overline{\div v} \d x, \quad \text{für alle } v \in \CC_{\cc}^\infty(\Omega; \C^d).
+  = - \int_\Omega \pi \, \overline{\div v} \d x, \quad \text{für alle } v \in \CC_{\cc}^\infty(\Omega; \C^d).
   $$
   Daraus folgt $f = \nabla \pi \in G(\Omega)$.
 \end{proof}

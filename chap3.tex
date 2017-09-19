@@ -34,7 +34,7 @@
     $$
     C = C(d,m,j,q,r,\alpha) > 0,
     $$
-    sodass für alle $u \in \CC_c^m(\R^d)$ gilt
+    sodass für alle $u \in \CC_{\cc}^m(\R^d)$ gilt
     $$
     \| \nabla^j u\|_{X_{\frac{1}{p}}} \leq C \, \|\nabla^m u\|_{\Ell^r}^\alpha \, \|u\|_{\Ell^q}^{1 - \alpha}.
     $$
@@ -85,23 +85,23 @@ Für den Beweis benötigen wir einige Vorbetrachtungen.
   wobei $C = C(d,r)$.
 \end{proof}
 
-Das folgende Lemma reduziert den Beweis von Haupsatz \ref{hsatz:gagliardoNirenberg} auf wenige Spezialfälle.
+Das folgende Lemma reduziert den Beweis von Hauptsatz \ref{hsatz:gagliardoNirenberg} auf wenige Spezialfälle.
 
 \begin{lem}
   \label{lem:reducingGagliardo}
   \begin{enumerate}[a)]
-    \item Angenommen die Ungleichung in Haupsatz \ref{hsatz:gagliardoNirenberg} gelte für $\alpha = \frac{j}{m}$ mit $j = 1$ und $m = 2$, dann gilt die Ungleichung auch für $\alpha = \frac{j}{m}$ und jedes $0 \leq j < m$.
+    \item Angenommen die Ungleichung in Hauptsatz \ref{hsatz:gagliardoNirenberg} gelte für $\alpha = \frac{j}{m}$ mit $j = 1$ und $m = 2$, dann gilt die Ungleichung auch für $\alpha = \frac{j}{m}$ und jedes $0 \leq j < m$.
 
-    \item Angenommen die Ungleichung in Haupsatz \ref{hsatz:gagliardoNirenberg} gelte für $\alpha = 1$, $j = 0$ und $m = 1$ (wobei $d \neq r$), dann gilt die Ungleichung auch für $\alpha = 1$ und jedes $0 \leq j < m$ vorausgesetzt $m - j - \frac{d}{r} \not\in \N_0$.
+    \item Angenommen die Ungleichung in Hauptsatz \ref{hsatz:gagliardoNirenberg} gelte für $\alpha = 1$, $j = 0$ und $m = 1$ (wobei $d \neq r$), dann gilt die Ungleichung auch für $\alpha = 1$ und jedes $0 \leq j < m$ vorausgesetzt $m - j - \frac{d}{r} \not\in \N_0$.
       
-    \item Für alle $-\infty < \lambda \leq \mu \leq \nu \leq 1$ existiert $C = C(\lambda, \mu, \nu) > 0$, sodass für alle $f \in X_\nu \cap X_\lambda$ die sogennante Interpolationsungleichung
+    \item Für alle $-\infty < \lambda \leq \mu \leq \nu \leq 1$ existiert $C = C(\lambda, \mu, \nu) > 0$, sodass für alle $f \in X_\nu \cap X_\lambda$ die sogenannte Interpolationsungleichung
       $$
       \| f\|_{X_\mu} \leq C \, \|f\|_{X_\lambda}^{\frac{\nu - \mu}{\nu - \lambda}} \, \|f\|_{X_\nu}^{\frac{\mu - \lambda}{\nu - \lambda}}
       $$
       gilt.
       Insbesondere ist $f \in X_\mu$.
 
-    \item Angenommen die Ungleichung in Haupsatz \ref{hsatz:gagliardoNirenberg} gelte für $\alpha = \frac{j}{m}$ und $\alpha = 1$, dann gilt diese auch für jedes $\frac{j}{m} \leq \alpha \leq 1$.
+    \item Angenommen die Ungleichung in Hauptsatz \ref{hsatz:gagliardoNirenberg} gelte für $\alpha = \frac{j}{m}$ und $\alpha = 1$, dann gilt diese auch für jedes $\frac{j}{m} \leq \alpha \leq 1$.
   \end{enumerate}
 \end{lem}
 
@@ -132,14 +132,14 @@ Das folgende Lemma reduziert den Beweis von Haupsatz \ref{hsatz:gagliardoNirenbe
         %&= \|\nabla^m u\|_{r_1} \|\nabla^j u\|_{r_2}^{\alpha^{**}(1 - \alpha^*)} \|u\|_{q_2}^{(1 - \alpha^{**})(1 - \alpha^*)}
       \end{align*}
       wobei $r_i, q_i$, $i \in \{1,2\}$ passend gewählt seien.
-      Wir verechnen zunächst die Exponenten:
+      Wir verrechnen zunächst die Exponenten:
       \begin{align*}
         \alpha^{**}(1 - \alpha^*) 
         &= \frac{j^{**}}{m^{**}} ( 1 - \frac{j^*}{m^*}) \\
         &= \frac{j - 1}{j} ( 1 - \frac{1}{m - j + 1}) \\
         &= \frac{j(m - j + 1) - (m - j + 1) - j + 1}{j(m - j + 1)} \\
-        &= \frac{j(m - j + 1) - m}{j(m - j + 1)}
-        \intertext{weiter erhalten wir}
+        &= \frac{j(m - j + 1) - m}{j(m - j + 1)}.
+        \intertext{Weiter erhalten wir}
         (1 - \alpha^{**})(1 - \alpha^*)
         &= 1 - \alpha^{**} - \alpha^* + \alpha^*\alpha^{**} \\
         &= 1 - \frac{j - 1}{j} - \frac{1}{m - j + 1} + \frac{1}{m - j + 1} \cdot \frac{j - 1}{j} \\
@@ -157,7 +157,7 @@ Das folgende Lemma reduziert den Beweis von Haupsatz \ref{hsatz:gagliardoNirenbe
         &= \frac{1}{m - j + 1} \cdot \frac{j(m - j + 1)}{m} = \frac{j}{m} 
         \intertext{sowie}
         \frac{(1 - \alpha^{**})(1 - \alpha^*)}{\beta}  
-        &= \frac{m - j}{j(m - j + 1)} \cdot \frac{j(m - j + 1)}{m} = 1 - \frac{j}{m}
+        &= \frac{m - j}{j(m - j + 1)} \cdot \frac{j(m - j + 1)}{m} = 1 - \frac{j}{m}.
       \end{align*}
       Nehmen wir zusätzlich an, dass
       $$
@@ -170,7 +170,7 @@ Das folgende Lemma reduziert den Beweis von Haupsatz \ref{hsatz:gagliardoNirenbe
       und daraus durch $(\cdot)^{\frac{1}{\beta}}$ die Behauptung.
 
       Wir prüfen nun, ob sich $r_1$, $r_2$ und $q_2$ nach unserem Wunsch wählen lassen. 
-      Dazu müssen folgende Gleichunge erfüllt werden.
+      Dazu müssen folgende Gleichungen erfüllt werden.
       \begin{align*}
         \frac{1}{p} &= \frac{j}{mr} + (1 - \frac{j}{m}) \frac{1}{q} \tag{I}\\
         \frac{1}{p} &= \frac{j^*}{m^* r} + (1 - \frac{j^*}{m^*}) \frac{1}{q_1} = \frac{1}{r(m - j + 1)} + (1 - \frac{1}{m - j + 1}) \frac{1}{q_1} \tag{II} \\
@@ -223,8 +223,8 @@ Analoge Rechnungen ergeben, dass sich $r_i$, $q_i$, $i \in \{1,2\}$ immer passen
       wobei wir gerne $r_2 = r$ wählen würden.
       Um zu gewährleisten, dass dies möglich ist müssen folgende Gleichungen erfüllt sein:
       \begin{align*}
-        \frac{1}{p} = \frac{1}{d}( j - (m - 1) + \frac{d}{r_1} ) \tag{I} \\
-        \frac{1}{r_1} = \frac{1}{d} ( 0 - 1 + \frac{d}{r} ) \tag{II}.
+        \frac{1}{p} &= \frac{1}{d}( j - (m - 1) + \frac{d}{r_1} ) \tag{I} \\
+        \frac{1}{r_1} &= \frac{1}{d} ( 0 - 1 + \frac{d}{r} ) \tag{II}.
       \end{align*}
       Einsetzen von (II) in (I) ergibt
       $$
@@ -242,7 +242,7 @@ Analoge Rechnungen ergeben, dass sich $r_i$, $q_i$, $i \in \{1,2\}$ immer passen
 
 \end{proof}
 
-Nun sind wir in der Lage Haupsatz \ref{hsatz:gagliardoNirenberg} zu beweisen.
+Nun sind wir in der Lage Hauptsatz \ref{hsatz:gagliardoNirenberg} zu beweisen.
 
 \begin{proof}[Beweis von Haupsatz \ref{hsatz:gagliardoNirenberg}]
   Dass $\frac{1}{p} \leq 1$ gilt, ist Übungsaufgabe.
@@ -277,8 +277,8 @@ Nun sind wir in der Lage Haupsatz \ref{hsatz:gagliardoNirenberg} zu beweisen.
       Integration über $x_1$ ergibt
       \begin{align*}
         &\int_{-\infty}^\infty |u(x)|^{\frac{\d{}}{d - 1}} \d x_1  \\
-        &\quad \leq \frac{1}{2^{\frac{d}{d - 1}}} \Big( \int_{-\infty}^\infty \big| \frac{\d{}}{\d t} u(\gamma_1(t)) \big| \d t \Big)^{\frac{1}{d - 1}} \int_{-\infty}^\infty \prod_{i = 2}^d \Big(\int_{-\infty}^\infty  \big| \frac{\d{}}{\d t} u(\gamma_i(t)) \big| \d t \Big)^{\frac{1}{d - 1}} \d x_1 \\
-      &\quad \leq \frac{1}{2^{\frac{d}{d - 1}}} \Big( \int_{-\infty}^\infty |\partial_i u(x)| \d x_1 \Big)^{\frac{1}{d - 1}} \prod_{i = 2}^d \Big(\int_{-\infty}^\infty \int_{-\infty}^\infty \big| \frac{\d{}}{\d t} u(\gamma_i(t)) \big| \d x_1 \d t \Big)^{\frac{1}{d - 1}}
+        &\qquad \leq \frac{1}{2^{\frac{d}{d - 1}}} \Big( \int_{-\infty}^\infty \big| \frac{\d{}}{\d t} u(\gamma_1(t)) \big| \d t \Big)^{\frac{1}{d - 1}} \int_{-\infty}^\infty \prod_{i = 2}^d \Big(\int_{-\infty}^\infty  \big| \frac{\d{}}{\d t} u(\gamma_i(t)) \big| \d t \Big)^{\frac{1}{d - 1}} \d x_1 \\
+      &\qquad \leq \frac{1}{2^{\frac{d}{d - 1}}} \Big( \int_{-\infty}^\infty |\partial_i u(x)| \d x_1 \Big)^{\frac{1}{d - 1}} \prod_{i = 2}^d \Big(\int_{-\infty}^\infty \int_{-\infty}^\infty \big| \frac{\d{}}{\d t} u(\gamma_i(t)) \big| \d x_1 \d t \Big)^{\frac{1}{d - 1}}
       \end{align*}
       Induktive Integration über $x_1,\dots,x_d$ liefert
       \begin{align*}
@@ -293,7 +293,7 @@ Nun sind wir in der Lage Haupsatz \ref{hsatz:gagliardoNirenberg} zu beweisen.
        &= \Big( \int_{\R^d} |v(x)|^{\frac{d}{d - 1}} \d x \Big)^{ \frac{d - 1}{d}} \\
         &\leq \frac{1}{2^{\frac{d - r}{r(d - 1)}}} \prod_{i = 1}^d \Big( \int_{\R^d} |\partial_i v(x) | \d x \Big)^{\frac{1}{d}} \\
         &\leq C(d,r) \prod_{i = 1}^d \Big( \int_{\R^d} |\partial_i u(x)| |u(x)|^{\frac{d (r - 1)}{d - r}} \d x \Big)^{\frac{1}{d}} \\
-        &\leq C(d,r) \Bigg[ \prod_{i = 1}^d \Big( \int_{\R^d} |\partial_i u(x)|^r \Big)^{\frac{1}{r d}} \Bigg] \Big( \int_{\R^d} |u(x)|^{\frac{rd}{d - r}} \d x \Big)^{\frac{(r - 1)}{r}}.
+        &\leq C(d,r) \Bigg[ \prod_{i = 1}^d \Big( \int_{\R^d} |\partial_i u(x)|^r \d x \Big)^{\frac{1}{r d}} \Bigg] \Big( \int_{\R^d} |u(x)|^{\frac{rd}{d - r}} \d x \Big)^{\frac{(r - 1)}{r}}.
       \end{align*}
       Abschließend teilen wir durch das $u$ Integral und erhalten
       $$
@@ -373,8 +373,8 @@ Nun sind wir in der Lage Haupsatz \ref{hsatz:gagliardoNirenberg} zu beweisen.
       Integration bezüglich der restlichen Variablen liefert nämlich
       \begin{align*}
         &\int_{\R^d} |\partial_i u(x)|^p \d x \\
-        &\quad\leq C^p \int_{\R^{d - 1}} \Big( \int_{\R} |\partial_i \partial_i u(x)|^r \d x_i \Big)^{\frac{p}{2r}} \Big(\int_{\R} |u(x)|^q \d x_i \Big)^{\frac{p}{2q}} \d (x_1,\dots,x_{i - 1}, x_{i + 1}, \dots, x_d ) \\
-        &\quad\leq C^p \; \Big( \int_{\R^d} |\partial_i \partial_i u(x)|^r \d x \Big)^{\frac{p}{2r}} \Big( \int_{\R^d} |u(x)|^q \d x \Big)^{\frac{p}{2q}}
+        &\qquad\leq C^p \int_{\R^{d - 1}} \Big( \int_{\R} |\partial_i \partial_i u(x)|^r \d x_i \Big)^{\frac{p}{2r}} \Big(\int_{\R} |u(x)|^q \d x_i \Big)^{\frac{p}{2q}} \d (x_1,\dots,x_{i - 1}, x_{i + 1}, \dots, x_d ) \\
+        &\qquad\leq C^p \; \Big( \int_{\R^d} |\partial_i \partial_i u(x)|^r \d x \Big)^{\frac{p}{2r}} \Big( \int_{\R^d} |u(x)|^q \d x \Big)^{\frac{p}{2q}}
       \end{align*}
       und damit die Behauptung für $r > 1$.
       Falls die Konstante $C$ für $r \to 1$ beschränkt bleibt, so folgt die Behauptung für $r = 1$ durch majorisierte Konvergenz.
@@ -389,8 +389,10 @@ Nun sind wir in der Lage Haupsatz \ref{hsatz:gagliardoNirenberg} zu beweisen.
       Ungleichung ($\square$) folgt aus 
       \begin{align*} 
         \tag{$\heartsuit$}       
+        \begin{split}
         &\int_I |\partial_i u(x)|^p \d x_i \\
-        &\quad \leq C^p \; |I|^{1 + p - \frac{p}{r}} \Big( \int_I |\partial_i \partial_i u(x)|^r \d x_i \Big)^{\frac{p}{r}} + C^p \; |I|^{-(1 + p - \frac{p}{r})} \Big( \int_I |u(x)|^q \d x_i \Big)^{\frac{p}{q}},
+        &\qquad \leq C^p \; |I|^{1 + p - \frac{p}{r}} \Big( \int_I |\partial_i \partial_i u(x)|^r \d x_i \Big)^{\frac{p}{r}} + C^p \; |I|^{-(1 + p - \frac{p}{r})} \Big( \int_I |u(x)|^q \d x_i \Big)^{\frac{p}{q}},
+      \end{split}
       \end{align*}
       wobei $I$ ein beliebiges kompaktes Intervall bezeichne.
       Dies sieht man wie folgt: 
@@ -404,14 +406,14 @@ Nun sind wir in der Lage Haupsatz \ref{hsatz:gagliardoNirenberg} zu beweisen.
       Setze dann ebenso $I_1 \coloneqq J$.
 
       Falls $I_1 \subset [0,L]$, wiederhole Prozedur für das oben festgelegte $k$ und wähle $I_2$ derart, dass der linke Endpunkt von $I_2$ der rechte Endpunkt von $I_1$ ist.
-      Wiederhole so lange, bis $[0,L] \subset \bigcup_{i = 1}^N I_i$ enthalten ist.
+      Wiederhole das beschriebene Vorgehen so lange, bis $[0,L] \subset \bigcup_{i = 1}^N I_i$ erreicht ist.
       Per constructionem gilt $N \leq k$, da $|I_j| \geq \frac{L}{k}$ für alle $j = 1,\dots,N$ gewählt wurde.
       Es folgt
       \begin{align*}
         &\int_0^L |\partial_i u(x)|^p \d x_i \\
-        &\quad\leq \sum_{i = 1}^N \int_{I_i} |\partial_i u(x)|^p \d x_i \\ 
-        &\quad\leq 2k \Big( \frac{L}{k} \Big)^{1 - p - \frac{p}{r}} + 2C^p \sum_{\substack{i = 1 \\ |I_i| > \frac{L}{k}}}^N \Big( \int_{I_i} |\partial_i \partial_i u(x)|^r \d x_i \Big)^{\frac{p}{2r}} \cdot \Big( \int_{I_i} |u(x)|^q \d x_i \Big)^{\frac{p}{2q}} \\
-        &\quad\leq 2C^p L \Big(\frac{L}{k}\Big)^{p - \frac{p}{r}} + 2C^p \Big( \sum_{\substack{i = 1 \\ |I_i| > \frac{L}{k}}} \int_{I_i} |\partial_i \partial_i u(x)|^r \d x_i \Big)^{\frac{p}{2r}} \cdot \Big( \sum_{\substack{i = 1 \\ |I_i| > \frac{L}{k}}} \int_{I_i} |u(x)|^q \d x_i \Big)^{\frac{p}{2q}},
+        &\qquad\leq \sum_{i = 1}^N \int_{I_i} |\partial_i u(x)|^p \d x_i \\ 
+        &\qquad\leq 2k \Big( \frac{L}{k} \Big)^{1 - p - \frac{p}{r}} + 2C^p \sum_{\substack{i = 1 \\ |I_i| > \frac{L}{k}}}^N \Big( \int_{I_i} |\partial_i \partial_i u(x)|^r \d x_i \Big)^{\frac{p}{2r}} \cdot \Big( \int_{I_i} |u(x)|^q \d x_i \Big)^{\frac{p}{2q}} \\
+        &\qquad\leq 2C^p L \Big(\frac{L}{k}\Big)^{p - \frac{p}{r}} + 2C^p \Big( \sum_{\substack{i = 1 \\ |I_i| > \frac{L}{k}}} \int_{I_i} |\partial_i \partial_i u(x)|^r \d x_i \Big)^{\frac{p}{2r}} \cdot \Big( \sum_{\substack{i = 1 \\ |I_i| > \frac{L}{k}}} \int_{I_i} |u(x)|^q \d x_i \Big)^{\frac{p}{2q}},
       \end{align*}
       wobei $C$ die Konstante aus ($\heartsuit$) ist.
       Da $r > 0$ folgt ($\square$) für $k \to \infty$.
@@ -444,12 +446,12 @@ Nun sind wir in der Lage Haupsatz \ref{hsatz:gagliardoNirenberg} zu beweisen.
       Bildung der $p$-ten Potenz und Integration über $y$ liefert
       \begin{align*}
         &\Big(\frac{|I|}{4}\Big)^{2p} \int_I |v'(y)|^p \d y\\  
-        &\quad\leq 2^{p - 1} \Bigg[ |I|^{1 + p - \frac{p}{q}} \Big( \int_I |v(y)|^q \d y \Big)^{\frac{p}{q}} + \Big(\frac{1}{16}\Big)^p |I|^{1 + 2p + p - \frac{p}{r}} \Big(\int_I |v''(z)|^r \d z \Big)^{\frac{p}{r}} \Bigg].
+        &\qquad\leq 2^{p - 1} \Bigg[ |I|^{1 + p - \frac{p}{q}} \Big( \int_I |v(y)|^q \d y \Big)^{\frac{p}{q}} + \Big(\frac{1}{16}\Big)^p |I|^{1 + 2p + p - \frac{p}{r}} \Big(\int_I |v''(z)|^r \d z \Big)^{\frac{p}{r}} \Bigg].
       \end{align*}
       Stellen wir die Gleichung noch etwas um, so erhalten wir
       \begin{align*}
         &\int_I |v'(y)|^p \d y  \\
-        &\quad \leq 2^{5p - 1} \Bigg[ |I|^{1 - p - \frac{p}{q}} \Big( \int_I |v(y)|^q \d y \Big)^{\frac{p}{r}} + \Big(\frac{1}{16})^p |I|^{1 + p - \frac{p}{r}} \Big( \int_I |v''(z)|^r \d z \Big)^{\frac{p}{r}} \Bigg].
+        &\qquad \leq 2^{5p - 1} \Bigg[ |I|^{1 - p - \frac{p}{q}} \Big( \int_I |v(y)|^q \d y \Big)^{\frac{p}{r}} + \Big(\frac{1}{16})^p |I|^{1 + p - \frac{p}{r}} \Big( \int_I |v''(z)|^r \d z \Big)^{\frac{p}{r}} \Bigg].
       \end{align*}
       Aus $\frac{2}{p} = \frac{1}{r} + \frac{1}{q}$ folgt $1 - p - \frac{p}{q} = 1 - p - (2 - \frac{p}{r}) = -1 - p + \frac{p}{r}$ und damit folgt ($\heartsuit$) mit $C$ unabhängig von $r$.
 \end{enumerate}
