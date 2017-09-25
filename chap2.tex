@@ -324,12 +324,14 @@ $$
 \begin{proof}
   Wir beweisen erst folgende Aussage: \emph{Für jedes beschränkte Lipschitz-Teilgebiet $\Omega_1 \subset \Omega$ mit $\overline\Omega_0 \subset \Omega_1$ und $\overline\Omega_1 \subset \Omega$ existiert ein eindeutiges $\pi \in \Ell^p(\Omega_1)$ mit $\nabla\pi = f$ im Sinne von Distributionen und $\int_{\Omega_0} \pi \d x = 0$}:
 
-  Sei $\Omega_2$ ein weiteres beschränktes Lipschitz-Gebiet mit $\overline\Omega_1 \subset \Omega_2, \overline\Omega_2 \subset \Omega$ mit 
+  Sei $x_0 \in \Omega_0$ und $\overline\Omega_1 \subset \Omega_2, \overline\Omega_2 \subset \Omega$.
+  Des weiteren sei $\varepsilon < \dist(\partial\Omega_1, \partial(\Omega \cap \BB(x_0,1))$, und $\BB(x_1,\varepsilon),\dots,\BB(x_N,\varepsilon)$ für $x_1,\dots,x_N \in \partial\Omega$ eine offene Überdeckung von $\partial\Omega$.
+  So definiert
   $$
-  \Omega_2 \coloneqq (\Omega \cap \Bog(x_0, r)) \setminus \bigcup_{k = 1}^N \BB(x_n , \varepsilon),
+  \Omega_2 \coloneqq (\Omega \cap \Bog(x_0, r)) \setminus \bigcup_{k = 1}^N \BB(x_k , \varepsilon)
   $$
-  wobei $\varepsilon < \dist(\partial\Omega_1, \partial(\Omega \cap \BB(x_0,1))$,
-  so folgt aus $f \in \WW_{\loc}^{-1,p}(\Omega, \C^d)$, dass $f \in \WW^{-1,p}(\Omega_2; \C^d)$.
+  ein weiteres beschränktes Lipschitz-Gebiet.
+  Weiterhin folgt aus $f \in \WW_{\loc}^{-1,p}(\Omega, \C^d)$, dass $f \in \WW^{-1,p}(\Omega_2; \C^d)$.
   Da $\Omega_2$ beschränkt ist, existiert (Übung) ein $F \in \Ell^p(\Omega_2, \C^{d\times d})$ mit $f = \div(F)$, wobei
   $$
   \div F = \sum_{i = 1}^d \left( \begin{array}{c} \partial_i F_{i1} \\ \vdots \\ \partial_i F_{id} \end{array} \right).

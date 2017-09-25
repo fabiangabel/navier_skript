@@ -1,8 +1,8 @@
 *.aux
 *.swp
-navier-stokes.bbl
-navier-stokes.blg
-navier-stokes.log
-navier-stokes.out
-navier-stokes.toc
+navier.bbl
+navier.blg
+navier.log
+navier.out
+navier.toc
 *.log
