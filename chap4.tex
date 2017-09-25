@@ -4,24 +4,24 @@ In diesem Kapitel geben wir einen Überblick über die $\Ell^p$-Theorie der Helm
 
 Sei $\Omega \subset \R^d, d \geq 2$ offen, $1 < p < \infty$ und 
 $$
-\GG_p(\Omega) \coloneqq \{ f \in \Ell^p(\Omega, \C^d) \colon \text{es ex. } \pi \in \Ell_{\loc}^p(\Omega) \text{ mit } \nabla \pi = f\}.
+\GG_p(\Omega) \coloneqq \{ f \in \Ell^p(\Omega; \C^d) \colon \text{es ex. } \pi \in \Ell_{\loc}^p(\Omega) \text{ mit } \nabla \pi = f\}.
 $$
-Wir sagen, dass auf $\Omega$ die Helmoltz-Zerlegung existiert, falls
+Wir sagen, dass auf $\Omega$ die Helmholtz-Zerlegung existiert, falls
 $$
 \Ell^p(\Omega; \C^d) = \Ell_\sigma^p(\Omega) \oplus \GG_p(\Omega)
 $$
 im Sinne einer algebraischen Summenzerlegung gilt.
 
-Als nächstes betrachten wir folgendes Neumann-Problem (NP):
+Als Nächstes betrachten wir folgendes Neumann-Problem (NP):
 
-Gegeben sei $u \in \Ell^p(\Omega; \C^d)$.
+\emph{Gegeben sei $u \in \Ell^p(\Omega; \C^d)$.
 Finde eine bis auf Konstanten eindeutige Funktion $\pi$ in $\Ell_{\loc}^p(\Omega)$ mit $\nabla \pi \in \Ell^p(\Omega; \C^d)$, sodass
 $$
 \int_\Omega \nabla \pi \cdot \overline f \d x = \int_\Omega u \cdot \overline f \d x, \quad\text{für alle } f \in \GG_{p'}(\Omega),
 $$
-wobei $\frac{1}{p} + \frac{1}{p'} = 1$.
+wobei $\frac{1}{p} + \frac{1}{p'} = 1$.}
 
-Formal gilt: Schreibt man $f = \nabla \phi$, wobei $\phi \in \Ell^{p'}_{\loc}(\Omega)$, so folgt durch partielle Integration
+Formal gilt (wenn $\Omega$ und $u$ regulär genug sind): Schreibt man $f = \nabla \phi$, wobei $\phi \in \Ell^{p'}_{\loc}(\Omega)$, so folgt durch partielle Integration
 \begin{align*}
   -\int_\Omega \Delta\pi \cdot \overline{\phi} \d x
   &= -\int_{\partial\Omega} n \cdot \nabla\pi \overline\phi \d s
@@ -50,15 +50,15 @@ Hier bezeichnet $n$ den äußeren Einheitsnormalenvektor von $\Omega$.
   "$\Rightarrow$": Sei $u \in\Ell^p(\Omega; \C^d)$.
   Dann existiert eine eindeutige Zerlegung 
   $$
-  u = u_0 + \nabla \pi \text{ mit } u_0 \in \Ell_\sigma^p(\Omega), \nabla\pi \in \GG_p(\Omega).
+  u = u_0 + \nabla \pi \quad\text{mit}\quad u_0 \in \Ell_\sigma^p(\Omega), \nabla\pi \in \GG_p(\Omega).
   $$
   Weiterhin gilt für $f \in \GG_{p'}(\Omega)$
   $$
   \int_\Omega \nabla\pi \cdot \overline f = \int_\Omega u \cdot \overline f \d x - \int_\Omega u_0 \overline f \d x  = \int_\Omega u \cdot \overline f \d x,
   $$
-  da $f = \nabla \phi$ für ein $\phi \in \Ell_{\loc}^{p'}(\Omega)$ und $\phi_n \to u_0$ in $\Ell^p$ für eine Folge $(\phi_n)_{n \in \N} \subset \CC_{c,\sigma}^\infty(\Omega)$.
+  da $f = \nabla \phi$ für ein $\phi \in \Ell_{\loc}^{p'}(\Omega)$ und $\phi_n \to u_0$ in $\Ell^p$ für eine Folge $(\phi_n)_{n \in \N} \subset \CC_{\cc,\sigma}^\infty(\Omega)$.
 
-  Eindeutigkeit folgt aus der Rückrichtung des Beweises, denn existiert ein weiteres $\vartheta$ mit $\nabla\vartheta \in \GG_p(\Omega)$, das (NP) löst, liefert dies eine weitere Zerlegung von $u$, die nach Eindeutigkeit der Helmoltz-Zerlegung $\nabla(\vartheta - \pi) = 0$ impliziert.
+  Eindeutigkeit folgt aus der Rückrichtung des Beweises. Denn existiert ein weiteres $\vartheta$ mit $\nabla\vartheta \in \GG_p(\Omega)$, das (NP) löst, liefert dies eine weitere Zerlegung von $u$, die nach Eindeutigkeit der Helmholtz-Zerlegung $\nabla(\vartheta - \pi) = 0$ impliziert.
 
   "$\Leftarrow$": Sei $u \in \Ell^p(\Omega; \C^d)$. Dann existiert $\pi \in \Ell^p_{\loc}(\Omega)$ mit $\nabla \pi \in \Ell^p(\Omega; \C^d)$, sodass
   \begin{displaymath}
@@ -83,20 +83,20 @@ Hier bezeichnet $n$ den äußeren Einheitsnormalenvektor von $\Omega$.
   $$
   Dann liefert Lemma \ref{lem:pressureGrad}, dass ein $\phi \in \Ell_{\loc}^{p'}(\Omega)$ existiert mit
   $$
-  \int_\Omega v \cdot \overline \varphi \d x = -\int_\Omega \phi \; \overline{\div(\varphi)} \d x, \quad\text{für alle } \varphi \in \CC_c^\infty(\Omega; \C^d).
+  \int_\Omega v \cdot \overline \varphi \d x = -\int_\Omega \phi \; \overline{\div(\varphi)} \d x, \quad\text{für alle } \varphi \in \CC_{\cc}^\infty(\Omega; \C^d).
   $$
   Da $v \in \Ell^{p'}(\Omega; \C^d)$, folgt $\nabla \phi \in \Ell^{p'}(\Omega; \C^d)$ und $v = \nabla \phi$.
   Hieraus ergibt sich $v \in \GG_{p'}(\Omega)$, womit die Inklusion $\Ell_\sigma^p(\Omega)^\perp \subset \GG_{p'}(\Omega)$ bewiesen wäre.
 
   Es bleibt die Eindeutigkeit der Zerlegung $u = u_0 + \nabla \pi$ zu zeigen.
-  Angenommen
+  Angenommen es gelte
   $$
   u_0 + \nabla \pi = \tilde u_0 + \nabla \tilde \pi, \quad\text{für }
   u_0,\tilde u_0 \in \Ell_\sigma^p(\Omega) \text{ und } \nabla \pi, \nabla \tilde \pi \in \GG_p(\Omega).
   $$
   Dies ist äquivalent dazu, dass 
   $$
-  v \coloneqq u_0 - \tilde u_0 = \nabla( \tilde \pi - \pi) \eqqcolon \phi.
+  v \coloneqq u_0 - \tilde u_0 = \nabla( \tilde \pi - \pi) \eqqcolon \nabla \phi \in \Ell_\sigma^p.
   $$
   Wegen $\Ell_\sigma^p(\Omega) \subset \GG_{p'}(\Omega)^\perp$ folgt
   $$
@@ -122,14 +122,14 @@ Auf beschränkten Lipschitz-Gebieten wurde z.B. folgendes Resultat durch Fabes, 
 \begin{rem}
   \begin{itemize}
     \item Im Falle $d = 2$ gilt Hauptsatz \ref{hsatz:contProj} für $\frac{4}{3} - \varepsilon < p < 4 + \varepsilon$.
-    \item Das Intervall $\frac{3}{2} - \varepsilon < p < 3 + \varepsilon$ in Haupsatz \ref{hsatz:contProj} ist scharf, d.h., für jedes $p \in (1,\infty) \setminus [\frac{3}{2}, 3]$ existiert ein beschränktes Lipschitz-Gebiet $\Omega$, sodass die Helmholtz-Zerlegung auf $\Ell^p(\Omega; \C^d)$ nicht existiert.
+    \item Das Intervall $\frac{3}{2} - \varepsilon < p < 3 + \varepsilon$ in Hauptsatz \ref{hsatz:contProj} ist scharf, d.h., für jedes $p \in (1,\infty) \setminus [\frac{3}{2}, 3]$ existiert ein beschränktes Lipschitz-Gebiet $\Omega$, sodass die Helmholtz-Zerlegung auf $\Ell^p(\Omega; \C^d)$ nicht existiert.
     \item Ist $\Omega$ beschränkt mit $\CC^1$-Rand oder konvex, so gilt Hauptsatz \ref{hsatz:contProj} für $1 < p < \infty$.
     \item Es existieren unbeschränkte $\CC^\infty$-Gebiete, sodass die Helmholtz-Zerlegung für $p$ genügend groß (aber auch für $p$ genügend nah bei $1$) nicht existiert.
   \end{itemize}
 \end{rem}
 
 \begin{prop}
-  Sei $\Omega \subset \R^d, d\geq 2$, ein beschränktes Gebiet und $1< p< \infty$ derart, dass die Helmholtz-Zerlegung auf $\Ell^p(\Omega; \C^d)$ existiert und die zugehörige Projektion $\PP_p$ mit Bild $\Ell_p^\sigma(\Omega)$ beschränkt ist.
+  Sei $\Omega \subset \R^d, d\geq 2$, ein beschränktes Gebiet und $1< p< \infty$ derart, dass die Helmholtz-Zerlegung auf $\Ell^p(\Omega; \C^d)$ existiert und die zugehörige Projektion $\PP_p$ mit Bild $\Ell^p_\sigma(\Omega)$ beschränkt ist.
   Dann existiert die Helmholtz-Zerlegung auf $\Ell^{p'}(\Omega; \C^d)$, wobei $\frac{1}{p} + \frac{1}{p'} = 1$, die zugehörige Projektion $\PP_{p'}$ mit Bild $\Ell^{p'}_\sigma(\Omega)$ ist beschränkt, es gilt $(\PP_p)' = \PP_{p'}$ in dem Sinne, dass die Adjungierte von $\PP_p$ kanonisch als Operator auf $\Ell^{p'}(\Omega; \C^d)$ aufgefasst wird.
   Weiterhin gilt $(\Ell_\sigma^p(\Omega))' \simeq \Ell_\sigma^{p'}(\Omega)$.
 \end{prop}
@@ -140,9 +140,9 @@ Auf beschränkten Lipschitz-Gebieten wurde z.B. folgendes Resultat durch Fabes, 
   Sei nun $\PP_{p'}$ die kanonische Identifizierung von $(\PP_p)'$ auf $\Ell^{p'}(\Omega; \C^d)$.
   Der Beweis gliedert sich in 3 Schritte.
   \begin{enumerate}[(i)]
-    \item In diesem Schritt bestimmen wir das Bild der Projektion, genauer wollen wir zeigen, dass $\Rg \PP_{p'} = L_\sigma^{p'}(\Omega)$ gilt.
-  Seien dazu $\varphi \in \CC_{c, \sigma}^\infty(\Omega)$, $f \in \CC_c^\infty(\Omega; \CC^d)$.
-  Dann gilt mit der Definition dualen Abbildung
+    \item In diesem Schritt bestimmen wir das Bild der Projektion, genauer wollen wir zeigen, dass $\Rg \PP_{p'} = \Ell_\sigma^{p'}(\Omega)$ gilt.
+      Seien dazu $\varphi \in \CC_{\cc, \sigma}^\infty(\Omega)$, $f \in \CC_{\cc}^\infty(\Omega; \CC^d)$.
+  Dann gilt mit der Definition der dualen Abbildung
   \begin{align*}
     \int_\Omega \PP_{p'}\varphi \cdot \overline f 
     = \int_\Omega \varphi \cdot \overline{\PP_p f} \d x  
@@ -151,7 +151,7 @@ Auf beschränkten Lipschitz-Gebieten wurde z.B. folgendes Resultat durch Fabes, 
   \end{align*}
       da $\Omega$ beschränkt (es gilt $\Ell^2 \subseteq \Ell^p$ oder $\Ell^p \subseteq \Ell^2$) und die Helmholtz-Zerlegung eindeutig ist und schließlich auch $\PP_2$ selbstadjungiert ist.
   Hieraus ergibt sich $\PP_{p'} \varphi = \varphi$.
-  Da $\CC_{c, \sigma}^\infty(\Omega)$ dicht liegt in $\Ell^{p'}_\sigma(\Omega)$, $\PP_{p'}$ beschränkt ist und zudem als Projektion ein abgeschlossenes Bild besitzt, folgt
+  Da $\CC_{\cc, \sigma}^\infty(\Omega)$ dicht liegt in $\Ell^{p'}_\sigma(\Omega)$, $\PP_{p'}$ beschränkt ist und zudem als Projektion ein abgeschlossenes Bild besitzt, folgt
   $$
   \Ell^{p'}_\sigma(\Omega) \subset \Rg(\PP_{p'}).
   $$
@@ -168,7 +168,7 @@ Auf beschränkten Lipschitz-Gebieten wurde z.B. folgendes Resultat durch Fabes, 
   und $f \in \Ell^p(\Omega; \C^d)$.
   Mit Lemma \ref{lem:pressureGrad} folgt nun die Existenz eines $\phi \in \Ell^p_{\loc}(\Omega)$ mit
   $$
-  \int_\Omega f \cdot \overline v = - \int_\Omega \varphi \; \overline{\div(v)} \d x \quad\text{für alle } v \in \CC_c^\infty(\Omega; \C^d),
+  \int_\Omega f \cdot \overline v = - \int_\Omega \varphi \; \overline{\div(v)} \d x \quad\text{für alle } v \in \CC_{\cc}^\infty(\Omega; \C^d),
   $$
   woraus sich $\nabla\varphi = f \in \Ell^p(\Omega; \C^d)$ ergibt.
   Nun gilt für $g \in \Ell^{p'}(\Omega; \C^d)$
@@ -185,14 +185,14 @@ Auf beschränkten Lipschitz-Gebieten wurde z.B. folgendes Resultat durch Fabes, 
   $$
   \ker(\PP_{p'}) = \GG_{p'}(\Omega).
   $$
-  Sei hierzu $\nabla \phi \in \GG_{p'}(\Omega)$, dann gilt für $f \in \CC_c^\infty(\Omega; \C^d)$
+  Sei hierzu $\nabla \phi \in \GG_{p'}(\Omega)$, dann gilt für $f \in \CC_{\cc}^\infty(\Omega; \C^d)$
   $$
   \int_\Omega \PP_{p'}(\nabla\phi) \cdot \overline f \d x
   = \int_\Omega \nabla \phi \cdot \overline{\PP_p f} \d x
   = \lim_{n \to \infty} \int_\Omega \nabla \phi \cdot \overline{\varphi_n} \d x
   = 0,
   $$
-  wobei $(\varphi_n)_{n \in \N} \subset \CC_{c,\sigma}^\infty(\Omega)$ mit $\lim_{n \to \infty} \varphi_n = \PP_p f \in \Ell^p_\sigma(\Omega)$.
+  wobei $(\varphi_n)_{n \in \N} \subset \CC_{\cc,\sigma}^\infty(\Omega)$ mit $\lim_{n \to \infty} \varphi_n = \PP_p f \in \Ell^p_\sigma(\Omega)$.
   Daraus folgt $\GG_{p'}(\Omega) \subset \ker(\PP_{p'})$.
 
   Sei nun $f \in \ker(\PP_{p'})$ und $\varphi \in \CC^\infty_{c,\sigma}(\Omega)$.
@@ -207,9 +207,10 @@ Auf beschränkten Lipschitz-Gebieten wurde z.B. folgendes Resultat durch Fabes, 
   \int_\Omega f \cdot \overline\varphi \d x
   = -\int_\Omega \phi \; \overline{\div(\varphi)} \d x
   $$
-  für alle $\varphi \in \CC_c^\infty(\Omega; \C^d)$.
+  für alle $\varphi \in \CC_{\cc}^\infty(\Omega; \C^d)$.
   Daraus folgt $f = \nabla\phi \in \Ell^{p'}(\Omega; \C^d)$, also $\ker(\PP_{p'}) \subset \GG_{p'}(\Omega)$.
-  Damit ist $\PP_{p'}$ die Helmholtz-Zerlegung auf $\Ell^{p'}(\Omega; \C^d)$.
+  Damit ist $\PP_{p'}$ die Helmholtz-Projektion auf $\Ell^{p'}(\Omega; \C^d)$.
+  Insbesondere existiert die Helmholtz-Zerlegung auf $\Ell^{p'}_\sigma(\Omega)$.
 
 \item Zeige nun, dass $(\Ell_\sigma^{p}(\Omega))' \simeq \Ell^{p'}_\sigma(\Omega)$.
   Die Inklusion $\Ell_\sigma^{p'}(\Omega) \subseteq (\Ell_\sigma^p(\Omega))'$ folgt aus Hölders Ungleichung.
@@ -238,7 +239,7 @@ Auf beschränkten Lipschitz-Gebieten wurde z.B. folgendes Resultat durch Fabes, 
 
 \begin{defn}
   Sei $X$ ein Banachraum.
-  Ein Operator $B \colon \DD(B) \subset X \to X$ heißt \emph{abschließbar in } $X$, falls für alle Folgen $(x_n)_{n \in \N} \subset \DD(B)$ mit $x_n \to 0$ und für die $(B x_n)_{n \in \N} \subset X$ eine Cauchy-Folge ist, auch $\lim_{n \to \infty} B x_n = 0$ folgt.
+  Ein Operator $B \colon \DD(B) \subset X \to X$ heißt \emph{abschließbar in} $X$, falls für alle Folgen $(x_n)_{n \in \N} \subset \DD(B)$ mit $x_n \to 0$ und für die $(B x_n)_{n \in \N} \subset X$ eine Cauchy-Folge ist, auch $\lim_{n \to \infty} B x_n = 0$ folgt.
 
   In diesem Fall ist der \emph{Abschluss} $\overline B \colon \DD(\overline B) \subset X \to X$ \emph{von} $B$ definiert durch
   \begin{align*}
@@ -280,7 +281,7 @@ ein wohldefinierter abgeschlossener Operator.
 Folgendes Resultat liefert auf einem abstrakten Weg die Dichtheit eines Definitionsbereiches, falls man in der Lage ist Resolventenabschätzungen zu beweisen.  (Siehe \cite[Prop. 2.1.1]{haase}.)
 
 \begin{thm}
-  Sei $A$ ein sekotrieller Operator auf einem reflexiven Banachraum $X$.
+  Sei $A$ ein sektorieller Operator auf einem reflexiven Banachraum $X$.
   Dann ist $A$ dicht definiert.
 \end{thm}
 
