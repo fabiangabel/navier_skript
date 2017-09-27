@@ -34,7 +34,7 @@ Im Folgenden bezeichnet $X$ immer einen Banachraum über $\C$.
   Sei $A \colon \DD(A) \subset X \to X$ abgeschlossen und $\omega \in [0,\pi)$.
     $A$ heißt \emph{sektoriell von Winkel} $\omega$, falls $\sigma(A) \subset \overline{\Sec_\omega}$, wobei
     $$
-    \Sec_\omega \coloneqq \begin{cases} (0,\infty), \quad&\omega = 0 \\ \{z \in \C \setminus\{0\} \colon |\arg(z)| < \omega\}, \quad&\omega \neq 0 \end{cases}
+    \Sec_\omega \coloneqq \begin{cases} (0,\infty), \quad&\omega = 0, \\ \{z \in \C \setminus\{0\} \colon |\arg(z)| < \omega\}, \quad&\omega \neq 0 \end{cases}
     $$
     und für alle $\phi \in (\omega, \pi)$ ein $C_\phi > 0$ existiert, sodass für alle $\lambda \in \C \setminus \overline{\Sec_\phi}$ gilt, dass
     $$
@@ -112,7 +112,7 @@ Im Folgenden bezeichnet $X$ immer einen Banachraum über $\C$.
     \begin{enumerate}[(i)]
       \item Für alle $0 \leq \phi < \frac{\pi}{2} - \omega$ ist $(e^{-zA})_{z \in \Sec_\phi}$ gleichmäßig beschränkt.
       \item $z \mapsto \e^{-zA}$ ist analytisch in $\Sec_{\frac{\pi}{2} - \omega}$.
-      \item Für alle $z,w \in \Sec_{\frac{\pi}{2} - \omega}$ gilt 
+      \item Für alle $z,w \in \Sec_{\frac{\pi}{2} - \omega}$ gilt $z + w \in \Sec_{\frac{\pi}{2} - \omega}$ und
         $
         \e^{-(z + w)A} = \e^{-zA}\e^{-w A}.
         $
@@ -178,7 +178,10 @@ Im Folgenden bezeichnet $X$ immer einen Banachraum über $\C$.
       $$
       impliziert.
 
-    \item Sei $x \in X, x' \in X'$.
+    \item 
+      Da $|\arg z  - \arg w | < \pi$ gilt, liegt $\arg z + w$ zwischen $\arg z$ und $\arg w$.
+      
+      Sei nun $x \in X, x' \in X'$.
       Dann gilt mit $R_w < R_z$ und $\theta_w < \theta_z$:
       \begin{align*}
         \langle \e^{-zA} \e^{-wA} x, x' \rangle
@@ -188,8 +191,8 @@ Im Folgenden bezeichnet $X$ immer einen Banachraum über $\C$.
         &= \frac{1}{(2\pi \ii)^2} \int_{\gamma_{R_z, \theta_z}} \int_{\gamma_{R_w, \theta_w}}  \frac{\e^{-z\lambda} \e^{-w \mu}}{\mu - \lambda} \langle (\lambda - A)^{-1} x, x' \rangle \d \mu \d \lambda\\
         &\quad - \frac{1}{(2\pi \ii)^2} \int_{\gamma_{R_z, \theta_z}} \int_{\gamma_{R_w, \theta_w}}  \frac{\e^{-z\lambda} \e^{-w \mu}}{\mu - \lambda} \langle (\mu - A)^{-1} x, x' \rangle \d \mu \d \lambda\\
         &= - \frac{1}{(2\pi \ii)^2} \int_{\gamma_{R_z, \theta_z}} \int_{\gamma_{R_w, \theta_w}}  \frac{\e^{-z\lambda} \e^{-w \mu}}{\mu - \lambda} \langle (\mu - A)^{-1} x, x' \rangle \d \mu \d \lambda\\
-        &= - \frac{1}{(2\pi \ii)^2} \int_{\gamma_{R_w, \theta_w}} \int_{\gamma_{R_z, \theta_z}}  \frac{\e^{-z\lambda} \e^{-w \mu}}{\mu - \lambda} \langle (\mu - A)^{-1} x, x' \rangle \d \lambda \d \mu \\
-        &= - \frac{1}{(2\pi \ii)^2} \int_{\gamma_{R_w, \theta_w}} \int_{\gamma_{R_z, \theta_z}}  \frac{\e^{-(z+ w)\lambda}}{\mu - \lambda} \langle (\mu - A)^{-1} x, x' \rangle \d \lambda \d \mu\\
+        &= \frac{1}{(2\pi \ii)^2} \int_{\gamma_{R_w, \theta_w}} \int_{\gamma_{R_z, \theta_z}}  \frac{\e^{-z\lambda} }{\lambda - \mu}\d \lambda \; \e^{-w \mu} \langle (\mu - A)^{-1} x, x' \rangle \d \mu \\
+        &= \frac{1}{2\pi \ii} \int_{\gamma_{R_w, \theta_w}} \e^{-(z+ w)\mu}\langle (\mu - A)^{-1} x, x' \rangle \d \mu\\
         &= \langle \e^{-(z + w)A} x, x' \rangle.
       \end{align*}
       Hahn-Banach liefert sodann $\e^{-zA}\e^{-wA} x = \e^{-(z + w)A}x$ für alle $x \in X$. 
@@ -258,7 +261,7 @@ Im Folgenden bezeichnet $X$ immer einen Banachraum über $\C$.
     A \e^{-tA}
     &= \frac{1}{2 \pi \ii} \int_{\gamma_{t^{-1},\theta}} (\e^{-t\lambda}\lambda A (\lambda - A)^{-1} \d \lambda \\
     &= \frac{1}{2 \pi \ii} \int_{\gamma_{t^{-1},\theta}} (\e^{-t\lambda} \lambda (\lambda - A)^{-1} - \e{-z\lambda}) \d \lambda\\
-    &= \frac{1}{2 \pi \ii} \int_{\gamma_{t^{-1},\theta}} (\e^{-t\lambda} \lambda (\lambda - A)^{-1} \d \lambda.
+    &= \frac{1}{2 \pi \ii} \int_{\gamma_{t^{-1},\theta}} \e^{-t\lambda} \lambda (\lambda - A)^{-1} \d \lambda.
   \end{align*}
   Sektorialität liefert
   \begin{align*}
@@ -271,11 +274,12 @@ Im Folgenden bezeichnet $X$ immer einen Banachraum über $\C$.
 \section{Gebrochene Potenzen}
 
 In diesem Abschnitt definieren und untersuchen wir gebrochene Potenzen $A^\alpha$.
+Hierbei sei für komplex Zahlen $z,\alpha \in \C$ die Potenz $z^\alpha$ immer über den Hauptzweig des Logarithmus definiert.
 
 \begin{prop}
   \label{prop:resolventEstImproved}
   Sei $A$ sektoriell von Winkel $\omega \in [0,\pi)$ und $0 \in \rho(A)$.
-    Dann existiert ein $R > 0$, sodass für alle $\theta \in (\omega, \pi)$ ein $C > 0$ existiert, sodass $\BB_R(0) \subset \rho(A)$ und für alle $\lambda \in \C \setminus \overline{\Sec_\theta} \cup \BB_R(0)$
+    Dann existiert ein $R > 0$, sodass für alle $\theta \in (\omega, \pi)$ ein $C > 0$ existiert, sodass $\overline{\BB_R(0)} \subset \rho(A)$ und für alle $\lambda \in \C \setminus \overline{\Sec_\theta} \cup \BB_R(0)$
     $$
     \| (1 + |\lambda| ) (\lambda - A)^{-1} \|_{\Li(X)} \leq C
     $$
@@ -296,7 +300,7 @@ In diesem Abschnitt definieren und untersuchen wir gebrochene Potenzen $A^\alpha
 \end{ntion}
 
 \begin{defn}
-  Sei $A$ sektoriell von Winkel $\omega \in (0,\pi)$ und $0 \in \rho(A)$.
+  Sei $A$ sektoriell von Winkel $\omega \in [0,\pi)$ und $0 \in \rho(A)$.
   Sei $\theta \in (\omega,\pi)$ und $0 < a < R$, mit $R > 0$ aus Proposition \ref{prop:resolventEstImproved}.
   Definiere für $\alpha > 0$
   $$
@@ -306,7 +310,7 @@ In diesem Abschnitt definieren und untersuchen wir gebrochene Potenzen $A^\alpha
 
 \begin{prop}
   \label{prop:natPow}
-  Sei $A$ sektoriell von Winkel $\omega \in (0,\pi)$ und $0 \in \rho(A)$.
+  Sei $A$ sektoriell von Winkel $\omega \in [0,\pi)$ und $0 \in \rho(A)$.
   Dann ist für $\alpha > 0$ die Definition von $A^{-\alpha}$ unabhängig von $a$ sowie von $\theta$ und es gilt $A^{-\alpha} \in \Li(X)$. Falls $\alpha \in \N$, so stimmt $A^{-\alpha}$ mit der $\alpha$-ten Potenz von $A^{-1}$ überein.
 \end{prop}
 
@@ -316,7 +320,7 @@ In diesem Abschnitt definieren und untersuchen wir gebrochene Potenzen $A^\alpha
 
 \begin{thm}
   \label{thm:negFracPower}
-  Sei $A$ sektoriell von Winkel $\omega \in (0,\pi)$ und $0 \in \rho(A)$.
+  Sei $A$ sektoriell von Winkel $\omega \in [0,\pi)$ und $0 \in \rho(A)$.
   Weiterhin sei $n \in \N_0$ und $\alpha \in (0,n+1) \setminus \N$.
   Dann gilt
   $$
@@ -346,7 +350,7 @@ In diesem Abschnitt definieren und untersuchen wir gebrochene Potenzen $A^\alpha
 
 \begin{thm}
   \label{thm:fracPowSemigroup}
-  Sei $A$ sektoriell von Winkel $\omega \in (0,\pi)$ und $0 \in \rho(A)$.
+  Sei $A$ sektoriell von Winkel $\omega \in [0,\pi)$ und $0 \in \rho(A)$.
   Dann erfüllen die Operatoren $(A^{-\alpha})_{\alpha \geq 0}$, wobei $A^{-0} \coloneqq I$, das Halbgruppengesetz $A^{-\alpha - \beta} = A^{-\alpha} A^{-\beta}$, $\alpha,\beta \geq 0$.
   Ist $A$ dicht definiert, so ist die Abbildung
   $$
@@ -365,7 +369,7 @@ In diesem Abschnitt definieren und untersuchen wir gebrochene Potenzen $A^\alpha
 \end{kor}
 
 \begin{prop}
-  Sei $A$ sektoriell von Winkel $\omega \in (0,\pi)$ und $0 \in \rho(A)$.
+  Sei $A$ sektoriell von Winkel $\omega \in [0,\pi)$ und $0 \in \rho(A)$.
   Dann ist $A^{-\alpha}$ für alle $\alpha > 0$ injektiv.
 \end{prop}
 
@@ -378,7 +382,7 @@ In diesem Abschnitt definieren und untersuchen wir gebrochene Potenzen $A^\alpha
 
 \begin{defn}
   \label{defn:posFracPow}
-  Sei $A$ sektoriell von Winkel $\omega \in (0,\pi)$ und $0 \in \rho(A)$.
+  Sei $A$ sektoriell von Winkel $\omega \in [0,\pi)$ und $0 \in \rho(A)$.
   Für $\alpha > 0$ definiere 
   $$
   A^\alpha \coloneqq (A^{-\alpha})^{-1}
@@ -387,7 +391,7 @@ In diesem Abschnitt definieren und untersuchen wir gebrochene Potenzen $A^\alpha
 \end{defn}
 
 \begin{thm}
-  Sei $A$ sektoriell von Winkel $\omega \in (0,\pi)$ und $0 \in \rho(A)$.
+  Sei $A$ sektoriell von Winkel $\omega \in [0,\pi)$ und $0 \in \rho(A)$.
   Dann gilt für alle $\alpha, \beta \in \R$
   $$
     A^\alpha A^\beta x = A^{\alpha + \beta} x, \quad\text{für alle } x \in \DD(A^\gamma)),
@@ -418,10 +422,10 @@ In diesem Abschnitt definieren und untersuchen wir gebrochene Potenzen $A^\alpha
 
 \begin{thm}[Momentenungleichung]
   \label{thm:moment}
-  Sei $A$ sektoriell von Winkel $\omega \in (0,\pi)$ und $0 \in \rho(A)$.
+  Sei $A$ sektoriell von Winkel $\omega \in [0,\pi)$ und $0 \in \rho(A)$.
   Für alle $\alpha < \beta < \gamma$ existiert $C = C(\alpha, \beta, \gamma)$, sodass
   $$
-  \| A^\beta x\|_X^{\frac{}{}} \leq C \|A^\alpha x\|_X^{\frac{\gamma - \beta}{\gamma - \alpha}} \, \|A^\gamma x \|_X^{\frac{\beta - \alpha}{\gamma - \alpha}}, \quad\text{für alle }x \in \DD(A^\gamma).
+  \| A^\beta x\|_X^{\frac{}{}} \leq C\; \|A^\alpha x\|_X^{\frac{\gamma - \beta}{\gamma - \alpha}} \, \|A^\gamma x \|_X^{\frac{\beta - \alpha}{\gamma - \alpha}}, \quad\text{für alle }x \in \DD(A^\gamma).
   $$
 \end{thm}
 
@@ -461,12 +465,12 @@ Sei $\tau > 0$ beliebig. Dann folgt mit Satz \ref{thm:negFracPower} und Korollar
   Falls $\alpha_0 = n + 1$ folgt daraus bereits die Behauptung.
   Sei also im Folgenden $\alpha_0 \in (n, n + 1)$.
   Mit Satz \ref{thm:negFracPower} ergibt sich
-  \begin{alignat*}{2}
+  \begin{align*}
     A^{-(n + 1 - \alpha_0)} s^{n + 1 - \alpha_0} A (s + A)^{-1}
-    &= -\frac{1}{\pi} \sin(\alpha \pi) &&\int_0^\infty s^{n + 1 - \alpha_0} t^{-(n + 1 - \alpha_0)} A (s + A)^{-1} (t + A)^{-1} \d t \\
-    &= -\frac{1}{\pi} \sin(\alpha \pi) &&\int_0^\infty s^{n + 1 - \alpha_0} \lambda^{-(n + 1 - \alpha_0)} s A(s + A)^{-1} (s\lambda + A)^{-1} \d \lambda \\
-    &= -\frac{1}{\pi} \sin(\alpha \pi) \Big[ &&\int_0^1 \lambda^{-(n + 1 - \alpha_0)} s (s + A)^{-1} A (s \lambda + A)^{-1} \d \lambda \\
-    &  &&+\int_1^\infty \lambda^{-(n + 2 - \alpha_0)} A (s + A)^{-1} s \lambda (s \lambda + A)^{-1} \d \lambda \Big].
-  \end{alignat*}
+    &= -\frac{1}{\pi} \sin(\alpha \pi) \int_0^\infty s^{n + 1 - \alpha_0} t^{-(n + 1 - \alpha_0)} A (s + A)^{-1} (t + A)^{-1} \d t \\
+    &= -\frac{1}{\pi} \sin(\alpha \pi) \int_0^\infty s^{n + 1 - \alpha_0} \lambda^{-(n + 1 - \alpha_0)} s A(s + A)^{-1} (s\lambda + A)^{-1} \d \lambda \\
+    &= -\frac{1}{\pi} \sin(\alpha \pi) \Big[ \int_0^1 \lambda^{-(n + 1 - \alpha_0)} s (s + A)^{-1} A (s \lambda + A)^{-1} \d \lambda \\
+    &\hphantom{= -\frac{1}{\pi} \sin(\alpha \pi) \Big[ }  +\int_1^\infty \lambda^{-(n + 2 - \alpha_0)} A (s + A)^{-1} s \lambda (s \lambda + A)^{-1} \d \lambda \Big].
+  \end{align*}
   Mit der Sektorialität von $A$ ergibt sich Ungleichung (1).
 \end{proof}
