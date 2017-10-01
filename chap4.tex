@@ -47,10 +47,10 @@ Hier bezeichnet $n$ den äußeren Einheitsnormalenvektor von $\Omega$.
 \end{thm}
 
 \begin{proof}
-  "$\Rightarrow$": Sei $u \in\Ell^p(\Omega; \C^d)$.
+  ``$\Rightarrow$'': Sei $u \in\Ell^p(\Omega; \C^d)$.
   Dann existiert eine eindeutige Zerlegung 
   $$
-  u = u_0 + \nabla \pi \quad\text{mit}\quad u_0 \in \Ell_\sigma^p(\Omega), \nabla\pi \in \GG_p(\Omega).
+  u = u_0 + \nabla \pi \qquad\text{mit}\qquad u_0 \in \Ell_\sigma^p(\Omega), \nabla\pi \in \GG_p(\Omega).
   $$
   Weiterhin gilt für $f \in \GG_{p'}(\Omega)$
   $$
@@ -60,7 +60,7 @@ Hier bezeichnet $n$ den äußeren Einheitsnormalenvektor von $\Omega$.
 
   Eindeutigkeit folgt aus der Rückrichtung des Beweises. Denn existiert ein weiteres $\vartheta$ mit $\nabla\vartheta \in \GG_p(\Omega)$, das (NP) löst, liefert dies eine weitere Zerlegung von $u$, die nach Eindeutigkeit der Helmholtz-Zerlegung $\nabla(\vartheta - \pi) = 0$ impliziert.
 
-  "$\Leftarrow$": Sei $u \in \Ell^p(\Omega; \C^d)$. Dann existiert $\pi \in \Ell^p_{\loc}(\Omega)$ mit $\nabla \pi \in \Ell^p(\Omega; \C^d)$, sodass
+  ``$\Leftarrow$'': Sei $u \in \Ell^p(\Omega; \C^d)$. Dann existiert $\pi \in \Ell^p_{\loc}(\Omega)$ mit $\nabla \pi \in \Ell^p(\Omega; \C^d)$, sodass
   \begin{displaymath}
   \int_\Omega \nabla \pi \cdot \overline f \d x = \int_\Omega u \cdot \overline f \d x, \quad\text{für alle } f \in \GG_{p'}(\Omega).
   \tag{$\ast$}
@@ -70,7 +70,7 @@ Hier bezeichnet $n$ den äußeren Einheitsnormalenvektor von $\Omega$.
   Aus ($\ast$) folgt zunächst $u_0 \in \GG_{p'}(\Omega)^\perp$.
   Gilt nun auch noch 
   \begin{displaymath}
-    \Ell^p_\sigma(\Omega)^\perp \subset \GG_{p'}(\Omega) \tag{$\ast\ast$}
+    \Ell^p_\sigma(\Omega)^\perp \subset \GG_{p'}(\Omega) \tag{$\ast\ast$},
   \end{displaymath}
   so folgt die Behauptung aus nochmaliger Bildung des Annihilators, also
   $$
@@ -138,7 +138,7 @@ Auf beschränkten Lipschitz-Gebieten wurde z.B. folgendes Resultat durch Fabes, 
   Wir wissen, dass aus der Beschränktheit von $\PP_p$ auch die Beschränktheit von $(\PP_p)'$ folgt.
   Ist $\PP_p$ eine Projektion, so ist insbesondere $(\PP_p)'$ eine Projektion.
   Sei nun $\PP_{p'}$ die kanonische Identifizierung von $(\PP_p)'$ auf $\Ell^{p'}(\Omega; \C^d)$.
-  Der Beweis gliedert sich in 3 Schritte.
+  Der weitere Beweis gliedert sich in 3 Schritte.
   \begin{enumerate}[(i)]
     \item In diesem Schritt bestimmen wir das Bild der Projektion, genauer wollen wir zeigen, dass $\Rg \PP_{p'} = \Ell_\sigma^{p'}(\Omega)$ gilt.
       Seien dazu $\varphi \in \CC_{\cc, \sigma}^\infty(\Omega)$, $f \in \CC_{\cc}^\infty(\Omega; \CC^d)$.
@@ -233,7 +233,7 @@ Auf beschränkten Lipschitz-Gebieten wurde z.B. folgendes Resultat durch Fabes, 
   = \int_\Omega \tilde f \; \underbrace{\overline{(I - \PP_p)g}}_{\in \GG_p(\Omega)} \d x
   = 0, \quad\text{für alle } g \in \Ell^p(\Omega; \C^d).
   $$
-  Dies liefert $(I - \PP_{p'}) \tilde f = 0$ woraus wiederum $\tilde f \in \Ell_\sigma^{p'}(\Omega)$ folgt.
+  Dies liefert $(I - \PP_{p'}) \tilde f = 0$, woraus wiederum $\tilde f \in \Ell_\sigma^{p'}(\Omega)$ folgt.\qedhere
   \end{enumerate}
 \end{proof}
 
@@ -299,7 +299,7 @@ Folgendes Durchbruchresultat ist von Shen \cite{shen}.
 \end{hsatz}
 
 \begin{rem}
-  Deuring hat 2002 im Falle d = 3 bewiesen: Für jedes $p < 3$ existiert ein beschränktes Lipschitz-Gebiet, sodass $-A_p$ keine $C_0$-Halbgruppe auf $\Ell_\sigma^p(\Omega)$ erzeugt.
+  Deuring hat 2002 im Falle d = 3 bewiesen: Für jedes $p > 3$ existiert ein beschränktes Lipschitz-Gebiet, sodass $-A_p$ keine $C_0$-Halbgruppe auf $\Ell_\sigma^p(\Omega)$ erzeugt.
 \end{rem}
 
 Folgendes Resultat ist von Tolksdorf, 2017.
@@ -362,7 +362,7 @@ Folgendes Resultat ist von Tolksdorf, 2017.
       $$
       Da $0 \leq \alpha < 1$ gelten muss, betrachte erst den Fall
       $$
-      \frac{1}{p} - \frac{1}{q} < \frac{1}{d}
+      \frac{1}{p} - \frac{1}{q} < \frac{1}{d}.
       $$
       Identifiziere $\e^{-tA_p} a \in \WW_{0,\sigma}^{1,p}(\Omega)$ mit seiner Fortsetzung durch Null auf $\R^d$, d.h. $\e^{-t A_p} a \in \WW^{1,p}(\R^d)$.
       Die Gagliardo-Nirenberg Ungleichung liefert
@@ -371,7 +371,7 @@ Folgendes Resultat ist von Tolksdorf, 2017.
       \leq C \cdot t^{-\frac{d}{2} \, \big( \frac{1}{p} - \frac{1}{q} \big)} \|a\|_{\Ell^p}.
       $$
       Falls $\frac{1}{p} - \frac{1}{q} < \frac{2}{d}$, dann wähle $r$ mit $\frac{1}{p} - \frac{1}{r} > \frac{1}{d}$ und $\frac{1}{r} - \frac{1}{q} < \frac{1}{d}$.
-      Anwendung des Halbgruppengesetze ergibt
+      Anwendung des Halbgruppengesetzes ergibt
       \begin{align*}
         \|\e^{-tA_p} a\|_{\Ell^q} 
         &\leq C \, t^{-\frac{d}{2} \, \big( \frac{1}{r} - \frac{1}{q} \big)} \|\e^{-\frac{t}{2} A_p} a \|_{\Ell^r}  
