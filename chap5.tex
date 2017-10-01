@@ -12,9 +12,9 @@ $$
 $$
 Hierbei fordern wir als Kompatibilitätsbedingung, dass $a$ im richtigen Sinne ``divergenzfrei'' sei.
 
-Betrachten wir nun fürs $\Omega = \R^3$, $T = \infty$ und $\lambda > 0$ die Skalierungen
+Betrachten wir nun für $\Omega = \R^3$, $T = \infty$ und $\lambda > 0$ die Skalierungen
 \begin{align*}
-  u_\lambda(x,t)  &\coloneqq \lambda u(\lambda x, \lambda^2 t) \\
+  u_\lambda(x,t)  &\coloneqq \lambda u(\lambda x, \lambda^2 t), \\
   \pi_\lambda(x,t) &\coloneqq \lambda^2 \pi(\lambda x, \lambda^2 t).
 \end{align*}
 Man überzeugt sich leicht davon, dass falls $u$,$\pi$ das System (NST) lösen, so lösen auch $u_\lambda$, $\pi_\lambda$ dieses System.
@@ -38,7 +38,7 @@ $$
 a_\lambda(x) \coloneqq \lambda a(\lambda x),
 $$
 so folgt $\|a_\lambda\|_{\Ell^3} = \|a\|_{\Ell^3}$ und für jedes $\lambda > 0$ existiert $u_\lambda$ mindestens auf dem Zeitintervall $[0,T_0]$ ($T_0$ ist $\lambda$-unabhängig).
-Hieraus ergibt sich, dass $(u_\lambda)_{\frac{1}{\lambda}}$ mindestens auf dem Zeitintervall $[0,\lambda^2 T_0]$ existiert und es gilt
+Hieraus ergibt sich, dass $u = (u_\lambda)_{\frac{1}{\lambda}}$ mindestens auf dem Zeitintervall $[0,\lambda^2 T_0]$ existiert und es gilt
 \begin{align*}
   \tag{$\ast$} \|u\|_{\Ell^\infty(0,\lambda^2 T_0; \Ell^3_\sigma(\R^3))} = \|u_\lambda\|_{\Ell^\infty(0,T_0; \Ell^3_\sigma(\R^3))}.
 \end{align*} 
@@ -48,8 +48,8 @@ Hätte man nun noch auf dem Lifespan-Intervall eine geeignete Abschätzung der L
 \end{align*}
 so folgt mit ($\ast$)
 $$
-\|u\|_{\Ell^\infty(0,\lambda^2 T_0; \Ell^3_\sigma(\R^d))}
-\overset{\text{($\ast$)}}{=} \|u_\lambda\|_{\Ell^\infty(0,T_0; \Ell^3_\sigma(\R^3))}
+\|u\|_{\Ell^\infty(0,\lambda^2 T_0; \Ell^3_\sigma(\R^3))}
+\overset{\text{($\ast$)}}{=\vphantom{\leq}\!\!} \|u_\lambda\|_{\Ell^\infty(0,T_0; \Ell^3_\sigma(\R^3))}
 \overset{\text{(\$\$)}}{\leq} C(\|a_\lambda\|_{\Ell^3}) = C(\|a\|_{\Ell^3})
 $$
 und für $\lambda \to \infty$ ergäbe sich $u \in \Ell^\infty(0,\infty; \Ell^3_\sigma(\R^3))$, wir hätten damit also aus einer lokalen Lösung eine globale Lösung gemacht.
@@ -57,9 +57,9 @@ und für $\lambda \to \infty$ ergäbe sich $u \in \Ell^\infty(0,\infty; \Ell^3_\
 Wie bekommt man jetzt die Million?
 Falls die Anfangsdaten $a \in \Ell^2_\sigma(\R^3) \cap \Ell^3_\sigma(\R^3)$ und $v$ ``schwache Lösung'' von (NST) die ``Energieungleichung'' erfüllt, so haben Kozono und Sohr 1996 gezeigt dass dann $u = v$ gilt.
 
-Wenn $a$ zusätzlich eine Schwartz-Funktion ist und die u ``schwache Lösung'' in $\Ell^\infty(0,\infty,\Ell^3_\sigma(\R^3))$, so haben Escramiaza, Seregin Sverak 2003 gezeigt, dass in diesem Falle $u$ glatt ist in $[0,\infty) \times \R^3$. Somit gilt
+Wenn $a$ zusätzlich eine Schwartz-Funktion ist und die u ``schwache Lösung'' in $\Ell^\infty(0,\infty,\Ell^3_\sigma(\R^3))$ liegt, so haben Escramiaza, Seregin Sverak 2003 gezeigt, dass in diesem Falle $u$ glatt ist in $[0,\infty) \times \R^3$. Somit gilt:
 $$
-\text{Zeige (\$) und (\$\$)} \implies \text{Millionär}
+\text{Zeige (\$) und (\$\$)} \implies \text{Millionär}.
 $$
 
 Wir beschäftigen uns im Folgenden mit der Lösbarkeit von (NST) in $\Ell^\infty(0,T; \Ell^3_\sigma(\Omega))$, wobei $\Omega \subset \R^3$ ein beschränktes Lipschitz-Gebiet ist.
@@ -72,7 +72,7 @@ $$
 $$
 Sieht man die Nichtlinearität als rechte Seite, so müsste $u$ durch die Variation-der-Konstanten-Formel
 $$
-u(t) = \e^{-tA} a - \int_0^t e^{-(t - s)A_p}(u(s) \cdot \nabla) u(s) \d s
+u(t) = \e^{-tA} a - \int_0^t \e^{-(t - s)A_p}\PP(u(s) \cdot \nabla) u(s) \d s
 $$
 gegeben sein. 
 Dies motiviert die folgende Definition:
@@ -93,10 +93,10 @@ Dies motiviert die folgende Definition:
   Sei $\Omega \subset \R^d$ ein beschränktes Lipschitz-Gebiet.
   Dann existiert ein $\varepsilon > 0$, sodass für alle $3 \leq r < 3 + \varepsilon$ und alle $a \in \Ell_\sigma^r(\Omega)$ die folgenden Aussagen gelten.
   \begin{enumerate}[i)]
-    \item Es existiert $T_0 > 0$ und eine milde Lösung von $u \colon [0,T_0) \to \Ell_\sigma^r(\Omega)$ von (NST) mit Anfangswert $a$, sodass für alle $r \leq p < 3 + \varepsilon$ mit $\frac{3}{2} \big( \frac{1}{r} - \frac{1}{p} \big) < \frac{1}{4}$ gilt
+    \item Es existiert $T_0 > 0$ und eine milde Lösung $u \colon [0,T_0) \to \Ell_\sigma^r(\Omega)$ von (NST) mit Anfangswert $a$, sodass für alle $r \leq p < 3 + \varepsilon$ mit $\frac{3}{2} \big( \frac{1}{r} - \frac{1}{p} \big) < \frac{1}{4}$ gilt
       \begin{align*}
         &\big( t \mapsto t^{\frac{3}{2}(\frac{1}{r} - \frac{1}{p})} u(t) \big) \in \mathrm{BC}([0,T_0), \Ell^p_\sigma(\Omega)) \\
-        &\big( t \mapsto t^{\frac{1}{2} + \frac{3}{2}(\frac{1}{r} - \frac{1}{p})} \nabla u(t) \big) \in \mathrm{BC}([0,T_0), \Ell^p(\Omega; \C^9) 
+        &\big( t \mapsto t^{\frac{1}{2} + \frac{3}{2}(\frac{1}{r} - \frac{1}{p})} \nabla u(t) \big) \in \mathrm{BC}([0,T_0), \Ell^p(\Omega; \C^9) )
       \end{align*}
       Weiterhin gilt
       $$
@@ -148,12 +148,12 @@ Der Parameter $\sigma$ stammt aus Satz \ref{thm:lplqSmoothing}.
   Dann folgt
   \begin{align*}
     \|u_{j + 1}(t) \|_{\Ell^p}
-    &\leq \|u_0(t)\|_{\Ell^p} + C \, \int_0^t \|\e^{-(t - s) A} \PP(u_j(s) \cdot \nabla) \\
-    &\leq \|u_0(t)\|_{\Ell^p} + C \, \int_0^t (t - s)^{\frac{3}{2} (\frac{2}{p} - \frac{1}{p})} \|u_j(s) \cdot \nabla) u_j(s) \|_{\Ell^{\frac{p}{2}}} \d s \\
+    &\leq \|u_0(t)\|_{\Ell^p} + C \, \int_0^t \|\e^{-(t - s) A} \PP(u_j(s) \cdot \nabla) u_j(s) \|_{\Ell^p} \d s \\
+    &\leq \|u_0(t)\|_{\Ell^p} + C \, \int_0^t (t - s)^{-\frac{3}{2} (\frac{2}{p} - \frac{1}{p})} \|(u_j(s) \cdot \nabla) u_j(s) \|_{\Ell^{\frac{p}{2}}} \d s \\
     &\leq \|u_0(t)\|_{\Ell^p} + C \, \int_0^t (t - s)^{\frac{3}{2p}} s^{-2\sigma - \frac{1}{2}} \d s \, K_j \cdot \R_j,
   \end{align*}
   wobei wir zunächst Satz \ref{thm:lplqSmoothing} und Hauptsatz \ref{hsatz:contProj} anwenden und danach höldern sowie die Induktionsvoraussetzung nutzen.
-  Weiterhin ist
+  Das obige Integral existiert wegen
   $$
   \frac{3}{2p} < \frac{1}{2} \quad\text{und}\quad 2\sigma + \frac{1}{2} < 1,
   $$
@@ -162,11 +162,11 @@ Der Parameter $\sigma$ stammt aus Satz \ref{thm:lplqSmoothing}.
   $$
   \int_0^t (t - s)^{-\frac{3}{2p}} s^{-2\sigma - \frac{1}{2}} \d s = t^{1 - \frac{3}{2p} - 2\sigma - \frac{1}{2}} \int_0^1 ( 1 - x )^{-\frac{3}{2p}}  x^{- 2\sigma - \frac{1}{2}} \d x.
   $$
-  Und da
+  Und da für den Exponenten von $t$
   $$
   \frac{1}{2} - \frac{3}{2p} - \sigma = \frac{1}{2} - \frac{3}{2r}
   $$
-  gilt folgt
+  gilt, folgt
   $$
   K_{j + 1} \leq K_0 + C\; T^{\frac{1}{2} - \frac{3}{2r}} K_j R_j.
   $$
@@ -178,7 +178,7 @@ Der Parameter $\sigma$ stammt aus Satz \ref{thm:lplqSmoothing}.
     &\leq \|\nabla u_0(t) \|_{\Ell^p} + C \int_0^t (t - s)^{-\frac{1}{2} - \frac{3}{2p}} \|(u_j(s) \cdot \nabla) u_j(s) \|_{\Ell^{\frac{p}{2}}} \d s \\ 
     &\leq \|\nabla u_0(t) \|_{\Ell^p} + C \int_0^t (t - s)^{-\frac{1}{2} - \frac{3}{2p}} s^{-2\sigma - \frac{1}{2}} \d s \, K_j \cdot R_j.
   \end{align*}
-  Weiterhin gilt
+  Obiges Integral existiert, da
   $$
   \frac{1}{2} + \frac{3}{2p} < 1 \quad\text{und}\quad 2\sigma + \frac{1}{2} < 1.
   $$
@@ -200,7 +200,7 @@ Der Parameter $\sigma$ stammt aus Satz \ref{thm:lplqSmoothing}.
   \end{align*}
   Angenommen es gelte
   \begin{align}
-    T^{\frac{1}{2} - \frac{3}{2r}} K_0 \leq \frac{1}{8B}, \quad T^{\frac{1}{2} - \frac{3}{2r}} \, R_0 \leq \frac{1}{8B},
+    T^{\frac{1}{2} - \frac{3}{2r}} \max\{ K_0, R_0 \} \leq \frac{1}{8B},
   \end{align}
   dann folgt zunächst mit $M \coloneqq 2 \max \{ K_0, R_0 \}$ 
   \begin{align*}
@@ -237,7 +237,7 @@ Der Parameter $\sigma$ stammt aus Satz \ref{thm:lplqSmoothing}.
   \begin{align*}
     t^\sigma \|\e^{-t A} a \|_{\Ell^p} 
     &\leq t^\sigma \|\e^{-tA} (a - a_n) \|_{\Ell^p} + t^\sigma \|\e^{-tA} a_n \|_{\Ell^p} \\
-    &\leq C\, \|a - a_n\|_{\Ell_r} + C t^\sigma \|a_n\|_{\Ell^p}.
+    &\leq C\, \|a - a_n\|_{\Ell^r} + C t^\sigma \|a_n\|_{\Ell^p}.
   \end{align*}
   Sei $\varepsilon > 0$.
   Wähle $n \in \N$ derart, dass $C\, \|a - a_n\|_{\Ell^r} < \frac{\varepsilon}{2}$ und wähle
@@ -248,7 +248,7 @@ Der Parameter $\sigma$ stammt aus Satz \ref{thm:lplqSmoothing}.
   $$
   t^\sigma \|\e^{-t A} a \|_{\Ell^p} < \varepsilon.
   $$
-  Aus (6) folgt insbesondere für $\sigma > 0$
+  Aus (6) folgt für $\sigma > 0$
   \begin{align}
     K_0 \to 0 \quad\text{für } T \to 0.
   \end{align}
@@ -256,7 +256,7 @@ Der Parameter $\sigma$ stammt aus Satz \ref{thm:lplqSmoothing}.
   \begin{align}
     t^{\frac{1}{2} + \sigma} \|\nabla \e^{-t A} a \|_{\Ell^p} \to 0 \quad\text{für } t \searrow 0,
   \end{align}
-  denn ähnlich wie oben zeigt man
+  denn ähnlich wie oben zeigt man unter Verwendung von \ref{thm:lplqSmoothing}
   \begin{align*}
     t^{\frac{1}{2} + \sigma} \|\nabla \e^{-t A} a \|_{\Ell^p}
     &\leq t^{\frac{1}{2} + \sigma} \|\nabla \e^{-tA} (a - a_n)\|_{\Ell^p} + t^{\frac{1}{2} + \sigma} \|\nabla \e^{-tA} a_n \|_{\Ell^p} \\
@@ -273,13 +273,13 @@ Der Parameter $\sigma$ stammt aus Satz \ref{thm:lplqSmoothing}.
   $$
   T_0 \coloneqq \Big(\frac{1}{8 B\, C} \Big)^{\frac{2r}{r - 3}} \cdot \Big( \frac{1}{\|a\|_{\Ell^r}} \Big)^{\frac{2r}{r - 3}}.
   $$
-  Dann gilt für alle $T \leq T_0$
+  Dann gilt für alle $T \leq T_0$ mit \ref{thm:lplqsmoothing}
   $$
-  T^{\frac{1}{2} - \frac{3}{2r}} \max \{K_0, R_0\} \leq C\, T^{\frac{1}{2} - \frac{3}{2r}} \|a\|_{\Ell^r} \leq \frac{1}{8B}.
+  T^{\frac{1}{2} - \frac{3}{2r}} \max \{K_0, R_0\} \leq C\, T_0^{\frac{1}{2} - \frac{3}{2r}} \|a\|_{\Ell^r} \leq \frac{1}{8B}.
   $$
-  Wir zeigen, dass für jedes dieser $T$ eine milde Lösung auf $[0,T)$ existiert, d.h. sie existiert mindestens bis $T_0$. ($\implies $ Abschätzung an den Lifespan)
+  Wir zeigen, dass für jedes dieser $T$ eine milde Lösung auf $[0,T)$ existiert, d.h. sie existiert mindestens bis $T_0$. ($\implies $ Abschätzung an den Lifespan aus Behauptung ii))
   Falls $r = 3$, so gibt es keine explizite $T$-Abhängigkeit in (1).
-  Aus (7) und (9) folgt $\max\{K_0, R_0\} \leq \frac{1}{8B}$ für $T$ klein genug und damit gilt auch (1) für $T$ klein genug.
+  Ist jedoch $r > 0$ so folgt aus (7) und (9) $\max\{K_0, R_0\} \leq \frac{1}{8B}$ für $T$ klein genug und damit gilt auch (1) für $T$ klein genug.
   Weiterhin gilt im Falle $r = 3$ für alle $T > 0$
   $$
   \max\{K_0, R_0 \} \leq C\, \|a\|_{\Ell^3} \leq \frac{1}{8B},
@@ -288,15 +288,15 @@ Der Parameter $\sigma$ stammt aus Satz \ref{thm:lplqSmoothing}.
 
   \textbf{Schritt 2}: Falls $3 \leq r < p < 3 + \varepsilon$ und $3 < r \leq p < 3 + \varepsilon$ gelten
   \begin{align*}
-    \big( t \mapsto t^{\frac{3}{2}(\frac{1}{r} - \frac{1}{p})} u(t) \big) &\in \mathrm{BC}([0,T_0), \Ell^p_\sigma(\Omega)) \\
-    \big( t \mapsto t^{\frac{1}{2} + \frac{3}{2}(\frac{1}{r} - \frac{1}{p})} \nabla u(t) \big) &\in \mathrm{BC}([0,T_0), \Ell^p(\Omega; \C^9) 
+    \big( t \mapsto t^{\frac{3}{2}(\frac{1}{r} - \frac{1}{p})} u_{j + 1}(t) \big) &\in \mathrm{BC}([0,T_0), \Ell^p_\sigma(\Omega)) \\
+      \big( t \mapsto t^{\frac{1}{2} + \frac{3}{2}(\frac{1}{r} - \frac{1}{p})} \nabla u_{j + 1}(t) \big) &\in \mathrm{BC}([0,T_0), \Ell^p(\Omega; \C^9)) 
   \end{align*}
   und die Konvergenzen für $t^\sigma \|u_{j + 1} (t) \|_{\Ell^p}$ sowie $t^{\frac{1}{2} + \sigma} \|\nabla u_{j + 1}(t) \|_{\Ell^p}$ für $t \searrow 0$.
   
   Aus (2) und (3) folgt bereits
   \begin{align*}
     &\big( t \mapsto t^{\frac{3}{2}(\frac{1}{r} - \frac{1}{p})} u(t) \big) \in \Ell^\infty([0,T_0), \Ell^p_\sigma(\Omega)) \\
-    &\big( t \mapsto t^{\frac{1}{2} + \frac{3}{2}(\frac{1}{r} - \frac{1}{p})} \nabla u(t) \big) \in \Ell^\infty([0,T_0), \Ell^p(\Omega; \C^9) .
+    &\big( t \mapsto t^{\frac{1}{2} + \frac{3}{2}(\frac{1}{r} - \frac{1}{p})} \nabla u(t) \big) \in \Ell^\infty([0,T_0), \Ell^p(\Omega; \C^9) ).
   \end{align*}
   Wir zeigen die Stetigkeit von $u_{j + 1}$ und $\nabla u_{j + 1}$.
   Hier konzentrieren wir uns auf die rechtsseitige Stetigkeit.
@@ -305,21 +305,22 @@ Der Parameter $\sigma$ stammt aus Satz \ref{thm:lplqSmoothing}.
   $$
   \max\{r, \frac{p}{2} \} \leq q \leq p
   $$
+  folgendes Konvergenzverhalten
   \begin{align*}
     \|\e^{-(t + h)A} a - \e^{-t A} a \|_{\Ell^q} \to 0 &\quad\text{für } h \to 0, \\
-    \|\nabla\e^{-(t + h)A} a - \nabla \e^{-tA} a \|_{\Ell^q} \leq C\| \big[ \e^{-hA} - I \big] A^{\frac{1}{2}} \e^{-tA} a \|_{\Ell^q} \to 0 &\quad\text{für } h \to 0,
+    \|\nabla\e^{-(t + h)A} a - \nabla \e^{-tA} a \|_{\Ell^q} \leq C\, \| \big[ \e^{-hA} - I \big] A^{\frac{1}{2}} \e^{-tA} a \|_{\Ell^q} \to 0 &\quad\text{für } h \to 0,
   \end{align*}
   wobei wir verwendet haben, dass die Halbgruppe mit gebrochenen Potenzen von $A$ kommutiert.
   Weiterhin gilt
   \begin{align*}
-    &\| \int_0^{t + h} \e^{-(t + h - s) A} \PP(u_j(s) \cdot \nabla) u_j(s) \d s - \int_0^t \e^{-(t - s)A} \PP(u_j \cdot \nabla) u_j(s) \d s \|_{\Ell^q} \\
+    &\Big\| \int_0^{t + h} \e^{-(t + h - s) A} \PP(u_j(s) \cdot \nabla) u_j(s) \d s - \int_0^t \e^{-(t - s)A} \PP(u_j \cdot \nabla) u_j(s) \d s \Big\|_{\Ell^q} \\
     &\qquad\leq \int_t^{t + h} \|\e^{-(t + h - s)A} \PP(u_j(s) \cdot \nabla) u_j(s) \|_{\Ell^q} \d s + \int_0^t \| \big[ \e^{-hA} - I \big] \e^{-(t - s)} \PP(u_j(s) \cdot \nabla) u_j(s) \|_{\Ell^q} \d s.
   \end{align*}
   Wir konstruieren nun beispielhaft am zweiten Integral eine Majorante.
-  Dazu verwenden wir zunächst Hauptsatz \ref{hsatz:shen} sowie Hauptsatz \ref{hsatz:contProj} und Satz \ref{thm:lplqSmoothing}
+  Dazu verwenden wir zunächst Hauptsatz \ref{hsatz:shen} sowie Hauptsatz \ref{hsatz:contProj} und Satz \ref{thm:lplqSmoothing} mit dem Ergebnis
   \begin{align*}
     \|[ \e^{-hA} - I] \e^{-(t - s)A} \PP(u_j(s) \cdot u_j(s) \|_{\Ell^q} 
-    &\leq C \, (t - s)^{-\frac{3}{2} \big( \frac{2}{p} - \frac{1}{q} \big)} \|(u_j(s) \cdot \nabla) u_J(s) \|_{\Ell^{\frac{p}{2}}} \\
+    &\leq C \, (t - s)^{-\frac{3}{2} \big( \frac{2}{p} - \frac{1}{q} \big)} \|(u_j(s) \cdot \nabla) u_j(s) \|_{\Ell^{\frac{p}{2}}} \\
     &\leq C\, (t - s)^{-\frac{3}{2} \big( \frac{2}{p} - \frac{1}{q} \big)} s^{-2\sigma - \frac{1}{2}} M^2,
   \end{align*}
   wobei wir im letzten Schritt gehöldert und (2) und (3) angewendet haben.
@@ -328,22 +329,24 @@ Der Parameter $\sigma$ stammt aus Satz \ref{thm:lplqSmoothing}.
   \frac{3}{2} \big( \frac{2}{p} - \frac{1}{q} \big)
   \leq \frac{3}{2} \big( \frac{2}{p} - \frac{1}{p} \big)
   = \frac{3}{2p} 
-  < \frac{1}{2}.
+  < \frac{1}{2}
+  \quad\text{sowie}\quad 2 \sigma + \frac{1}{2} < 1.
   $$
   Majorisierte Konvergenz liefert Stetigkeit von $u_{j + 1} \colon (0,T) \to \Ell_\sigma^q(\Omega)$.
+
   Für $\nabla u_{j + 1}$ folgt ähnlich
   \begin{align*}
     \Big\| \int_0^{t + 1} \nabla \e^{-(t + h - s) A} \PP (u_j(s) \cdot \nabla ) u_j(s) \d s \Big\|_{\Ell^q}
     &\leq \int_t^{t + h} \|\nabla \e^{(-t + h - s) A} \PP(u_j(s) \cdot \nabla ) u_j(s) \|_{\Ell^q} \d s \\ 
     &\hphantom{\leq} + \int_0^t \|\nabla [\e^{-h A} - I ] \e^{-(t - s) A} \PP(u_j(s) \cdot \nabla) u_j(s) \|_{\Ell^q} \d s.
   \end{align*}
-  Wir konstruieren nun beispielhaft eine Majorante für das erste Integral
+  Wir konstruieren nun beispielhaft eine Majorante für das erste Integral, nämlich
   \begin{align*}
     \|\nabla \e^{-(t + h - s) A} \PP(u_j(s) \cdot \nabla) u_j(s) \|_{\Ell^q} 
     &\leq C\, (t + h - s)^{-\frac{1}{2} - \frac{3}{2} \big( \frac{2}{p} - \frac{1}{q} \big)} s^{-2 \sigma - \frac{1}{2} } M^2,
   \end{align*}
   wobei die Abschätzung im Wesentlichen dieselben Resultate verwendet wie schon im Beweis für $u_{j + 1}$.
-  Damit erhalten wir weiter
+  Somit erhalten wir weiter
   \begin{align*}
     &\int_t^{t + h} \|\nabla \e^{-(t + h - s)A} \PP(u_j(s) \cdot \nabla) u_j(s) \|_{\Ell^q} \d s \\
     &\qquad\leq C\, M^2 \int_t^{t + h} (t + h - s)^{-\frac{1}{2} - \frac{3}{2} \big( \frac{2}{p} - \frac{1}{q} \big)} s^{-2\sigma - \frac{1}{2}} \d s \\
@@ -373,7 +376,7 @@ Der Parameter $\sigma$ stammt aus Satz \ref{thm:lplqSmoothing}.
   t^{\frac{1}{2}} \|\nabla u_{j + 1}(t) \|_{\Ell^r} \to 0 \quad\text{für } t \to 0.
   $$
 
-  \textbf{Schritt 3}: $(t \mapsto t^\sigma u_j(t))_{j \in \N}$ ist eine Cauchyfolge in $\mathrm{BC}([0,T); \Ell^p_\sigma(\Omega))$ und $(t \mapsto t^{\frac{1}{2} + \sigma} \nabla u_j(t))_{j \in \N}$ ist Cauchy in $\mathrm{BC}([0,T); \Ell^p(\Omega; \C^9))$, falls $3 \leq r < p < 3 + \varepsilon$ und $3 < r \leq p < 3 + \varepsilon$.
+  \textbf{Schritt 3}: $(t \mapsto t^\sigma u_j(t))_{j \in \N}$ ist eine Cauchyfolge in $\mathrm{BC}([0,T); \Ell^p_\sigma(\Omega))$ und $(t \mapsto t^{\frac{1}{2} + \sigma} \nabla u_j(t))_{j \in \N}$ ist Cauchy in $\mathrm{BC}([0,T); \Ell^p(\Omega; \C^9))$, falls $3 \leq r < p < 3 + \varepsilon$ oder $3 < r \leq p < 3 + \varepsilon$.
 
   Es gilt wie bei der Abschätzung aus Schritt 1:
   \begin{align*}
@@ -389,6 +392,7 @@ Der Parameter $\sigma$ stammt aus Satz \ref{thm:lplqSmoothing}.
   \begin{align*}
     &\max\Big\{\sup_{0 < s < T} s^\sigma \| u_{j + 1}(s) - u_j(s) \|_{\Ell^p}, \sup_{0 < s < T} s^{\frac{1}{2} + \sigma} \|\nabla(u_{j + 1}(s) - u_j(s)) \|_{\Ell^p} \Big\} \\
     &\qquad\leq
+    \frac{1}{2}
     \max\Big\{\sup_{0 < s < T} s^\sigma \| u_{j}(s) - u_{j - 1}(s) \|_{\Ell^p}, \sup_{0 < s < T} s^{\frac{1}{2} + \sigma} \|\nabla(u_{j}(s) - u_{j - 1}(s)) \|_{\Ell^p} \Big\}.
   \end{align*}
   Nun gilt 
@@ -396,7 +400,7 @@ Der Parameter $\sigma$ stammt aus Satz \ref{thm:lplqSmoothing}.
     t^\sigma u_{j + 1} &= \sum_{n = 1}^{j + 1} t^\sigma (u_n - u_{n - 1}) + t^\sigma u_0 \\
     t^{\frac{1}{2} + \sigma} \nabla u_{j + 1} &= \sum_{n = 1}^{j + 1} t^{\frac{1}{2} + \sigma} \nabla (u_n - u_{n - 1}) + t^{\frac{1}{2} + \sigma} \nabla u_0.
   \end{align*}
-  Zusammen mit der Vorigen Abschätzung zeigt sich, dass die Teleskopsummen jeweils durch eine geometrische Reihe dominiert werden.
+  Zusammen mit der vorigen Abschätzung zeigt sich, dass die Teleskopsummen jeweils durch eine geometrische Reihe dominiert werden.
   Hiermit ist die Behauptung von Schritt 3 bewiesen.
   Insbesondere konvergiert
   \begin{align*}
@@ -413,24 +417,24 @@ Der Parameter $\sigma$ stammt aus Satz \ref{thm:lplqSmoothing}.
     \|u_{j + 1}(t) \|_{\Ell^3}
     &\leq \|u_0(t)\|_{\Ell^3} + \int_0^t \|\e^{-(t - s) A} \PP (u_j(s) \cdot \nabla) u_j(s) \|_{\Ell^3} \d s \\
     &\leq \|u_0(t)\|_{\Ell^3} + C \int_0^t (t - s)^{-\frac{3}{2} \big( \frac{2}{p} - \frac{1}{3} \big)} \|(u_j(s) \cdot \nabla) u_j(s) \|_{\Ell^{\frac{p}{2}}} \d s \\
-    &\leq \|u_0(t_0)\|_{\Ell^3} + C M^2 \int_0^t (t - s)^{-\frac{3}{2} \big( \frac{2}{p} - \frac{1}{3}\big)} s^{-2\sigma - \frac{1}{2}} \d s \\
-    &\leq \|u_0(t_0)\|_{\Ell^3} + C M^2 t^{1 - \frac{3}{2} \big( \frac{2}{p} - \frac{1}{3} \big) - 2\sigma - \frac{1}{2}} \int_0^1 (1 - x)^{-\frac{3}{2} \big( \frac{2}{p} - \frac{1}{3} \big)} x^{-2\sigma - \frac{1}{2}} \d x.
+    &\leq \|u_0(t)\|_{\Ell^3} + C M^2 \int_0^t (t - s)^{-\frac{3}{2} \big( \frac{2}{p} - \frac{1}{3}\big)} s^{-2\sigma - \frac{1}{2}} \d s \\
+    &\leq \|u_0(t)\|_{\Ell^3} + C \, M^2 t^{1 - \frac{3}{2} \big( \frac{2}{p} - \frac{1}{3} \big) - 2\sigma - \frac{1}{2}} \int_0^1 (1 - x)^{-\frac{3}{2} \big( \frac{2}{p} - \frac{1}{3} \big)} x^{-2\sigma - \frac{1}{2}} \d x.
   \end{align*}
   Es gilt
   $$
   1 - \frac{3}{2} \big( \frac{2}{p} - \frac{1}{3} \big) - 2\sigma - \frac{1}{2}
-  = \frac{1}{2} - \frac{3}{p} + \frac{1}{2} - 3 \big( \frac{1}{3} - \frac{1}{p} \big)
-  = 0
+  \;=\; \frac{1}{2} - \frac{3}{p} + \frac{1}{2} - 3 \big( \frac{1}{3} - \frac{1}{p} \big)
+  \;=\; 0
   $$
   und hieraus folgt $u_{j + 1} \in \mathrm{BC}([0,T); \Ell^3_\sigma(\Omega))$.
   Analog zeigt man
   $$
   \|u_{j + 1}(t) - a\|_{\Ell^3}
-  \leq \|u_0(t) - a\|_{\Ell^3} + CM^2 \to 0 \quad \text{für } t \text{ (und $T$)} \to 0
+  \leq \|u_0(t) - a\|_{\Ell^3} + C\, M^2 \to 0 \quad \text{für } t \text{ (und $T$)} \to 0
   $$
   nach (5), (7), (9).
 
-  Analog folgt $(t \mapsto t^{\frac{1}{2}} \nabla u_j(t))_{j \in \N} \in \mathrm{BC}([0,T); \Ell^3(\Omega; \C^9))$ mit $t^{\frac{1}{2}} \|\nabla u_{j + 1}(t) \|_{\Ell^3} \to 0$ für $t \searrow 0$ (Dazu wird (9) mit $r = 3$ und $\sigma = 0$ benötigt).
+  Analog folgt $(t \mapsto t^{\frac{1}{2}} \nabla u_j(t))_{j \in \N} \in \mathrm{BC}([0,T); \Ell^3(\Omega; \C^9))$ mit $t^{\frac{1}{2}} \|\nabla u_{j + 1}(t) \|_{\Ell^3} \to 0$ für $t \searrow 0$. (Dazu wird (9) mit $r = 3$ und $\sigma = 0$ benötigt).
   Weiterhin gilt
   \begin{align*}
     \|u_i(t) - u_j(t)\|_{\Ell^3}
