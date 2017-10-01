@@ -22,7 +22,7 @@
   Weiterhin sei
   $$
   \begin{cases}
-    \frac{j}{m} \leq \alpha \leq 1, \quad \text{falls } m - j - \frac{d}{r} \not\in \N_0 \\
+    \frac{j}{m} \leq \alpha \leq 1, \quad \text{falls } m - j - \frac{d}{r} \not\in \N_0, \\
     \frac{j}{m} \leq \alpha < 1, \quad \text{falls } m - j - \frac{d}{r} \in \N_0.
   \end{cases}
     $$
@@ -45,7 +45,7 @@ Für den Beweis benötigen wir einige Vorbetrachtungen.
 \begin{lem}
   \label{lem:hoelderIneq}
   Sei $r > d \geq 2$.
-  Dann existiert $C = C(d,r) > 0$, sodass für alle $u \in \CC_c^1(\R^d)$ und $x,y \in \R^d$ gilt
+  Dann existiert $C = C(d,r) > 0$, sodass für alle $u \in \CC_{\cc}^1(\R^d)$ und $x,y \in \R^d$ gilt
   $$
   \frac{\left| u(x) - u(y) \right|}{|x - y|^{1 - \frac{d}{r}}} < C \, \|\nabla u\|_{\Ell^r}.
   $$
@@ -136,15 +136,15 @@ Das folgende Lemma reduziert den Beweis von Hauptsatz \ref{hsatz:gagliardoNirenb
       \begin{align*}
         \alpha^{**}(1 - \alpha^*) 
         &= \frac{j^{**}}{m^{**}} ( 1 - \frac{j^*}{m^*}) \\
-        &= \frac{j - 1}{j} ( 1 - \frac{1}{m - j + 1}) \\
-        &= \frac{j(m - j + 1) - (m - j + 1) - j + 1}{j(m - j + 1)} \\
+        %&= \frac{j - 1}{j} ( 1 - \frac{1}{m - j + 1}) \\
+        %&= \frac{j(m - j + 1) - (m - j + 1) - j + 1}{j(m - j + 1)} \\
         &= \frac{j(m - j + 1) - m}{j(m - j + 1)}.
         \intertext{Weiter erhalten wir}
         (1 - \alpha^{**})(1 - \alpha^*)
         &= 1 - \alpha^{**} - \alpha^* + \alpha^*\alpha^{**} \\
-        &= 1 - \frac{j - 1}{j} - \frac{1}{m - j + 1} + \frac{1}{m - j + 1} \cdot \frac{j - 1}{j} \\
-        &= 1 + \frac{-(j - 1)(m - j + 1) -j + j + 1}{j(m - j + 1)} \\
-        &= \frac{j(m - j + 1) + (m - j + 1) - j(m - j + 1) - 1}{j(m - j + 1)} \\
+        %&= 1 - \frac{j - 1}{j} - \frac{1}{m - j + 1} + \frac{1}{m - j + 1} \cdot \frac{j - 1}{j} \\
+        %&= 1 + \frac{-(j - 1)(m - j + 1) -j + j + 1}{j(m - j + 1)} \\
+        %&= \frac{j(m - j + 1) + (m - j + 1) - j(m - j + 1) - 1}{j(m - j + 1)} \\
         &= \frac{m - j}{j (m - j + 1)}.
       \end{align*}
       Setzen wir nun
@@ -200,14 +200,14 @@ Das folgende Lemma reduziert den Beweis von Hauptsatz \ref{hsatz:gagliardoNirenb
       \begin{align*}
         \| \nabla u\|_p &\leq \|\nabla^{m - 1} u\|_{r_1}^{\alpha^*} \|u\|_{q_1}^{1 - \alpha^*} \\
         &= \|\nabla^{m - 2} \nabla u \|_{r_1}^{\alpha^*} \|u\|_{q_1}^{1 - \alpha^*} \\
-        &\leq \Big[ \|\nabla^{m - 1} \nabla u\|_{r_2}^{\alpha^{**}} \|\nabla u\|_{q_2}^{1 - \alpha^{**}} \Big]^{\alpha^*} \|u\|_{q_1}^{1 - \alpha^*}
+        &\leq \Big[ \|\nabla^{m - 1} \nabla u\|_{r_2}^{\alpha^{**}} \|\nabla u\|_{q_2}^{1 - \alpha^{**}} \Big]^{\alpha^*} \|u\|_{q_1}^{1 - \alpha^*}.
       \end{align*}
       Im Falle $j = m - 1$ schätzen wir ähnlich ab:
       \begin{align*}
         \| \nabla^{m - 1} u\|_p 
         &= \|\nabla^{m - 2} \nabla u \|_p \\
         &\leq \|\nabla^{m - 1} \nabla u\|_{r_1}^{\alpha^*} \|\nabla u\|_{q_1}^{1 - \alpha^*} \\
-        &\leq \|\nabla^{m } u\|_{r_1} \Big[ \|\nabla^{m - 1} u\|_{r_2}^{\alpha^{**}} \|u\|_{q_2}^{1 - \alpha^{**}} \Big]^{1 - \alpha^*}
+        &\leq \|\nabla^{m } u\|_{r_1} \Big[ \|\nabla^{m - 1} u\|_{r_2}^{\alpha^{**}} \|u\|_{q_2}^{1 - \alpha^{**}} \Big]^{1 - \alpha^*}.
 \end{align*}
 Analoge Rechnungen ergeben, dass sich $r_i$, $q_i$, $i \in \{1,2\}$ immer passend wählen lassen.
     \item Angenommen, die Aussage gelte bis einschließlich $m - 1$ für ein $m \in \N$. Sei $0 \leq j < m $ und $\alpha = 1$. 
@@ -278,11 +278,11 @@ Nun sind wir in der Lage Hauptsatz \ref{hsatz:gagliardoNirenberg} zu beweisen.
       \begin{align*}
         &\int_{-\infty}^\infty |u(x)|^{\frac{\d{}}{d - 1}} \d x_1  \\
         &\qquad \leq \frac{1}{2^{\frac{d}{d - 1}}} \Big( \int_{-\infty}^\infty \big| \frac{\d{}}{\d t} u(\gamma_1(t)) \big| \d t \Big)^{\frac{1}{d - 1}} \int_{-\infty}^\infty \prod_{i = 2}^d \Big(\int_{-\infty}^\infty  \big| \frac{\d{}}{\d t} u(\gamma_i(t)) \big| \d t \Big)^{\frac{1}{d - 1}} \d x_1 \\
-      &\qquad \leq \frac{1}{2^{\frac{d}{d - 1}}} \Big( \int_{-\infty}^\infty |\partial_i u(x)| \d x_1 \Big)^{\frac{1}{d - 1}} \prod_{i = 2}^d \Big(\int_{-\infty}^\infty \int_{-\infty}^\infty \big| \frac{\d{}}{\d t} u(\gamma_i(t)) \big| \d x_1 \d t \Big)^{\frac{1}{d - 1}}
+      &\qquad \leq \frac{1}{2^{\frac{d}{d - 1}}} \Big( \int_{-\infty}^\infty |\partial_i u(x)| \d x_1 \Big)^{\frac{1}{d - 1}} \prod_{i = 2}^d \Big(\int_{-\infty}^\infty \int_{-\infty}^\infty \big| \frac{\d{}}{\d t} u(\gamma_i(t)) \big| \d x_1 \d t \Big)^{\frac{1}{d - 1}}.
       \end{align*}
       Induktive Integration über $x_1,\dots,x_d$ liefert
       \begin{align*}
-        \int_{\R^d} |u(x)|^{\frac{d}{d - 1}} \d x \leq \frac{1}{2^{\frac{d}{d - 1}}} \prod_{i = 1}^d \Big( \int_{\R^d} \big|\partial_i u(x) \big| \d x \Big)^{\frac{1}{d - 1}} \tag{$\ast$}
+        \int_{\R^d} |u(x)|^{\frac{d}{d - 1}} \d x \leq \frac{1}{2^{\frac{d}{d - 1}}} \prod_{i = 1}^d \Big( \int_{\R^d} \big|\partial_i u(x) \big| \d x \Big)^{\frac{1}{d - 1}} \tag{$\ast$}.
       \end{align*}
       Daraus ergibt sich die Behauptung für $r = 1$.
       Sei nun $1 < r < d$. 
@@ -316,7 +316,7 @@ Nun sind wir in der Lage Hauptsatz \ref{hsatz:gagliardoNirenberg} zu beweisen.
       $$
       v_k \coloneqq |u|^{q_k \cdot \frac{d - 1}{d}}.
       $$
-      Dann gilt $v_k \in \CC_c^1(\R^d)$ und aus ($\ast$) mit $u = v_k$ folgt
+      Dann gilt $v_k \in \CC_{\cc}^1(\R^d)$ und aus ($\ast$) mit $u = v_k$ folgt
       \begin{align*}
         \Big( \int_{\R^d} |u(x)|^{q_k} \d x \Big)^{\frac{1}{q_k}}
         &= \Big( \int_{\R^d} |v_k(x)|^{\frac{d}{d - 1}} \d x \Big)^{\frac{1}{q_k}} \\
