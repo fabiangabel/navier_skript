@@ -75,7 +75,7 @@ Im Folgenden bezeichnet $X$ immer einen Banachraum über $\C$.
     \e^{-zA} \coloneqq \frac{1}{2\pi \ii} \int_{\gamma_{R, \theta}} \e^{-z\lambda } (\lambda - A)^{-1} \d \lambda
     $$
     und $\e^{-0A} \coloneqq I$.
-    Die Familie $(\e^{-zA})_{z \in \Sec_{\frac{\pi}{2} - \omega \cup \{0\}}}$  wird \emph{beschränkte analytische Halbgruppe genannt} und falls $A$ dicht definiert ist, wird $-A$ Erzeuger/Generator von $(\e^{-zA})_{z \in \Sec_{\frac{\pi}{2} - \omega \cup \{0\}}}$ genannt.
+    Die Familie $(\e^{-zA})_{z \in \Sec_{\frac{\pi}{2} - \omega \cup \{0\}}}$  wird \emph{beschränkte analytische Halbgruppe} genannt und falls $A$ dicht definiert ist, wird $-A$ Erzeuger/Generator von $(\e^{-zA})_{z \in \Sec_{\frac{\pi}{2} - \omega \cup \{0\}}}$ genannt.
 \end{defn}
 
 \begin{lem}
@@ -255,12 +255,13 @@ Im Folgenden bezeichnet $X$ immer einen Banachraum über $\C$.
   A \e^{-zA} = \frac{1}{2\pi \ii} \int_{\gamma_{R,\theta}} \e^{-z\lambda} A(\lambda - A)^{-1} \d \lambda.
   $$
   Ist $x \in \DD(A)$ gilt folglich $A \e^{-zA} x = \e^{-z A} A x$.
+  
   Für die zweite Aussage sei $t > 0,  R = \frac{1}{t}$ und $\theta \in (w, \frac{\pi}{2})$.
-  Dann gilt
+  Dann gilt mit dem Cauchyschen Integralsatz
   \begin{align*}
     A \e^{-tA}
     &= \frac{1}{2 \pi \ii} \int_{\gamma_{t^{-1},\theta}} (\e^{-t\lambda}\lambda A (\lambda - A)^{-1} \d \lambda \\
-    &= \frac{1}{2 \pi \ii} \int_{\gamma_{t^{-1},\theta}} (\e^{-t\lambda} \lambda (\lambda - A)^{-1} - \e{-z\lambda}) \d \lambda\\
+    &= \frac{1}{2 \pi \ii} \int_{\gamma_{t^{-1},\theta}} (\e^{-t\lambda} \lambda (\lambda - A)^{-1} - \lambda \e^{-z\lambda}) \d \lambda\\
     &= \frac{1}{2 \pi \ii} \int_{\gamma_{t^{-1},\theta}} \e^{-t\lambda} \lambda (\lambda - A)^{-1} \d \lambda.
   \end{align*}
   Sektorialität liefert
@@ -274,7 +275,7 @@ Im Folgenden bezeichnet $X$ immer einen Banachraum über $\C$.
 \section{Gebrochene Potenzen}
 
 In diesem Abschnitt definieren und untersuchen wir gebrochene Potenzen $A^\alpha$.
-Hierbei sei für komplex Zahlen $z,\alpha \in \C$ die Potenz $z^\alpha$ immer über den Hauptzweig des Logarithmus definiert.
+Hierbei sei für komplexe Zahlen $z,\alpha \in \C$ die Potenz $z^\alpha$ immer über den Hauptzweig des Logarithmus definiert.
 
 \begin{prop}
   \label{prop:resolventEstImproved}
@@ -291,7 +292,7 @@ Hierbei sei für komplex Zahlen $z,\alpha \in \C$ die Potenz $z^\alpha$ immer ü
 \end{proof}
 
 \begin{ntion}
-  Seien $a > 0$ und $\theta \in (0,\pi)$.
+  Seien $a > 0$ und $\theta \in [0,\pi)$.
   Dann definieren wir $\Gamma_{a,\theta} \coloneqq \Gamma_1 - \Gamma_2$, wobei
   $$
     \Gamma_1 \colon [0,\infty) \to \C, t \mapsto a + t\e^{\ii\theta} \quad\text{und} \quad

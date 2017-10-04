@@ -434,7 +434,7 @@ $$
 $$
 und für alle $v \in \CC_{\cc}^\infty(\Omega; \C^d)$, d.h. $u$ und $\pi$ lösen im Sinne von Distributionen die Stokes-Gleichung:
 \begin{alignat*}{2}
-  u'(t) &= -\Delta u(t) + \nabla \pi(t) &&\quad\text{in } (0,\infty) \times \Omega, \\
+  u'(t) -\Delta u(t) + \nabla \pi(t) &= 0 &&\quad\text{in } (0,\infty) \times \Omega, \\
   \div(u(t)) &= 0 &&\quad\text{in } (0,\infty) \times \Omega, \\
   u(0) &= a &&\quad\text{in }  \Omega, \\
   u(t)  &= 0 &&\quad\text{auf } \partial\Omega.
@@ -451,13 +451,13 @@ und für alle $v \in \CC_{\cc}^\infty(\Omega; \C^d)$, d.h. $u$ und $\pi$ lösen 
   f = f_0 + \nabla \pi
   $$
   mit $f_0 \in \Ell^2_\sigma(\Omega)$ und $\nabla\pi \in G(\Omega)$.
-  Weiterhin gilt
+  Weiterhin gelten
   $$
-  \|f_0\|_{\Ell^2(\Omega)} \leq \|f\|_{\Ell^2(\Omega} \quad\text{und}\quad \|\nabla\pi \|_{\Ell^2(\Omega)} \leq \|f\|_{\Ell^2(\Omega)}.
+  \|f_0\|_{\Ell^2(\Omega)} \leq \|f\|_{\Ell^2(\Omega)} \quad\text{und}\quad \|\nabla\pi \|_{\Ell^2(\Omega)} \leq \|f\|_{\Ell^2(\Omega)}.
   $$
   Die orthogonale Projektion 
   $$
-  \PP \colon \Ell^2(\Omega; \C^d) \to \Ell^2(\Omega; \C^d), \quad f \to f_0,
+  \PP \colon \Ell^2(\Omega; \C^d) \to \Ell^2(\Omega; \C^d), \quad f \mapsto f_0,
   $$
   wird als Helmholtz-Projektion und obige Zerlegung als Helmholtz-Zerlegung bezeichnet.
 \end{thm}
