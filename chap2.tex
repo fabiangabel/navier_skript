@@ -1,10 +1,10 @@
 \chapter{Die Stokes-Gleichungen auf \texorpdfstring{$\Ell_\sigma^2$}{L_sigma\textasciicircum 2}}
 
-In diesem Kapitel untersuchen wir Lösungen der instationären Stokes-Gleichungen
+In diesem Kapitel untersuchen wir Lösungen der instationären homogenen Stokes-Gleichungen
 $$
 \begin{cases}
   \partial_t u - \Delta u + \nabla p &= 0, \quad x \in \Omega, t > 0 \\
-  \div u &= 0, \quad x \in \Omega, t > 0 \\
+  \div(u) &= 0, \quad x \in \Omega, t > 0 \\
   u(0) &= a, \quad x \in \Omega \\
   u &= 0, \quad x \in \partial\Omega, t > 0,
 \end{cases}
@@ -65,7 +65,7 @@ wobei $f$ und $u$ durch $\DD(A)$ gegeben sind.
  $$
  a(u,v) = -\int_\Omega \Delta u \cdot \overline v \d x.
  $$
- Aus dem Satz von Schwartz folgt $\Delta u \in \CC_{c,\sigma}^\infty(\Omega)$ und damit $\CC_{c,\sigma}^\infty(\Omega) \subset \DD(A)$.
+ Aus dem Satz von Schwartz folgt $\Delta u \in \CC_{\cc,\sigma}^\infty(\Omega)$ und damit $\CC_{\cc,\sigma}^\infty(\Omega) \subset \DD(A)$.
 \end{proof}
 
 \begin{lem*}[Lax-Milgram]
@@ -84,7 +84,7 @@ wobei $f$ und $u$ durch $\DD(A)$ gegeben sind.
 \end{prop}
 
 \begin{proof}
-  Für $f \in \Ell_\sigma^2(\Omega)$ ist $v \mapsto \int_\Omega f \cdot \overline v \d x \in \HH_{0,\sigma}^1(\Omega)^*$ (Antidualraum).
+  Für $f \in \Ell_\sigma^2(\Omega)$ ist $\Big( v \mapsto \int_\Omega f \cdot \overline v \d x \Big) \in \HH_{0,\sigma}^1(\Omega)^*$ (Antidualraum).
   Weiterhin ist 
   $$
   a \colon \HH_{0,\sigma}^1(\Omega) \times \HH_{0,\sigma}^1(\Omega) \to \C,\quad (u,v) \mapsto \int_\Omega \nabla u \cdot \overline{\nabla v} \d x
@@ -206,7 +206,7 @@ $$
 $$
 der mittelwertfreien $\Ell^p$-Funktionen.
 
-Wegen $\int_\Omega \div (u) \d x = 0$ für alle $u \in \WW_0^{1,p}(\Omega; \C^d)$ ist es notwendig, dass die rechte Seite $f$ der folgenden Gleichung in $\Ell^p_0(\Omega)$ liegt.
+Wegen $\int_\Omega \div(u) \d x = 0$ für alle $u \in \WW_0^{1,p}(\Omega; \C^d)$ ist es notwendig, dass die rechte Seite $f$ der folgenden Gleichung in $\Ell^p_0(\Omega)$ liegt.
 Betrachte das Problem
 \begin{align*}
   \div(u) &= f \quad\text{in } \Omega, \\
@@ -271,7 +271,7 @@ wobei $\frac{1}{p} + \frac{1}{p'} = 1$.
 
 \begin{proof}
   Angenommen die Aussage wäre falsch.
-  Dann existiert für jedes $n \in \N$ ein $u_n \in \Ell^p(\Omega)$ mit $(u_n)_\Omega = 0$ und
+  Dann existiert für jedes $n \in \N$ ein $u_n \in \Ell^p(\Omega)$ mit $(u_n)_{\Omega_0} = 0$ und
   \begin{align*}
     \|u_n\|_{\Ell^p(\Omega)} > n \|\nabla u_n \|_{\WW^{-1,p}(\Omega)} \tag{$\ast$}.
   \end{align*}
@@ -323,7 +323,7 @@ $$
 \end{lem}
 
 \begin{proof}
-  Wir beweisen erst folgende Aussage: \emph{Für jedes beschränkte Lipschitz-Teilgebiet $\Omega_1 \subset \Omega$ mit $\overline\Omega_0 \subset \Omega_1$ und $\overline\Omega_1 \subset \Omega$ existiert ein eindeutiges $\pi \in \Ell^p(\Omega_1)$ mit $\nabla\pi = f$ im Sinne von Distributionen und $\int_{\Omega_0} \pi \d x = 0$}:
+  Wir beweisen erst folgende Aussage: \emph{Für jedes beschränkte Lipschitz-Teilgebiet $\Omega_1 \subset \Omega$ mit $\overline\Omega_0 \subset \Omega_1$ und $\overline\Omega_1 \subset \Omega$ existiert ein eindeutiges $\pi \in \Ell^p(\Omega_1)$ mit $\nabla\pi = f$ im Sinne von Distributionen und $\int_{\Omega_0} \pi \d x = 0$\;}:
 
   Sei $x_0 \in \Omega_0$ und $\overline\Omega_1 \subset \Omega_2, \overline\Omega_2 \subset \Omega$.
   Des weiteren sei $\varepsilon < \dist(\partial\Omega_1, \partial(\Omega \cap \BB(x_0,1))$, und $\BB(x_1,\varepsilon),\dots,\BB(x_N,\varepsilon)$ für $x_1,\dots,x_N \in \partial\Omega$ eine offene Überdeckung von $\partial\Omega$.
@@ -335,7 +335,7 @@ $$
   Weiterhin folgt aus $f \in \WW_{\loc}^{-1,p}(\Omega; \C^d)$, dass $f \in \WW^{-1,p}(\Omega_2; \C^d)$.
   Da $\Omega_2$ beschränkt ist, existiert (Übung) ein $F \in \Ell^p(\Omega_2; \C^{d\times d})$ mit $f = \div(F)$, wobei
   $$
-  \div F = \sum_{i = 1}^d \left( \begin{array}{c} \partial_i F_{i1} \\ \vdots \\ \partial_i F_{id} \end{array} \right).
+  \div(F) = \sum_{i = 1}^d \left( \begin{array}{c} \partial_i F_{i1} \\ \vdots \\ \partial_i F_{id} \end{array} \right).
   $$
   Sei $\rho \in \CC_{\cc}^\infty(\BB(0,1))$ mit $\int_{\BB(0,1)} \rho \d x = 1$, $\rho(x) = \rho(-x)$ und definiere für $0 < \varepsilon < \dist(\Omega_1, \partial\Omega_2)$
   $$
@@ -349,7 +349,7 @@ $$
   Aus AnaIV wissen wir, dass $F^\varepsilon$ glatt ist.
   Im Folgenden wollen wir zeigen, dass 
   $$
-  \div F^\varepsilon = \nabla U_\varepsilon \quad\text{in } \Omega_1
+  \div(F^\varepsilon) = \nabla U_\varepsilon \quad\text{in } \Omega_1
   $$
   für ein $U_\varepsilon \in \CC^\infty(\overline\Omega_1)$ gilt.
 
@@ -378,7 +378,7 @@ $$
     %&= -\int_{\Omega_2} \int_0^1 \sum_{i,j = 1}^d \partial_i \rho_\varepsilon(\gamma(t) - x) \gamma_j'(t) \d t \, F_{ij}(x) \d x \\
     &= -\int_{\Omega_2} \int_0^1 \sum_{i,j = 1}^d (\partial_i \rho_\varepsilon) (\gamma(t) - x) \gamma_j'(t) \d t \, F_{ij}(x) \d x \\
     &= -\int_{\Omega_2} \sum_{i,j=1}^d \partial_i\big(  \int_0^1 \rho_\varepsilon(x - \gamma(t)) \gamma_j'(t) \d t \big) \, F_{ij}(x) \d x \\
-    &= \langle V_{\gamma,\varepsilon}, \div F \rangle_{\WW_0^{1,p'}(\Omega_2), \WW^{-1,p}(\Omega_2)} \\
+    &= \langle V_{\gamma,\varepsilon}, \div(F) \rangle_{\WW_0^{1,p'}(\Omega_2), \WW^{-1,p}(\Omega_2)} \\
     &= 0.
   \end{align*}
   Hieraus ergibt sich, dass ein $U_\varepsilon \in \CC^\infty(\overline\Omega_1)$ existiert mit $\nabla U_\varepsilon = \div(F^\varepsilon)$, welches eindeutig bis auf eine additive Konstante ist.
@@ -400,13 +400,13 @@ $$
   Daher existiert ein $U \in \Ell^p(\Omega_1)$ mit $\int_{\Omega_0} U \d x = 0$, $\|U_\varepsilon - U\|_{\Ell^p(\Omega_1)} \to 0$ für $\varepsilon \to 0$ und
   \begin{align*}
     \langle v, \nabla U \rangle_{\WW_0^{1,p'}(\Omega_1), \WW^{-1,p}(\Omega_1)}
-    &= - \int_{\Omega_1} U \, \overline{\div v } \d x
-    = - \lim_{\varepsilon \to 0} \int_{\Omega_1} U_\varepsilon \, \overline{\div v} \d x \\
+    &= - \int_{\Omega_1} U \, \overline{\div(v) } \d x
+    = - \lim_{\varepsilon \to 0} \int_{\Omega_1} U_\varepsilon \, \overline{\div(v)} \d x \\
     &= \lim_{\varepsilon \to 0} \langle v, \nabla U_\varepsilon \rangle_{\WW_0^{1,p'}(\Omega_1), \WW^{-1, p}(\Omega_1)}
     = \lim_{\varepsilon \to 0} \langle v, \div(F^\varepsilon) \rangle_{\WW_0^{1,p'}(\Omega_1), \WW^{-1, p}(\Omega_1)} \\
      &= \langle v, \div(F) \rangle_{\WW_0^{1,p'}(\Omega_1), \WW^{-1, p}(\Omega_1)}.
   \end{align*}
-  Also gilt $\nabla U = \div F$ in $\WW^{-1,p}(\Omega_1; \C^d)$.
+  Also gilt $\nabla U = \div(F)$ in $\WW^{-1,p}(\Omega_1; \C^d)$.
   
   Schöpfe $\Omega$ nun durch beschränkte Lipschitz-Gebiete $\Omega_n$ aus, mit $\overline\Omega_0 \subset \Omega_1$ und $\overline\Omega_n \subset \Omega_{n + 1}, n \in \N$.
   Auf jedem $\Omega_n$ erhält man ein eindeutiges $\pi_n \in \Ell^p(\Omega_n)$ mit $\nabla \pi_n = f$ und $\int_{\Omega_0} \pi_n \d x = 0$.
@@ -415,7 +415,7 @@ $$
 \end{proof}
 
 Eine Anwendung für Lemma \ref{lem:pressureGrad} sieht wie folgt aus:
-Sei $A$ der Stokes-Operator auf $\Ell^2_\sigma(\Omega)$ und $(e^{-tA})_{t \geq 0}$ die Stokes-Halbgruppe.
+Sei $A$ der Stokes-Operator auf $\Ell^2_\sigma(\Omega)$ und $(\e^{-tA})_{t \geq 0}$ die Stokes-Halbgruppe.
 Für $a \in \Ell^2_\sigma(\Omega)$, $t > 0$ gilt dann:
 $$
 \frac{\d\ }{\d t} \underbrace{\e^{-tA} a}_{\eqqcolon u(t)} = - A \underbrace{\e^{-t A} a}_{\eqqcolon u(t)}.
@@ -430,14 +430,14 @@ $$
 $$
 und mit Lemma \ref{lem:pressureGrad} folgt daher, dass $\pi(t) \in \Ell^2_{\loc}(\Omega)$ existiert mit
 $$
-\int_\Omega u'(t) \overline v \d x + \int_\Omega \nabla u(t) \overline{\nabla v} \d x = -\int_\Omega \pi(t) \overline{\div (v)} \d x
+\int_\Omega u'(t) \overline v \d x + \int_\Omega \nabla u(t) \overline{\nabla v} \d x = -\int_\Omega \pi(t) \overline{\div(v)} \d x
 $$
 und für alle $v \in \CC_{\cc}^\infty(\Omega; \C^d)$, d.h. $u$ und $\pi$ lösen im Sinne von Distributionen die Stokes-Gleichung:
 \begin{alignat*}{2}
   u'(t) -\Delta u(t) + \nabla \pi(t) &= 0 &&\quad\text{in } (0,\infty) \times \Omega, \\
   \div(u(t)) &= 0 &&\quad\text{in } (0,\infty) \times \Omega, \\
   u(0) &= a &&\quad\text{in }  \Omega, \\
-  u(t)  &= 0 &&\quad\text{auf } \partial\Omega.
+  u(t)  &= 0 &&\quad\text{auf } (0,\infty) \times \partial\Omega.
 \end{alignat*}
 
 \begin{thm}[Helmholtz-Zerlegung]
@@ -469,7 +469,7 @@ und für alle $v \in \CC_{\cc}^\infty(\Omega; \C^d)$, d.h. $u$ und $\pi$ lösen 
   Sei $\nabla\pi \in G(\Omega)$ und $\varphi \in \CC_{\cc, \sigma}^\infty(\Omega)$.
   Dann gilt
   $$
-  \int_\Omega \varphi \cdot \overline{\nabla\pi} \d x = -\int_\Omega \div \varphi \, \overline \pi \d x = 0.
+  \int_\Omega \varphi \cdot \overline{\nabla\pi} \d x = -\int_\Omega \div(\varphi) \, \overline \pi \d x = 0.
   $$
   Ein Dichtheitsargument liefert $\nabla \pi \in \Ell_\sigma^2(\Omega)^\perp$.
 
@@ -485,7 +485,7 @@ und für alle $v \in \CC_{\cc}^\infty(\Omega; \C^d)$, d.h. $u$ und $\pi$ lösen 
   Mit Lemma \ref{lem:pressureGrad} folgt sodann die Existenz von $\pi \in \Ell^2_{\loc}(\Omega)$ mit $\nabla \pi = f$ im Sinne von Distributionen, d.h.
   $$
   \int_\Omega f \cdot \overline v \d x 
-  = - \int_\Omega \pi \, \overline{\div v} \d x, \quad \text{für alle } v \in \CC_{\cc}^\infty(\Omega; \C^d).
+  = - \int_\Omega \pi \, \overline{\div(v)} \d x, \quad \text{für alle } v \in \CC_{\cc}^\infty(\Omega; \C^d).
   $$
   Daraus folgt $f = \nabla \pi \in G(\Omega)$.
 \end{proof}

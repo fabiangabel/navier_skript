@@ -75,7 +75,7 @@ Im Folgenden bezeichnet $X$ immer einen Banachraum über $\C$.
     \e^{-zA} \coloneqq \frac{1}{2\pi \ii} \int_{\gamma_{R, \theta}} \e^{-z\lambda } (\lambda - A)^{-1} \d \lambda
     $$
     und $\e^{-0A} \coloneqq I$.
-    Die Familie $(\e^{-zA})_{z \in \Sec_{\frac{\pi}{2} - \omega \cup \{0\}}}$  wird \emph{beschränkte analytische Halbgruppe} genannt und falls $A$ dicht definiert ist, wird $-A$ Erzeuger/Generator von $(\e^{-zA})_{z \in \Sec_{\frac{\pi}{2} - \omega \cup \{0\}}}$ genannt.
+    Die Familie $(\e^{-zA})_{z \in \Sec_{\frac{\pi}{2} - \omega \cup \{0\}}}$  wird \emph{beschränkte analytische Halbgruppe} genannt und, falls $A$ dicht definiert ist, wird $-A$ Erzeuger/Generator von $(\e^{-zA})_{z \in \Sec_{\frac{\pi}{2} - \omega \cup \{0\}}}$ genannt.
 \end{defn}
 
 \begin{lem}
@@ -110,7 +110,7 @@ Im Folgenden bezeichnet $X$ immer einen Banachraum über $\C$.
   Sei $A$ sektoriell von Winkel $\omega \in [0,\frac{\pi}{2})$.
     Dann ist für alle $z \in \Sec_{\frac{\pi}{2} - \omega}$ der Operator $\e^{-zA}$ in $\Li(X)$ und erfüllt
     \begin{enumerate}[(i)]
-      \item Für alle $0 \leq \phi < \frac{\pi}{2} - \omega$ ist $(e^{-zA})_{z \in \Sec_\phi}$ gleichmäßig beschränkt.
+      \item Für alle $0 \leq \phi < \frac{\pi}{2} - \omega$ ist $(\e^{-zA})_{z \in \Sec_\phi}$ gleichmäßig beschränkt.
       \item $z \mapsto \e^{-zA}$ ist analytisch in $\Sec_{\frac{\pi}{2} - \omega}$.
       \item Für alle $z,w \in \Sec_{\frac{\pi}{2} - \omega}$ gilt $z + w \in \Sec_{\frac{\pi}{2} - \omega}$ und
         $
@@ -142,7 +142,7 @@ Im Folgenden bezeichnet $X$ immer einen Banachraum über $\C$.
       Mit dieser Wahl gilt nun für das Kurvenintegral entlang $\gamma_2$
       \begin{align*}
         \Big\|\int_{\gamma_2} \e^{-z \lambda} (\lambda - A)^{-1} \d \lambda \Big\|_{\Li(X)}
-        \leq C\int_\theta^{2\pi - \theta} \frac{1}{|z|} \big|e^{-\frac{z}{|z|}} \e^{i \varphi} \big| \, |z| \d \varphi
+        \leq C\int_\theta^{2\pi - \theta} \frac{1}{|z|} \big|\e^{-\frac{z}{|z|}} \e^{i \varphi} \big| \, |z| \d \varphi
         \leq C \, 2\pi \e,
       \end{align*}
       da $|\e^z| \leq \e^{|z|}$.
@@ -260,8 +260,8 @@ Im Folgenden bezeichnet $X$ immer einen Banachraum über $\C$.
   Dann gilt mit dem Cauchyschen Integralsatz
   \begin{align*}
     A \e^{-tA}
-    &= \frac{1}{2 \pi \ii} \int_{\gamma_{t^{-1},\theta}} (\e^{-t\lambda}\lambda A (\lambda - A)^{-1} \d \lambda \\
-    &= \frac{1}{2 \pi \ii} \int_{\gamma_{t^{-1},\theta}} (\e^{-t\lambda} \lambda (\lambda - A)^{-1} - \lambda \e^{-z\lambda}) \d \lambda\\
+    &= \frac{1}{2 \pi \ii} \int_{\gamma_{t^{-1},\theta}} (\e^{-t\lambda} A (\lambda - A)^{-1} \d \lambda \\
+    &= \frac{1}{2 \pi \ii} \int_{\gamma_{t^{-1},\theta}} (\e^{-t\lambda} \lambda (\lambda - A)^{-1} - \e^{-z\lambda}) \d \lambda\\
     &= \frac{1}{2 \pi \ii} \int_{\gamma_{t^{-1},\theta}} \e^{-t\lambda} \lambda (\lambda - A)^{-1} \d \lambda.
   \end{align*}
   Sektorialität liefert
@@ -395,7 +395,7 @@ Hierbei sei für komplexe Zahlen $z,\alpha \in \C$ die Potenz $z^\alpha$ immer �
   Sei $A$ sektoriell von Winkel $\omega \in [0,\pi)$ und $0 \in \rho(A)$.
   Dann gilt für alle $\alpha, \beta \in \R$
   $$
-    A^\alpha A^\beta x = A^{\alpha + \beta} x, \quad\text{für alle } x \in \DD(A^\gamma)),
+    A^\alpha A^\beta x = A^{\alpha + \beta} x, \quad\text{für alle } x \in \DD(A^\gamma),
   $$
   wobei $\gamma = \max\{\alpha, \beta, \alpha + \beta\}$.
 \end{thm}
