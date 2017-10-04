@@ -2,10 +2,10 @@
 \chapter{Motivation}
 
 Die Navier-Stokes-Gleichungen sind ein Modell zur Beschreibung kompressibler, viskoser und Newton'scher Fluide (Flüssigkeiten/Gase).
-Viskos heißt, dass die Flüssigkeit aufgrund innerer Reibungseffekte \emph{zähe} ist.
+Viskos heißt, dass die Flüssigkeit aufgrund innerer Reibungseffekte \emph{zäh} ist.
 Newton'sch ist z.B. Luft oder Wasser, aber nicht z.B. Blut, Ketchup oder Speisestärke in Wasser.
 
-Die Navier-Stokes-Gleichungen sind ein System nicht-lineare pDGLen und sind gegeben durch:
+Die Navier-Stokes-Gleichungen sind ein System nicht-linearer pDGLen und sind gegeben durch:
 \begin{align*}
   \rho(\partial_t u + (u \cdot \nabla)u) - \mu \Delta u - (\lambda + \mu) \nabla \div(u) + \nabla \pi &= f \quad t \in (0,T), x \in \Omega \\
   \partial_t \rho + \div(u\rho) &= 0 \quad t \in (0,t), x \in \Omega.
@@ -63,21 +63,21 @@ falls das Fluid inkompressibel und homogen ist.
 
 Teile nun die Navier-Stokes-Gleichungen durch $\rho$, ersetze $\frac{\pi}{\rho}$ durch $\pi$ und $\frac{f}{\rho}$ durch $\rho$.
 Damit erhält man die Navier-Stokes-Gleichungen für homogene, inkompressible Fluide:
-\begin{align*}
-  \partial_t u - \nu \Delta u + (u \cdot \nabla) u + \nabla \pi &= f &t \in (0,T), x \in \Omega \\
-  \div(u) &= 0 &t \in (0,T), x \in \Omega\\
-  u(0) &= a &x \in \Omega \\
-  u|_{\partial\Omega} &= 0  &t \in (0,T),
-\end{align*}
+\begin{alignat*}{2}
+  \partial_t u - \nu \Delta u + (u \cdot \nabla) u + \nabla \pi &= f \quad&&t \in (0,T), x \in \Omega \\
+  \div(u) &= 0 \quad&&t \in (0,T), x \in \Omega\\
+  u(0) &= a \quad&&x \in \Omega \\
+  u|_{\partial\Omega} &= 0  \quad&&t \in (0,T),
+\end{alignat*}{2}
 wobei $\nu = \frac{\mu}{\rho}$ die \emph{kinematische Viskosität} genannt wird.
 
 Die Linearisierung ist die Stokes-Gleichung:
-\begin{align*}
-  \partial_t u - \nu \Delta u + \nabla \pi &= f & t \in (0,T), x \in \Omega \\
-  \div(u) &= 0 &t \in (0,T), x \in \Omega \\
-  u(0) &= a & x \in \Omega) \\
-  u|_{\partial\Omega} &= 0 & t \in (0,T).
-\end{align*}
+\begin{alignat*}{2}
+  \partial_t u - \nu \Delta u + \nabla \pi &= f \quad&& t \in (0,T), x \in \Omega \\
+  \div(u) &= 0 \quad&&t \in (0,T), x \in \Omega \\
+  u(0) &= a \quad&& x \in \Omega) \\
+  u|_{\partial\Omega} &= 0 \quad&& t \in (0,T).
+\end{alignat*}
 
 In dieser Vorlesung werden wir das Anfagswertproblem, d.h. $f = 0$, dieser Systeme betrachten. 
 Außerdem setzen wir im Folgenden $\nu = 1$.
@@ -86,7 +86,7 @@ Außerdem setzen wir im Folgenden $\nu = 1$.
 
 \subsubsection*{1. Schritt}
 
-Konstruiere Operator $A$ mit Definitionsbereich $\DD(A)$ auf geeignetem Banachraum $X$, sodass $u \in \DD(A)$ gilt, genau dann, wenn $\div(u) = 0$, $u|_{\partial \Omega}$ gelten und ein $\pi$ existiert mit $Au = -\Delta u + \nabla \pi$.
+Konstruiere Operator $A$ mit Definitionsbereich $\DD(A)$ auf geeignetem Banachraum $X$, sodass $u \in \DD(A)$ gilt, genau dann, wenn $\div(u) = 0$, $u|_{\partial \Omega} = 0$ gelten und ein $\pi$ existiert mit $Au = -\Delta u + \nabla \pi$.
 
 Die Stokes-Gleichungen können damit als gewöhnliche DGL auf $X$ interpretiert werden:
 \begin{align*}

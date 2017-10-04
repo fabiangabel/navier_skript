@@ -57,7 +57,7 @@ und für $\lambda \to \infty$ ergäbe sich $u \in \Ell^\infty(0,\infty; \Ell^3_\
 Wie bekommt man jetzt die Million?
 Falls die Anfangsdaten $a \in \Ell^2_\sigma(\R^3) \cap \Ell^3_\sigma(\R^3)$ und $v$ ``schwache Lösung'' von (NST) die ``Energieungleichung'' erfüllt, so haben Kozono und Sohr 1996 gezeigt dass dann $u = v$ gilt.
 
-Wenn $a$ zusätzlich eine Schwartz-Funktion ist und die ``schwache Lösung'' $u$ in $\Ell^\infty(0,\infty,\Ell^3_\sigma(\R^3))$ liegt, so haben Escauriaza, Seregin und \v{S}ver\'ak 2003 gezeigt, dass in diesem Falle $u$ glatt ist in $[0,\infty) \times \R^3$. Somit gilt:
+Wenn $a$ zusätzlich eine Schwartz-Funktion ist und die ``schwache Lösung'' $u$ in $\Ell^\infty(0,\infty; \Ell^3_\sigma(\R^3))$ liegt, so haben Escauriaza, Seregin und \v{S}ver\'ak 2003 gezeigt, dass in diesem Falle $u$ glatt ist in $[0,\infty) \times \R^3$. Somit gilt:
 $$
 \text{Zeige (\$) und (\$\$)} \implies \text{Millionär}.
 $$
@@ -72,7 +72,7 @@ $$
 $$
 Sieht man die Nichtlinearität als rechte Seite, so müsste $u$ durch die Variation-der-Konstanten-Formel
 $$
-u(t) = \e^{-tA} a - \int_0^t \e^{-(t - s)A_p}\PP(u(s) \cdot \nabla) u(s) \d s
+u(t) = \e^{-tA} a - \int_0^t \e^{-(t - s)A}\PP(u(s) \cdot \nabla) u(s) \d s
 $$
 gegeben sein. 
 Dies motiviert die folgende Definition:
@@ -80,7 +80,7 @@ Dies motiviert die folgende Definition:
   Seien $0 < T \leq \infty$, $r \geq 3$ und $a \in \Ell_\sigma^r(\Omega)$.
   Dann heißt $u \colon [0,T) \to \Ell_\sigma^r(\Omega)$ \emph{milde Lösung} von (NST) mit  Anfangswert $a$, falls $u \in \CC(0,T; \Ell_\sigma^r(\Omega))$ und für alle $0 < t< T$ und ein $p \geq r$
   $$
-  \big( s \mapsto \e^{-(t - s)A} \PP (u(s) \cdot \nabla) u(s) \big) \in \Ell^1(0,t; \Ell_\sigma^p(\Omega))
+  \Big( s \mapsto \e^{-(t - s)A} \PP (u(s) \cdot \nabla) u(s) \Big) \in \Ell^1(0,t; \Ell_\sigma^p(\Omega))
   $$
   und
   $$
@@ -95,8 +95,8 @@ Dies motiviert die folgende Definition:
   \begin{enumerate}[i)]
     \item Es existiert $T_0 > 0$ und eine milde Lösung $u \colon [0,T_0) \to \Ell_\sigma^r(\Omega)$ von (NST) mit Anfangswert $a$, sodass für alle $r \leq p < 3 + \varepsilon$ mit $\frac{3}{2} \big( \frac{1}{r} - \frac{1}{p} \big) < \frac{1}{4}$ gilt
       \begin{align*}
-        &\big( t \mapsto t^{\frac{3}{2}(\frac{1}{r} - \frac{1}{p})} u(t) \big) \in \mathrm{BC}([0,T_0), \Ell^p_\sigma(\Omega)) \\
-        &\big( t \mapsto t^{\frac{1}{2} + \frac{3}{2}(\frac{1}{r} - \frac{1}{p})} \nabla u(t) \big) \in \mathrm{BC}([0,T_0), \Ell^p(\Omega; \C^9) )
+        &\Big( t \mapsto t^{\frac{3}{2}(\frac{1}{r} - \frac{1}{p})} u(t) \Big) \in \mathrm{BC}([0,T_0), \Ell^p_\sigma(\Omega)) \\
+        &\Big( t \mapsto t^{\frac{1}{2} + \frac{3}{2}(\frac{1}{r} - \frac{1}{p})} \nabla u(t) \Big) \in \mathrm{BC}([0,T_0), \Ell^p(\Omega; \C^9) )
       \end{align*}
       Weiterhin gilt
       $$
