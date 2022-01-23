@@ -75,7 +75,7 @@ Die Linearisierung ist die Stokes-Gleichung:
 \begin{alignat*}{2}
   \partial_t u - \nu \Delta u + \nabla \pi &= f \quad&& t \in (0,T), x \in \Omega \\
   \div(u) &= 0 \quad&&t \in (0,T), x \in \Omega \\
-  u(0) &= a \quad&& x \in \Omega) \\
+  u(0) &= a \quad&& x \in \Omega \\
   u|_{\partial\Omega} &= 0 \quad&& t \in (0,T).
 \end{alignat*}
 
@@ -124,7 +124,7 @@ u_0(t) \coloneqq \e^{-tA} a.
 $$
 Löse danach (formal) die Gleichung
 \begin{align*}
-  u'_{j + 1}(t) + A u_{j + 1} &= \PP(u_j(t) \cdot \nabla) u_j(t) \quad t \in (0,T) \\
+  u'_{j + 1}(t) + A u_{j + 1} &= - \PP(u_j(t) \cdot \nabla) u_j(t) \quad t \in (0,T) \\
   u_{j + 1}(0) &= a,
 \end{align*}
 indem $u_{j + 1}$ definiert wird durch:
@@ -136,7 +136,7 @@ Falls $(u_j)_{j \in \N}$ (im geeigneten Sinne) konvergiert, so löst die Grenzfu
 
 Um Konvergenz zu zeigen, werden benötigt:
 \begin{itemize}
-  \item Abbildungseigenschaften der Halbgruppe $\e^{tA}$;
+  \item Abbildungseigenschaften der Halbgruppe $\e^{-tA}$;
   \item ``Kleinheit'' entweder von $a$ oder $T$.
 \end{itemize}
 
